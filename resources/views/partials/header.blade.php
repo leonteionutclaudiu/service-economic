@@ -30,7 +30,7 @@
             </div>
             <div class="">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
-                <ul class="text-center list-none">
+                <ul class="text-center" style="list-style: none;">
                     <li><a href="#" class="block py-3 hover:text-blue-500 transition duration-300">Anunturi</a>
                     </li>
                     <li><a href="#" class="block py-3 hover:text-blue-500 transition duration-300">Oferte</a></li>
@@ -44,7 +44,7 @@
 
         <!-- Meniul pentru dispozitivele mari -->
         <nav id="mainMenu" class="hidden lg:block lg:ml-auto">
-            <ul class="lg:flex items-center justify-end text-lg font-semibold text-gray-800 pt-4 lg:pt-0">
+            <ul class="lg:flex items-center justify-end text-lg font-semibold text-gray-800 pt-4 lg:pt-0" style="list-style: none;">
                 <li><a href="#"
                         class="lg:px-4 py-2 block hover:text-blue-500 transition duration-300">Anunturi</a>
                 </li>

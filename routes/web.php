@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('contact', [\App\Http\Controllers\ContactDisplayController::class, 'show'])->name('contact');

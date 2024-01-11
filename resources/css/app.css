@@ -2,6 +2,157 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
+}
+
+p {
+    @apply min-h-[8px];
+}
+
+/* Headers */
+h1 {
+    @apply mb-4 text-6xl font-bold;
+}
+
+h2 {
+    @apply mb-4 text-4xl font-bold;
+}
+
+h3 {
+    @apply mb-3 text-3xl font-semibold;
+}
+
+h4 {
+    @apply mb-2 text-2xl font-semibold;
+}
+
+h5 {
+    @apply mb-2 text-xl font-semibold;
+}
+
+h6 {
+    @apply mb-2 text-lg font-semibold;
+}
+
+/* Headers - small displays */
+@media (max-width: 768px) {
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
+
+    h3 {
+        @apply text-xl;
+    }
+
+    h4 {
+        @apply text-lg;
+    }
+
+    h5 {
+        @apply text-base;
+    }
+
+    h6 {
+        @apply text-sm;
+    }
+}
+
+/* Ordered Lists */
+ol {
+    @apply pl-6 list-decimal w-fit;
+}
+
+/* Unordered Lists */
+ul {
+    @apply pl-6 list-disc w-fit;
+}
+
+/* Contact Form */
+.contact_form {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback_subtitle {
+    font-weight: bold;
+    color: #004994;
+    margin-bottom: 10px;
+    transition: all 0.4s;
+}
+
+.feedback_subtitle:hover {
+    color: #007bc2;
+}
+
+.group_wrapper {
+    margin-bottom: 20px;
+}
+
+.control_group {
+    margin-bottom: 20px;
+}
+
+.label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #495057;
+}
+
+input[type="text"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    border-color: #007bc2;
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.feedback_button {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #004994;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.feedback_button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.feedback_button:hover:enabled {
+    background-color: #007bc2;
+}
+
 /* SCROLLBAR (vertical) STYLE*/
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);

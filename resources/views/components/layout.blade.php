@@ -41,11 +41,11 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
 </head>
 
 <body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); } }" @scroll.window="isVisible = window.scrollY > 100"
-    class="flex justify-between flex-col min-h-screen">
+  >
     <!-- header/navigation -->
     @include('partials.header')
 
-    <main class="mt-14 lg:mt-10 md:mt-8">
+    <main>
 
         {{--  preloader --}}
         <div class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999]" id="preloader">
