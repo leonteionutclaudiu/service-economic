@@ -1,5 +1,5 @@
 @twillBlockTitle('Image')
-@twillBlockIcon('text')
+@twillBlockIcon('image')
 @twillBlockGroup('app')
 
 <x-twill::medias name="highlight" label="Image" />

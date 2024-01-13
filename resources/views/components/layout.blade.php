@@ -31,21 +31,18 @@
             document.getElementById('preloader').style.display = 'none';
         });
     </script>
-    <script src="
-                                                                                https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.js
-                                                                                " async></script>
+    <script src="https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.js" async></script>
     <link href="
 https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
 " rel="stylesheet">
 
 </head>
 
-<body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); } }" @scroll.window="isVisible = window.scrollY > 100"
-  >
+<body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); } }" @scroll.window="isVisible = window.scrollY > 100">
     <!-- header/navigation -->
     @include('partials.header')
 
-    <main>
+    <main class="mt-14 lg:mt-10 md:mt-8">
 
         {{--  preloader --}}
         <div class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999]" id="preloader">

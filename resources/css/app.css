@@ -73,24 +73,15 @@ ul {
     @apply pl-6 list-disc w-fit;
 }
 
-/* Contact Form */
-.contact_form {
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 .feedback_subtitle {
     font-weight: bold;
-    color: #004994;
+    color: #008237;
     margin-bottom: 10px;
     transition: all 0.4s;
 }
 
 .feedback_subtitle:hover {
-    color: #007bc2;
+    color: #00e500;
 }
 
 .group_wrapper {
@@ -123,7 +114,7 @@ textarea {
 input[type="text"]:focus,
 input[type="tel"]:focus,
 textarea:focus {
-    border-color: #007bc2;
+    border-color: #008237;
     outline: none;
 }
 
@@ -135,7 +126,7 @@ textarea:focus {
     display: block;
     width: 100%;
     margin: 0 auto;
-    background-color: #004994;
+    background-color: #008237;
     color: #fff;
     padding: 15px 30px;
     border: none;
@@ -150,7 +141,7 @@ textarea:focus {
 }
 
 .feedback_button:hover:enabled {
-    background-color: #007bc2;
+    background-color: #01a144;
 }
 
 /* SCROLLBAR (vertical) STYLE*/
@@ -171,7 +162,7 @@ textarea:focus {
         linear,
         left bottom,
         left top,
-        color-stop(1, #004994)
+        color-stop(1, #008237)
     );
 }
 
@@ -180,6 +171,6 @@ textarea:focus {
         linear,
         left bottom,
         left top,
-        color-stop(1, #004994)
+        color-stop(1, #008237)
     );
 }

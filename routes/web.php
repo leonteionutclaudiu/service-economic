@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\Twill\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('contact', [\App\Http\Controllers\ContactDisplayController::class, 'show'])->name('contact');
+Route::post('/send-mail', [ContactFormController::class,'submitForm'])->name('send_contact_mail');

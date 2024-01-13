@@ -8,14 +8,14 @@ export default {
     theme: {
         extend: {
             colors: {
-                "radacini-darkblue": "#004994",
-                "radacini-lightblue": "#007bc2",
-                "radacini-darkgray": "#6f6f6f",
-                "radacini-orange": "#e45d50",
-                "radacini-green": "#3fb498",
-                "radacini-lightgray": "#b6c0c6",
-                "radacini-pur": "#5E0035",
-                "radacini-gri": "#707070",
+                "economic-darkgreen": "#008237",
+                "economic-lightgreen": "#00E500",
+                "economic-red": "#FF0000",
+                "economic-darkgray": "#6f6f6f",
+                "economic-orange": "#B43C22",
+                "economic-green": "#3fb498",
+                "economic-lightgray": "#b6c0c6",
+                "economic-gri": "#707070",
             },
         },
         plugins: [],

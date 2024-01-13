@@ -1,5 +1,5 @@
-<header x-data="{ open: false }" class="bg-white shadow-lg">
-    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+<header x-data="{ open: false }" class="fixed top-0 left-0 right-0 bg-white shadow-lg">
+    <div class="container flex items-center justify-between px-6 py-4 mx-auto">
         <a href="#" class="text-2xl font-bold text-gray-800">
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
         </a>
@@ -7,9 +7,9 @@
         <!-- Butonul de meniu pentru dispozitivele mici -->
         <button @click="open = !open" class="lg:hidden focus:outline-none">
             <!-- Iconița hamburger pentru meniu -->
-            <i x-show="!open" class="fas fa-bars text-gray-800 text-2xl"></i>
+            <i x-show="!open" class="text-2xl text-gray-800 fas fa-bars"></i>
             <!-- Iconița pentru închiderea meniului -->
-            <i x-show="open" @click.away="open = false" class="fas fa-times text-gray-800 text-2xl"></i>
+            <i x-show="open" @click.away="open = false" class="text-2xl text-gray-800 fas fa-times"></i>
         </button>
 
         <!-- Meniul pentru dispozitivele mici -->
@@ -31,12 +31,12 @@
             <div class="">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
                 <ul class="text-center" style="list-style: none;">
-                    <li><a href="#" class="block py-3 hover:text-blue-500 transition duration-300">Anunturi</a>
+                    <li><a href="#" class="block py-3 transition duration-300 hover:text-blue-500">Anunturi</a>
                     </li>
-                    <li><a href="#" class="block py-3 hover:text-blue-500 transition duration-300">Oferte</a></li>
-                    <li><a href="#" class="block py-3 hover:text-blue-500 transition duration-300">Despre noi</a>
+                    <li><a href="#" class="block py-3 transition duration-300 hover:text-blue-500">Oferte</a></li>
+                    <li><a href="#" class="block py-3 transition duration-300 hover:text-blue-500">Despre noi</a>
                     </li>
-                    <li><a href="#" class="block py-3 hover:text-blue-500 transition duration-300">Contact</a>
+                    <li><a href="#" class="block py-3 transition duration-300 hover:text-blue-500">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -44,15 +44,16 @@
 
         <!-- Meniul pentru dispozitivele mari -->
         <nav id="mainMenu" class="hidden lg:block lg:ml-auto">
-            <ul class="lg:flex items-center justify-end text-lg font-semibold text-gray-800 pt-4 lg:pt-0" style="list-style: none;">
+            <ul class="items-center justify-end pt-4 text-lg font-semibold text-gray-800 lg:flex lg:pt-0"
+                style="list-style: none;">
                 <li><a href="#"
-                        class="lg:px-4 py-2 block hover:text-blue-500 transition duration-300">Anunturi</a>
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-blue-500">Anunturi</a>
                 </li>
-                <li><a href="#" class="lg:px-4 py-2 block hover:text-blue-500 transition duration-300">Oferte</a>
+                <li><a href="#" class="block py-2 transition duration-300 lg:px-4 hover:text-blue-500">Oferte</a>
                 </li>
-                <li><a href="#" class="lg:px-4 py-2 block hover:text-blue-500 transition duration-300">Despre
+                <li><a href="#" class="block py-2 transition duration-300 lg:px-4 hover:text-blue-500">Despre
                         noi</a></li>
-                <li><a href="#" class="lg:px-4 py-2 block hover:text-blue-500 transition duration-300">Contact</a>
+                <li><a href="#" class="block py-2 transition duration-300 lg:px-4 hover:text-blue-500">Contact</a>
                 </li>
             </ul>
         </nav>
