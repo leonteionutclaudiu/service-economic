@@ -5,7 +5,6 @@
     <div class="px-2 py-6">
 
         <h2 class="text-center text-radacini-darkblue">Contact</h2>
-
         {!! $item->renderBlocks() !!}
     </div>
 
