@@ -23,7 +23,7 @@
             class="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center max-h-screen overflow-y-auto bg-white bg-opacity-75 border-0 md:border-r md:right-auto backdrop-blur-md mobile-navbar lg:hidden">
             <div class="flex justify-end">
                 <button
-                    class="absolute inline-block text-gray-700 transition md:hidden md:right-10 md:top-10 top-4 right-4 hover:text-radacini-pur hover:scale-125"
+                    class="absolute inline-block text-gray-700 transition md:hidden md:right-10 md:top-10 top-4 right-4 hover:text-economic-red hover:scale-125"
                     @click="isOpen = false">
                     <i class="text-2xl fas fa-times"></i>
                 </button>

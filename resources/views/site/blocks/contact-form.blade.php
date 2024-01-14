@@ -7,18 +7,18 @@
         <h4 class="text-economic-darkgreen">
             Vă invităm să ne contactați prin intermediul datelor de contact furnizate sau să utilizați formularul de
             contact de mai jos.</h4>
-        <a class='text-lg transition text-radacini-darkblue w-fit hover:text-radacini-lightblue hover:underline'
+        <a class='text-lg transition text-economic-darkgreen w-fit hover:text-economic-lightgreen hover:underline'
             href='https://maps.app.goo.gl/134TeRLiA8Jed8N27' target='_blank'>
             Strada Valea Oltului, București 061992
             <i class="fa fa-map-marker text-economic-darkgreen"></i>
         </a>
         <a href="mailto:office@serviceeconomic.ro"
-            class='flex items-center gap-1 mx-auto text-lg transition w-fit text-radacini-darkblue hover:text-radacini-lightblue hover:underline'>
+            class='flex items-center gap-1 mx-auto text-lg transition w-fit text-economic-darkgreen hover:text-economic-lightgreen hover:underline'>
             office@serviceeconomic.ro
             <i class="fa fa-envelope text-economic-darkgreen"></i>
         </a>
         <a href="tel:+40744322011"
-            class='flex items-center gap-1 mx-auto text-lg transition w-fit text-radacini-darkblue hover:text-radacini-lightblue hover:underline'>
+            class='flex items-center gap-1 mx-auto text-lg transition w-fit text-economic-darkgreen hover:text-economic-lightgreen hover:underline'>
             0744 322 011
             <i class="fa fa-phone text-economic-darkgreen"></i>
         </a>
@@ -94,7 +94,7 @@
     <div class="flex items-center justify-center gap-2 control_group">
         <input type="checkbox" name="privacy_policy" id="privacy_policy"
             class="@error('privacy_policy') bg-red-50 @enderror" {{ old('privacy_policy') ? 'checked' : '' }}>
-        <label class="m-0 text-radacini-gri" for="privacy_policy">Am citit și sunt de acord cu <a
+        <label class="m-0 text-economic-gri" for="privacy_policy">Am citit și sunt de acord cu <a
                 href="/politica-de-confidentialitate" target="_blank" class="font-bold underline">Politica de
                 confidențialitate</a></label>
     </div>
@@ -119,7 +119,7 @@
 
 @if (Session::has('success_message'))
     <div id="flashMessage"
-        class="fixed w-full max-w-xs p-4 mb-4 text-center text-white transition-opacity duration-500 rounded opacity-0 bg-radacini-darkblue bottom-4 left-4">
+        class="fixed w-full max-w-xs p-4 mb-4 text-center text-white transition-opacity duration-500 rounded opacity-0 bg-economic-darkgreen bottom-4 left-4">
         {{ Session::get('success_message') }}
     </div>
 @endif

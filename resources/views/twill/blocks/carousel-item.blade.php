@@ -2,7 +2,7 @@
 @twillBlockIcon('image')
 @twillBlockGroup('app')
 
-<x-twill::medias name="16/9" label="Image" note="Se va folosi aspect ratio 3/1" />
+<x-twill::medias name="3/1" label="Image" note="Se va folosi aspect ratio 3/1" />
 <x-twill::input name="description" label="Textul dorit" placeholder="Text" />
 <x-twill::input name="link" label="Linkul dorit" placeholder="Link"
     note="Se va pune doar ce este dupa serviceeconomic.ro ( de exemplu /contact )" />
