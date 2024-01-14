@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/acasa', [\App\Http\Controllers\HomeDisplayController::class, 'show'])->name('acasa');
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/acasa');
 });
-
-Route::get('contact', [\App\Http\Controllers\ContactDisplayController::class, 'show'])->name('contact');
+Route::get('/contact', [\App\Http\Controllers\ContactDisplayController::class, 'show'])->name('contact');
 Route::post('/send-mail', [ContactFormController::class,'submitForm'])->name('send_contact_mail');

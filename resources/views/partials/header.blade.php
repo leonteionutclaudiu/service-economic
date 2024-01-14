@@ -1,4 +1,4 @@
-<header x-data="{ open: false }" class="fixed top-0 left-0 right-0 bg-white shadow-lg">
+<header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-10 bg-white shadow-lg">
     <div class="container flex items-center justify-between px-6 py-4 mx-auto">
         <a href="#" class="text-2xl font-bold text-gray-800">
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />

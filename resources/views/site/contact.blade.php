@@ -2,7 +2,7 @@
 
 <x-layout>
 
-    <div class="px-2 py-16 mx-auto md:py-20 md:px-12">
+    <div class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14 ">
 
         <h2 class="text-center text-economic-darkgreen">Contact</h2>
         {!! $item->renderBlocks() !!}
