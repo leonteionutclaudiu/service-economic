@@ -1,6 +1,6 @@
 <header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-10 bg-white shadow-lg">
     <div class="container flex items-center justify-between px-6 py-4 mx-auto">
-        <a href="#" class="text-2xl font-bold text-gray-800">
+        <a href="/" class="text-2xl font-bold text-gray-800">
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
         </a>
 
@@ -28,15 +28,21 @@
                     <i class="text-2xl fas fa-times"></i>
                 </button>
             </div>
-            <div class="">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
+            <div>
+                <a href="/">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
+                </a>
                 <ul class="text-center" style="list-style: none;">
-                    <li><a href="#" class="block py-3 transition duration-300 hover:text-blue-500">Anunturi</a>
+                    <li><a href="#"
+                            class="block py-3 transition duration-300 hover:text-economic-darkgreen">Anunturi</a>
                     </li>
-                    <li><a href="#" class="block py-3 transition duration-300 hover:text-blue-500">Oferte</a></li>
-                    <li><a href="#" class="block py-3 transition duration-300 hover:text-blue-500">Despre noi</a>
+                    <li><a href="#"
+                            class="block py-3 transition duration-300 hover:text-economic-darkgreen">Oferte</a></li>
+                    <li><a href="#"
+                            class="block py-3 transition duration-300 hover:text-economic-darkgreen">Despre noi</a>
                     </li>
-                    <li><a href="#" class="block py-3 transition duration-300 hover:text-blue-500">Contact</a>
+                    <li><a href="/contact"
+                            class="block py-3 transition duration-300 hover:text-economic-darkgreen">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -47,13 +53,16 @@
             <ul class="items-center justify-end pt-4 text-lg font-semibold text-gray-800 lg:flex lg:pt-0"
                 style="list-style: none;">
                 <li><a href="#"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-blue-500">Anunturi</a>
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen">Anunturi</a>
                 </li>
-                <li><a href="#" class="block py-2 transition duration-300 lg:px-4 hover:text-blue-500">Oferte</a>
+                <li><a href="#"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen">Oferte</a>
                 </li>
-                <li><a href="#" class="block py-2 transition duration-300 lg:px-4 hover:text-blue-500">Despre
+                <li><a href="#"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen">Despre
                         noi</a></li>
-                <li><a href="#" class="block py-2 transition duration-300 lg:px-4 hover:text-blue-500">Contact</a>
+                <li><a href="/contact"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen">Contact</a>
                 </li>
             </ul>
         </nav>

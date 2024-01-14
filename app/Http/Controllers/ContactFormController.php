@@ -19,7 +19,7 @@ class ContactFormController extends Controller
             'judet' => 'required|min:3',
             'email' => 'required|email|max:255',
             'mesaj' => 'required|min:5',
-            // 'g-recaptcha-response' => 'required|recaptcha',
+            'g-recaptcha-response' => 'required|recaptcha',
             'privacy_policy' => 'required',
         ], [
             'nume.required' => 'Campul nume este obligatoriu.',
@@ -35,8 +35,8 @@ class ContactFormController extends Controller
             'email.max' => 'Campul email nu poate avea mai mult de 255 de caractere.',
             'mesaj.required' => 'Campul mesaj este obligatoriu.',
             'mesaj.min' => 'Campul mesaj trebuie să aibă cel puțin 5 caractere.',
-            // 'g-recaptcha-response.recaptcha' => 'Verificarea Captcha a esuat.',
-            // 'g-recaptcha-response.required' => 'Va rugam completati Captcha.',
+            'g-recaptcha-response.recaptcha' => 'Verificarea Captcha a esuat.',
+            'g-recaptcha-response.required' => 'Va rugam completati Captcha.',
             'privacy_policy.required' => 'Trebuie sa fiti de acord cu politica de confidentialitate.',
         ]);
 

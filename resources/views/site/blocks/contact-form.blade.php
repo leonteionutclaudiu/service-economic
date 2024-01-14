@@ -1,29 +1,34 @@
 <!-- contact-form.blade.php -->
 
-<form class='w-full max-w-5xl p-5 mx-auto transition duration-300' action="/send-mail" method="post">
+<form class='w-full max-w-5xl p-5 mx-auto transition duration-300 contact_form' action="/send-mail" method="post">
     @csrf
 
     <div class="text-center">
         <h4 class="text-economic-darkgreen">
             Vă invităm să ne contactați prin intermediul datelor de contact furnizate sau să utilizați formularul de
             contact de mai jos.</h4>
-        <a class='text-lg transition text-economic-darkgreen w-fit hover:text-economic-lightgreen hover:underline'
-            href='https://maps.app.goo.gl/134TeRLiA8Jed8N27' target='_blank'>
-            Strada Valea Oltului, București 061992
-            <i class="fa fa-map-marker text-economic-darkgreen"></i>
-        </a>
-        <a href="mailto:office@serviceeconomic.ro"
-            class='flex items-center gap-1 mx-auto text-lg transition w-fit text-economic-darkgreen hover:text-economic-lightgreen hover:underline'>
-            office@serviceeconomic.ro
-            <i class="fa fa-envelope text-economic-darkgreen"></i>
-        </a>
-        <a href="tel:+40744322011"
-            class='flex items-center gap-1 mx-auto text-lg transition w-fit text-economic-darkgreen hover:text-economic-lightgreen hover:underline'>
-            0744 322 011
-            <i class="fa fa-phone text-economic-darkgreen"></i>
-        </a>
-        <div class="mt-4 mb-6 text-economic-red"><span class="font-bold">PROGRAM:</span><br /> Luni - Vineri ->
-            08:00 - 17:00</div>
+        <div class="flex flex-wrap items-center justify-center gap-10">
+            <div>
+                <a class='text-lg transition text-economic-darkgreen w-fit hover:text-economic-lightgreen hover:underline'
+                    href='https://maps.app.goo.gl/134TeRLiA8Jed8N27' target='_blank'>
+                    Strada Valea Oltului 199-201, București 061992
+                    <i class="fa fa-map-marker text-economic-darkgreen"></i>
+                </a>
+                <a href="mailto:office@serviceeconomic.ro"
+                    class='flex items-center gap-1 mx-auto text-lg transition w-fit text-economic-darkgreen hover:text-economic-lightgreen hover:underline'>
+                    office@serviceeconomic.ro
+                    <i class="fa fa-envelope text-economic-darkgreen"></i>
+                </a>
+                <a href="tel:+40744322011"
+                    class='flex items-center gap-1 mx-auto text-lg transition w-fit text-economic-darkgreen hover:text-economic-lightgreen hover:underline'>
+                    0744 322 011
+                    <i class="fa fa-phone text-economic-darkgreen"></i>
+                </a>
+            </div>
+            <div class="mt-4 mb-6 text-economic-red"><span class="font-bold">PROGRAM <i class="fa fa-clock"></i>
+                </span><br /> Luni - Vineri ->
+                08:00 - 17:00</div>
+        </div>
 
         @php
             $errorCount = count($errors->all());
@@ -132,7 +137,7 @@
         form.addEventListener('submit', function() {
             submitBtn.setAttribute('disabled', true);
             submitBtn.innerHTML =
-                '<span class="mr-2"><i class="fas fa-spinner animate-spin"></i></span> Se trimite...';
+                '<span class="mr-2">  <i class="fas fa-cog fa-spin"></i></span> Se trimite...';
         });
 
         let flashMessage = document.getElementById('flashMessage');

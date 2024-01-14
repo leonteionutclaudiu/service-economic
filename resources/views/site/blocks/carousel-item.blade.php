@@ -1,5 +1,6 @@
 <swiper-slide class="relative">
-    <img style="width: 100%; object-fit: contain; " src="{{ $block->image('3/1', '3/1') }}" class="bg-white" />
+    <img style="width: 100%; object-fit: contain; filter:brightness(0.7);" src="{{ $block->image('3/1', '3/1') }}"
+        class="bg-white" />
 
     <div class="absolute inset-0 flex flex-col items-center justify-center">
         <h2 class="font-bold text-xs md:text-2xl

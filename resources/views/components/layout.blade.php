@@ -42,7 +42,7 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
     <!-- header/navigation -->
     @include('partials.header')
 
-    <main class="mt-14 lg:mt-10 md:mt-8">
+    <main class="mt-20 lg:mt-12 md:mt-14">
 
         {{--  preloader --}}
         <div class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999]" id="preloader">
