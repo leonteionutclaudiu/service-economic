@@ -33,8 +33,8 @@
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
                 </a>
                 <ul class="text-center" style="list-style: none;">
-                    <li><a href="#"
-                            class="block py-3 transition duration-300 hover:text-economic-darkgreen">Anunturi</a>
+                    <li><a href="/noutati"
+                            class="block py-3 transition duration-300 hover:text-economic-darkgreen">Noutati</a>
                     </li>
                     <li><a href="#"
                             class="block py-3 transition duration-300 hover:text-economic-darkgreen">Oferte</a></li>
@@ -52,8 +52,8 @@
         <nav id="mainMenu" class="hidden lg:block lg:ml-auto">
             <ul class="items-center justify-end pt-4 text-lg font-semibold text-gray-800 lg:flex lg:pt-0"
                 style="list-style: none;">
-                <li><a href="#"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen">Anunturi</a>
+                <li><a href="/noutati"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen">Noutati</a>
                 </li>
                 <li><a href="#"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen">Oferte</a>
