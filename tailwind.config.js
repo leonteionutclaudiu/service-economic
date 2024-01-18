@@ -9,7 +9,7 @@ export default {
         extend: {
             colors: {
                 "economic-darkgreen": "#008237",
-                "economic-lightgreen": "#00E500",
+                "economic-lightgreen": "#4da873",
                 "economic-red": "#FF0000",
                 "economic-darkgray": "#6f6f6f",
                 "economic-orange": "#B43C22",

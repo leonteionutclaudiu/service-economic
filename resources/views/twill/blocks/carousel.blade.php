@@ -2,4 +2,4 @@
 @twillBlockIcon('image')
 @twillBlockGroup('app')
 
-<x-twill::block-editor name="carousel-item" />
+<x-twill::repeater type="carousel-item" />

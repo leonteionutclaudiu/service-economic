@@ -36,5 +36,9 @@ class AppServiceProvider extends ServiceProvider
         TwillNavigation::addLink(
             NavigationLink::make()->forModule('noutatis')->title('Noutati')
         );
+        // Modulul ECHIPA poate contine mai multe pagini (echipa,despre noi,cariera)
+        TwillNavigation::addLink(
+            NavigationLink::make()->forModule('echipas')->title('Despre noi')
+        );
     }
 }

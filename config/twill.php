@@ -32,6 +32,10 @@ return [
                 'name' => '3/1',
                 'ratio' => 3,
             ], ]],
+            '1' => ['1' => [[
+                'name' => '1',
+                'ratio' => 1,
+            ], ]],
         ],
         'files' => ['file_role', 'file_role1', 'file_role2'],
     ],
