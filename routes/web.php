@@ -19,8 +19,8 @@ Route::get('acasa', [\App\Http\Controllers\HomeDisplayController::class, 'show']
 Route::get('/', function () {
     return redirect('/acasa');
 });
-Route::get('noutati', [\App\Http\Controllers\NoutatiDisplayController::class, 'index'])->name('noutati-all');
-Route::get('noutati/{slug}', [\App\Http\Controllers\NoutatiDisplayController::class, 'show'])->name('noutati');
+Route::get('articole', [\App\Http\Controllers\NoutatiDisplayController::class, 'index'])->name('noutati-all');
+Route::get('articole/{slug}', [\App\Http\Controllers\NoutatiDisplayController::class, 'show'])->name('noutati');
 Route::get('despre-noi', [\App\Http\Controllers\EchipaDisplayController::class, 'show_despre_noi'])->name('despre-noi');
 Route::get('echipa', [\App\Http\Controllers\EchipaDisplayController::class, 'show_echipa'])->name('echipa');
 Route::get('cariera', [\App\Http\Controllers\EchipaDisplayController::class, 'show_cariera'])->name('cariera');

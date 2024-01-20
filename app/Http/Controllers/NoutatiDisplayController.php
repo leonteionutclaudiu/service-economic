@@ -11,7 +11,7 @@ class NoutatiDisplayController extends Controller
     public function index()
     {
 
-        $noutati = Noutati::orderBy('updated_at', 'desc')->paginate(12);
+        $noutati = Noutati::orderBy('updated_at', 'desc')->paginate(9);
 
         return view('site.noutati-all', ['noutati' => $noutati]);
     }
@@ -20,10 +20,15 @@ class NoutatiDisplayController extends Controller
     {
         $noutate = $noutatiRepository->forSlug($slug);
 
-        if (! $noutate) {
+        if (!$noutate) {
             abort(404);
         }
 
-        return view('site.noutate', ['item' => $noutate]);
+        $noutatiRelevante = Noutati::inRandomOrder()
+            ->where('id', '!=', $noutate->id)
+            ->take(3)
+            ->get();
+
+        return view('site.noutate', ['item' => $noutate, 'noutatiRelevante' => $noutatiRelevante]);
     }
 }

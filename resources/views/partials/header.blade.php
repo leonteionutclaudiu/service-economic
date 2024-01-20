@@ -63,10 +63,10 @@
         <nav id="mainMenu" class="hidden lg:block lg:ml-auto">
             <ul class="items-center justify-end pt-4 text-lg font-semibold text-gray-800 lg:flex lg:pt-0"
                 style="list-style: none;">
-                <li><a href="/noutati"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Noutati</a>
+                <li><a href="/articole"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>
                 </li>
-                <li><a href="#"
+                <li><a href="/oferte"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Oferte</a>
                 </li>
                 <li> <x-dropdown title="Despre noi" :toPages="['echipa', 'cariera', 'despre-noi']">
