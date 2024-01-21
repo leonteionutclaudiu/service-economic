@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\Twill\ContactController;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,15 @@ Route::get('cariera', [\App\Http\Controllers\EchipaDisplayController::class, 'sh
 Route::get('intrebari-frecvente', [\App\Http\Controllers\EchipaDisplayController::class, 'show_intrebari_frecvente'])->name('intrebari-frecvente');
 Route::get('contact', [\App\Http\Controllers\ContactDisplayController::class, 'show'])->name('contact');
 Route::post('send-mail', [ContactFormController::class,'submitForm'])->name('send_contact_mail');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

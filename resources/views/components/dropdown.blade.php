@@ -1,23 +1,43 @@
-{{-- dropdown.blade.php --}}
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white'])
 
-<div x-data="{ open: false }" class="relative inline-block text-left transition duration-300 transform"
-    @mouseleave="open = false">
-    <button @mouseenter="open = true"
-        class="inline-flex items-center justify-center space-x-2 focus:outline-none {{ in_array(request()->path(), $toPages) ? 'border-b-2 border-black' : 'custom-link' }} text-black hover:text-economic-darkgreen">
-        <span class="block py-3 transition duration-300 hover:text-economic-darkgreen">{{ $title }}</span>
-        <svg :class="{ 'transform rotate-180': open }" class="w-4 h-4 transition-transform"
-            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
-    </button>
+@php
+switch ($align) {
+    case 'left':
+        $alignmentClasses = 'ltr:origin-top-left rtl:origin-top-right start-0';
+        break;
+    case 'top':
+        $alignmentClasses = 'origin-top';
+        break;
+    case 'right':
+    default:
+        $alignmentClasses = 'ltr:origin-top-right rtl:origin-top-left end-0';
+        break;
+}
 
-    <div x-show="open" @mouseenter="open = true" @mouseleave="open = false"
-        class="left-0 z-50 w-full md:w-[350px] lg:w-[200px] origin-top-right lg:bg-white lg:shadow-xl lg:absolute rounded-md"
-        x-show="isOpen" x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in lg:duration-300 duration-500"
-        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
-        @click.away="open = false">
-        {{ $slot }}
+switch ($width) {
+    case '48':
+        $width = 'w-48';
+        break;
+}
+@endphp
+
+<div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
+    <div @click="open = ! open">
+        {{ $trigger }}
+    </div>
+
+    <div x-show="open"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="absolute z-50 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
+            style="display: none;"
+            @click="open = false">
+        <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
+            {{ $content }}
+        </div>
     </div>
 </div>
