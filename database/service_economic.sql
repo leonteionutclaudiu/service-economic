@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Gazdă: localhost:3306
--- Timp de generare: ian. 21, 2024 la 10:32 AM
--- Versiune server: 8.0.35
--- Versiune PHP: 8.3.1
+-- Host: localhost:3306
+-- Generation Time: Jan 21, 2024 at 05:56 PM
+-- Server version: 8.0.35
+-- PHP Version: 8.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Bază de date: `service_economic`
+-- Database: `service_economic`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `activity_log`
+-- Table structure for table `activity_log`
 --
 
 CREATE TABLE `activity_log` (
@@ -43,7 +43,7 @@ CREATE TABLE `activity_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `activity_log`
+-- Dumping data for table `activity_log`
 --
 
 INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_id`, `subject_type`, `event`, `causer_id`, `causer_type`, `properties`, `batch_uuid`, `created_at`, `updated_at`) VALUES
@@ -127,7 +127,7 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_id`, `subj
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `app_settings`
+-- Table structure for table `app_settings`
 --
 
 CREATE TABLE `app_settings` (
@@ -142,7 +142,7 @@ CREATE TABLE `app_settings` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `contacts`
+-- Table structure for table `contacts`
 --
 
 CREATE TABLE `contacts` (
@@ -154,7 +154,7 @@ CREATE TABLE `contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `contacts`
+-- Dumping data for table `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `deleted_at`, `created_at`, `updated_at`, `published`) VALUES
@@ -163,7 +163,7 @@ INSERT INTO `contacts` (`id`, `deleted_at`, `created_at`, `updated_at`, `publish
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `contact_revisions`
+-- Table structure for table `contact_revisions`
 --
 
 CREATE TABLE `contact_revisions` (
@@ -176,7 +176,7 @@ CREATE TABLE `contact_revisions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `contact_revisions`
+-- Dumping data for table `contact_revisions`
 --
 
 INSERT INTO `contact_revisions` (`id`, `contact_id`, `user_id`, `created_at`, `updated_at`, `payload`) VALUES
@@ -187,7 +187,7 @@ INSERT INTO `contact_revisions` (`id`, `contact_id`, `user_id`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `contact_slugs`
+-- Table structure for table `contact_slugs`
 --
 
 CREATE TABLE `contact_slugs` (
@@ -202,7 +202,7 @@ CREATE TABLE `contact_slugs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `contact_slugs`
+-- Dumping data for table `contact_slugs`
 --
 
 INSERT INTO `contact_slugs` (`id`, `contact_id`, `deleted_at`, `created_at`, `updated_at`, `slug`, `locale`, `active`) VALUES
@@ -211,7 +211,7 @@ INSERT INTO `contact_slugs` (`id`, `contact_id`, `deleted_at`, `created_at`, `up
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `contact_translations`
+-- Table structure for table `contact_translations`
 --
 
 CREATE TABLE `contact_translations` (
@@ -227,7 +227,7 @@ CREATE TABLE `contact_translations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `contact_translations`
+-- Dumping data for table `contact_translations`
 --
 
 INSERT INTO `contact_translations` (`id`, `contact_id`, `deleted_at`, `created_at`, `updated_at`, `locale`, `active`, `title`, `description`) VALUES
@@ -236,7 +236,7 @@ INSERT INTO `contact_translations` (`id`, `contact_id`, `deleted_at`, `created_a
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `echipas`
+-- Table structure for table `echipas`
 --
 
 CREATE TABLE `echipas` (
@@ -248,7 +248,7 @@ CREATE TABLE `echipas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `echipas`
+-- Dumping data for table `echipas`
 --
 
 INSERT INTO `echipas` (`id`, `deleted_at`, `created_at`, `updated_at`, `published`) VALUES
@@ -260,7 +260,7 @@ INSERT INTO `echipas` (`id`, `deleted_at`, `created_at`, `updated_at`, `publishe
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `echipa_revisions`
+-- Table structure for table `echipa_revisions`
 --
 
 CREATE TABLE `echipa_revisions` (
@@ -273,7 +273,7 @@ CREATE TABLE `echipa_revisions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `echipa_revisions`
+-- Dumping data for table `echipa_revisions`
 --
 
 INSERT INTO `echipa_revisions` (`id`, `echipa_id`, `user_id`, `created_at`, `updated_at`, `payload`) VALUES
@@ -314,7 +314,7 @@ INSERT INTO `echipa_revisions` (`id`, `echipa_id`, `user_id`, `created_at`, `upd
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `echipa_slugs`
+-- Table structure for table `echipa_slugs`
 --
 
 CREATE TABLE `echipa_slugs` (
@@ -329,7 +329,7 @@ CREATE TABLE `echipa_slugs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `echipa_slugs`
+-- Dumping data for table `echipa_slugs`
 --
 
 INSERT INTO `echipa_slugs` (`id`, `echipa_id`, `deleted_at`, `created_at`, `updated_at`, `slug`, `locale`, `active`) VALUES
@@ -341,7 +341,7 @@ INSERT INTO `echipa_slugs` (`id`, `echipa_id`, `deleted_at`, `created_at`, `upda
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `echipa_translations`
+-- Table structure for table `echipa_translations`
 --
 
 CREATE TABLE `echipa_translations` (
@@ -357,7 +357,7 @@ CREATE TABLE `echipa_translations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `echipa_translations`
+-- Dumping data for table `echipa_translations`
 --
 
 INSERT INTO `echipa_translations` (`id`, `echipa_id`, `deleted_at`, `created_at`, `updated_at`, `locale`, `active`, `title`, `description`) VALUES
@@ -369,7 +369,7 @@ INSERT INTO `echipa_translations` (`id`, `echipa_id`, `deleted_at`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -385,7 +385,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `homes`
+-- Table structure for table `homes`
 --
 
 CREATE TABLE `homes` (
@@ -397,7 +397,7 @@ CREATE TABLE `homes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `homes`
+-- Dumping data for table `homes`
 --
 
 INSERT INTO `homes` (`id`, `deleted_at`, `created_at`, `updated_at`, `published`) VALUES
@@ -406,7 +406,7 @@ INSERT INTO `homes` (`id`, `deleted_at`, `created_at`, `updated_at`, `published`
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `home_revisions`
+-- Table structure for table `home_revisions`
 --
 
 CREATE TABLE `home_revisions` (
@@ -419,7 +419,7 @@ CREATE TABLE `home_revisions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `home_revisions`
+-- Dumping data for table `home_revisions`
 --
 
 INSERT INTO `home_revisions` (`id`, `home_id`, `user_id`, `created_at`, `updated_at`, `payload`) VALUES
@@ -445,7 +445,7 @@ INSERT INTO `home_revisions` (`id`, `home_id`, `user_id`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `home_slugs`
+-- Table structure for table `home_slugs`
 --
 
 CREATE TABLE `home_slugs` (
@@ -460,7 +460,7 @@ CREATE TABLE `home_slugs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `home_slugs`
+-- Dumping data for table `home_slugs`
 --
 
 INSERT INTO `home_slugs` (`id`, `home_id`, `deleted_at`, `created_at`, `updated_at`, `slug`, `locale`, `active`) VALUES
@@ -469,7 +469,7 @@ INSERT INTO `home_slugs` (`id`, `home_id`, `deleted_at`, `created_at`, `updated_
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `home_translations`
+-- Table structure for table `home_translations`
 --
 
 CREATE TABLE `home_translations` (
@@ -485,7 +485,7 @@ CREATE TABLE `home_translations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `home_translations`
+-- Dumping data for table `home_translations`
 --
 
 INSERT INTO `home_translations` (`id`, `home_id`, `deleted_at`, `created_at`, `updated_at`, `locale`, `active`, `title`, `description`) VALUES
@@ -494,7 +494,7 @@ INSERT INTO `home_translations` (`id`, `home_id`, `deleted_at`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -504,7 +504,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -541,7 +541,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `noutatis`
+-- Table structure for table `noutatis`
 --
 
 CREATE TABLE `noutatis` (
@@ -554,7 +554,7 @@ CREATE TABLE `noutatis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `noutatis`
+-- Dumping data for table `noutatis`
 --
 
 INSERT INTO `noutatis` (`id`, `deleted_at`, `created_at`, `updated_at`, `published`, `subtitle`) VALUES
@@ -574,7 +574,7 @@ INSERT INTO `noutatis` (`id`, `deleted_at`, `created_at`, `updated_at`, `publish
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `noutati_revisions`
+-- Table structure for table `noutati_revisions`
 --
 
 CREATE TABLE `noutati_revisions` (
@@ -587,7 +587,7 @@ CREATE TABLE `noutati_revisions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `noutati_revisions`
+-- Dumping data for table `noutati_revisions`
 --
 
 INSERT INTO `noutati_revisions` (`id`, `noutati_id`, `user_id`, `created_at`, `updated_at`, `payload`) VALUES
@@ -619,7 +619,7 @@ INSERT INTO `noutati_revisions` (`id`, `noutati_id`, `user_id`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `noutati_slugs`
+-- Table structure for table `noutati_slugs`
 --
 
 CREATE TABLE `noutati_slugs` (
@@ -634,7 +634,7 @@ CREATE TABLE `noutati_slugs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `noutati_slugs`
+-- Dumping data for table `noutati_slugs`
 --
 
 INSERT INTO `noutati_slugs` (`id`, `noutati_id`, `deleted_at`, `created_at`, `updated_at`, `slug`, `locale`, `active`) VALUES
@@ -655,7 +655,7 @@ INSERT INTO `noutati_slugs` (`id`, `noutati_id`, `deleted_at`, `created_at`, `up
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `noutati_translations`
+-- Table structure for table `noutati_translations`
 --
 
 CREATE TABLE `noutati_translations` (
@@ -672,7 +672,7 @@ CREATE TABLE `noutati_translations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `noutati_translations`
+-- Dumping data for table `noutati_translations`
 --
 
 INSERT INTO `noutati_translations` (`id`, `noutati_id`, `deleted_at`, `created_at`, `updated_at`, `locale`, `active`, `title`, `description`, `subtitle`) VALUES
@@ -692,7 +692,7 @@ INSERT INTO `noutati_translations` (`id`, `noutati_id`, `deleted_at`, `created_a
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `password_reset_tokens`
+-- Table structure for table `password_reset_tokens`
 --
 
 CREATE TABLE `password_reset_tokens` (
@@ -701,10 +701,17 @@ CREATE TABLE `password_reset_tokens` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_reset_tokens`
+--
+
+INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
+('leonteionut98@yahoo.com', '$2y$12$2/hwU2t6muLikY.SFBNwReRUeM22z9pqLKpmJhrH5aSYu0jfMwoVq', '2024-01-21 15:25:50');
+
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -723,7 +730,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_blocks`
+-- Table structure for table `twill_blocks`
 --
 
 CREATE TABLE `twill_blocks` (
@@ -739,7 +746,7 @@ CREATE TABLE `twill_blocks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `twill_blocks`
+-- Dumping data for table `twill_blocks`
 --
 
 INSERT INTO `twill_blocks` (`id`, `blockable_id`, `blockable_type`, `position`, `content`, `type`, `child_key`, `parent_id`, `editor_name`) VALUES
@@ -777,7 +784,7 @@ INSERT INTO `twill_blocks` (`id`, `blockable_id`, `blockable_type`, `position`, 
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_features`
+-- Table structure for table `twill_features`
 --
 
 CREATE TABLE `twill_features` (
@@ -794,7 +801,7 @@ CREATE TABLE `twill_features` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_fileables`
+-- Table structure for table `twill_fileables`
 --
 
 CREATE TABLE `twill_fileables` (
@@ -812,7 +819,7 @@ CREATE TABLE `twill_fileables` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_files`
+-- Table structure for table `twill_files`
 --
 
 CREATE TABLE `twill_files` (
@@ -828,7 +835,7 @@ CREATE TABLE `twill_files` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_mediables`
+-- Table structure for table `twill_mediables`
 --
 
 CREATE TABLE `twill_mediables` (
@@ -852,7 +859,7 @@ CREATE TABLE `twill_mediables` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `twill_mediables`
+-- Dumping data for table `twill_mediables`
 --
 
 INSERT INTO `twill_mediables` (`id`, `created_at`, `updated_at`, `deleted_at`, `mediable_id`, `mediable_type`, `media_id`, `crop_x`, `crop_y`, `crop_w`, `crop_h`, `role`, `crop`, `lqip_data`, `ratio`, `metadatas`, `locale`) VALUES
@@ -895,7 +902,7 @@ INSERT INTO `twill_mediables` (`id`, `created_at`, `updated_at`, `deleted_at`, `
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_medias`
+-- Table structure for table `twill_medias`
 --
 
 CREATE TABLE `twill_medias` (
@@ -912,7 +919,7 @@ CREATE TABLE `twill_medias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `twill_medias`
+-- Dumping data for table `twill_medias`
 --
 
 INSERT INTO `twill_medias` (`id`, `created_at`, `updated_at`, `deleted_at`, `uuid`, `alt_text`, `width`, `height`, `caption`, `filename`) VALUES
@@ -944,7 +951,7 @@ INSERT INTO `twill_medias` (`id`, `created_at`, `updated_at`, `deleted_at`, `uui
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_password_resets`
+-- Table structure for table `twill_password_resets`
 --
 
 CREATE TABLE `twill_password_resets` (
@@ -956,7 +963,7 @@ CREATE TABLE `twill_password_resets` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_related`
+-- Table structure for table `twill_related`
 --
 
 CREATE TABLE `twill_related` (
@@ -972,7 +979,7 @@ CREATE TABLE `twill_related` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_settings`
+-- Table structure for table `twill_settings`
 --
 
 CREATE TABLE `twill_settings` (
@@ -987,7 +994,7 @@ CREATE TABLE `twill_settings` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_setting_translations`
+-- Table structure for table `twill_setting_translations`
 --
 
 CREATE TABLE `twill_setting_translations` (
@@ -1004,7 +1011,7 @@ CREATE TABLE `twill_setting_translations` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_tagged`
+-- Table structure for table `twill_tagged`
 --
 
 CREATE TABLE `twill_tagged` (
@@ -1017,7 +1024,7 @@ CREATE TABLE `twill_tagged` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_tags`
+-- Table structure for table `twill_tags`
 --
 
 CREATE TABLE `twill_tags` (
@@ -1031,7 +1038,7 @@ CREATE TABLE `twill_tags` (
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `twill_users`
+-- Table structure for table `twill_users`
 --
 
 CREATE TABLE `twill_users` (
@@ -1054,16 +1061,16 @@ CREATE TABLE `twill_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Eliminarea datelor din tabel `twill_users`
+-- Dumping data for table `twill_users`
 --
 
 INSERT INTO `twill_users` (`id`, `deleted_at`, `created_at`, `updated_at`, `published`, `name`, `email`, `password`, `role`, `title`, `description`, `remember_token`, `language`, `last_login_at`, `registered_at`, `require_new_password`) VALUES
-(1, NULL, '2024-01-19 20:08:05', '2024-01-21 08:31:37', 1, 'Admin', 'leonteionut98@yahoo.com', '$2y$12$0qtDIKWtVpkeQSQNQECc5uhZ5bsm/81kwaqys4DuDXEQs38gwSlSm', 'SUPERADMIN', NULL, NULL, NULL, NULL, '2024-01-21 10:31:37', '2024-01-19 22:08:04', 0);
+(1, NULL, '2024-01-19 20:08:05', '2024-01-21 12:51:13', 1, 'Admin', 'leonteionut98@yahoo.com', '$2y$12$0qtDIKWtVpkeQSQNQECc5uhZ5bsm/81kwaqys4DuDXEQs38gwSlSm', 'SUPERADMIN', NULL, NULL, NULL, NULL, '2024-01-21 14:51:13', '2024-01-19 22:08:04', 0);
 
 -- --------------------------------------------------------
 
 --
--- Structură tabel pentru tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -1078,30 +1085,38 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexuri pentru tabele eliminate
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(2, 'Leonte Ionut Claudiu', 'leonteionut98@yahoo.com', NULL, '$2y$12$gzYpF0qff.ELQdKj8K6.9O2R7OKgWivH1LrfW9qMB01UpB0diUhGK', NULL, '2024-01-21 14:16:03', '2024-01-21 14:16:03'),
+(4, 'aaaaaaaaa1', 'aaa@aaa.com', '2024-01-21 15:44:45', '$2y$12$WzbqX/HwFY8xD04ICqCl8.nbZAiKrWaHdYz3zkaSqIDrtcxuh.3DW', NULL, '2024-01-21 15:43:43', '2024-01-21 15:44:45');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indexuri pentru tabele `activity_log`
+-- Indexes for table `activity_log`
 --
 ALTER TABLE `activity_log`
   ADD PRIMARY KEY (`id`),
   ADD KEY `activity_log_log_name_index` (`log_name`);
 
 --
--- Indexuri pentru tabele `app_settings`
+-- Indexes for table `app_settings`
 --
 ALTER TABLE `app_settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexuri pentru tabele `contacts`
+-- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexuri pentru tabele `contact_revisions`
+-- Indexes for table `contact_revisions`
 --
 ALTER TABLE `contact_revisions`
   ADD PRIMARY KEY (`id`),
@@ -1109,7 +1124,7 @@ ALTER TABLE `contact_revisions`
   ADD KEY `contact_revisions_user_id_foreign` (`user_id`);
 
 --
--- Indexuri pentru tabele `contact_slugs`
+-- Indexes for table `contact_slugs`
 --
 ALTER TABLE `contact_slugs`
   ADD PRIMARY KEY (`id`),
@@ -1117,7 +1132,7 @@ ALTER TABLE `contact_slugs`
   ADD KEY `contact_slugs_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `contact_translations`
+-- Indexes for table `contact_translations`
 --
 ALTER TABLE `contact_translations`
   ADD PRIMARY KEY (`id`),
@@ -1125,13 +1140,13 @@ ALTER TABLE `contact_translations`
   ADD KEY `contact_translations_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `echipas`
+-- Indexes for table `echipas`
 --
 ALTER TABLE `echipas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexuri pentru tabele `echipa_revisions`
+-- Indexes for table `echipa_revisions`
 --
 ALTER TABLE `echipa_revisions`
   ADD PRIMARY KEY (`id`),
@@ -1139,7 +1154,7 @@ ALTER TABLE `echipa_revisions`
   ADD KEY `echipa_revisions_user_id_foreign` (`user_id`);
 
 --
--- Indexuri pentru tabele `echipa_slugs`
+-- Indexes for table `echipa_slugs`
 --
 ALTER TABLE `echipa_slugs`
   ADD PRIMARY KEY (`id`),
@@ -1147,7 +1162,7 @@ ALTER TABLE `echipa_slugs`
   ADD KEY `echipa_slugs_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `echipa_translations`
+-- Indexes for table `echipa_translations`
 --
 ALTER TABLE `echipa_translations`
   ADD PRIMARY KEY (`id`),
@@ -1155,20 +1170,20 @@ ALTER TABLE `echipa_translations`
   ADD KEY `echipa_translations_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexuri pentru tabele `homes`
+-- Indexes for table `homes`
 --
 ALTER TABLE `homes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexuri pentru tabele `home_revisions`
+-- Indexes for table `home_revisions`
 --
 ALTER TABLE `home_revisions`
   ADD PRIMARY KEY (`id`),
@@ -1176,7 +1191,7 @@ ALTER TABLE `home_revisions`
   ADD KEY `home_revisions_user_id_foreign` (`user_id`);
 
 --
--- Indexuri pentru tabele `home_slugs`
+-- Indexes for table `home_slugs`
 --
 ALTER TABLE `home_slugs`
   ADD PRIMARY KEY (`id`),
@@ -1184,7 +1199,7 @@ ALTER TABLE `home_slugs`
   ADD KEY `home_slugs_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `home_translations`
+-- Indexes for table `home_translations`
 --
 ALTER TABLE `home_translations`
   ADD PRIMARY KEY (`id`),
@@ -1192,19 +1207,19 @@ ALTER TABLE `home_translations`
   ADD KEY `home_translations_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexuri pentru tabele `noutatis`
+-- Indexes for table `noutatis`
 --
 ALTER TABLE `noutatis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexuri pentru tabele `noutati_revisions`
+-- Indexes for table `noutati_revisions`
 --
 ALTER TABLE `noutati_revisions`
   ADD PRIMARY KEY (`id`),
@@ -1212,7 +1227,7 @@ ALTER TABLE `noutati_revisions`
   ADD KEY `noutati_revisions_user_id_foreign` (`user_id`);
 
 --
--- Indexuri pentru tabele `noutati_slugs`
+-- Indexes for table `noutati_slugs`
 --
 ALTER TABLE `noutati_slugs`
   ADD PRIMARY KEY (`id`),
@@ -1220,7 +1235,7 @@ ALTER TABLE `noutati_slugs`
   ADD KEY `noutati_slugs_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `noutati_translations`
+-- Indexes for table `noutati_translations`
 --
 ALTER TABLE `noutati_translations`
   ADD PRIMARY KEY (`id`),
@@ -1228,13 +1243,13 @@ ALTER TABLE `noutati_translations`
   ADD KEY `noutati_translations_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `password_reset_tokens`
+-- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
--- Indexuri pentru tabele `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -1242,14 +1257,14 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexuri pentru tabele `twill_blocks`
+-- Indexes for table `twill_blocks`
 --
 ALTER TABLE `twill_blocks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `twill_blocks_blockable_type_blockable_id_index` (`blockable_type`,`blockable_id`);
 
 --
--- Indexuri pentru tabele `twill_features`
+-- Indexes for table `twill_features`
 --
 ALTER TABLE `twill_features`
   ADD PRIMARY KEY (`id`),
@@ -1257,7 +1272,7 @@ ALTER TABLE `twill_features`
   ADD KEY `twill_features_bucket_key_index` (`bucket_key`);
 
 --
--- Indexuri pentru tabele `twill_fileables`
+-- Indexes for table `twill_fileables`
 --
 ALTER TABLE `twill_fileables`
   ADD PRIMARY KEY (`id`),
@@ -1266,13 +1281,13 @@ ALTER TABLE `twill_fileables`
   ADD KEY `twill_fileables_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `twill_files`
+-- Indexes for table `twill_files`
 --
 ALTER TABLE `twill_files`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexuri pentru tabele `twill_mediables`
+-- Indexes for table `twill_mediables`
 --
 ALTER TABLE `twill_mediables`
   ADD PRIMARY KEY (`id`),
@@ -1281,20 +1296,20 @@ ALTER TABLE `twill_mediables`
   ADD KEY `twill_mediables_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `twill_medias`
+-- Indexes for table `twill_medias`
 --
 ALTER TABLE `twill_medias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexuri pentru tabele `twill_password_resets`
+-- Indexes for table `twill_password_resets`
 --
 ALTER TABLE `twill_password_resets`
   ADD KEY `twill_password_resets_email_index` (`email`),
   ADD KEY `twill_password_resets_token_index` (`token`);
 
 --
--- Indexuri pentru tabele `twill_related`
+-- Indexes for table `twill_related`
 --
 ALTER TABLE `twill_related`
   ADD PRIMARY KEY (`id`),
@@ -1302,7 +1317,7 @@ ALTER TABLE `twill_related`
   ADD KEY `twill_related_browser_name_index` (`browser_name`);
 
 --
--- Indexuri pentru tabele `twill_settings`
+-- Indexes for table `twill_settings`
 --
 ALTER TABLE `twill_settings`
   ADD PRIMARY KEY (`id`),
@@ -1310,7 +1325,7 @@ ALTER TABLE `twill_settings`
   ADD KEY `twill_settings_section_index` (`section`);
 
 --
--- Indexuri pentru tabele `twill_setting_translations`
+-- Indexes for table `twill_setting_translations`
 --
 ALTER TABLE `twill_setting_translations`
   ADD PRIMARY KEY (`id`),
@@ -1318,340 +1333,340 @@ ALTER TABLE `twill_setting_translations`
   ADD KEY `twill_setting_translations_locale_index` (`locale`);
 
 --
--- Indexuri pentru tabele `twill_tagged`
+-- Indexes for table `twill_tagged`
 --
 ALTER TABLE `twill_tagged`
   ADD PRIMARY KEY (`id`),
   ADD KEY `twill_tagged_taggable_type_taggable_id_index` (`taggable_type`,`taggable_id`);
 
 --
--- Indexuri pentru tabele `twill_tags`
+-- Indexes for table `twill_tags`
 --
 ALTER TABLE `twill_tags`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexuri pentru tabele `twill_users`
+-- Indexes for table `twill_users`
 --
 ALTER TABLE `twill_users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `twill_users_email_unique` (`email`);
 
 --
--- Indexuri pentru tabele `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT pentru tabele eliminate
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pentru tabele `activity_log`
+-- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
--- AUTO_INCREMENT pentru tabele `app_settings`
+-- AUTO_INCREMENT for table `app_settings`
 --
 ALTER TABLE `app_settings`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `contacts`
+-- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pentru tabele `contact_revisions`
+-- AUTO_INCREMENT for table `contact_revisions`
 --
 ALTER TABLE `contact_revisions`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pentru tabele `contact_slugs`
+-- AUTO_INCREMENT for table `contact_slugs`
 --
 ALTER TABLE `contact_slugs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pentru tabele `contact_translations`
+-- AUTO_INCREMENT for table `contact_translations`
 --
 ALTER TABLE `contact_translations`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pentru tabele `echipas`
+-- AUTO_INCREMENT for table `echipas`
 --
 ALTER TABLE `echipas`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pentru tabele `echipa_revisions`
+-- AUTO_INCREMENT for table `echipa_revisions`
 --
 ALTER TABLE `echipa_revisions`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT pentru tabele `echipa_slugs`
+-- AUTO_INCREMENT for table `echipa_slugs`
 --
 ALTER TABLE `echipa_slugs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pentru tabele `echipa_translations`
+-- AUTO_INCREMENT for table `echipa_translations`
 --
 ALTER TABLE `echipa_translations`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pentru tabele `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `homes`
+-- AUTO_INCREMENT for table `homes`
 --
 ALTER TABLE `homes`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pentru tabele `home_revisions`
+-- AUTO_INCREMENT for table `home_revisions`
 --
 ALTER TABLE `home_revisions`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT pentru tabele `home_slugs`
+-- AUTO_INCREMENT for table `home_slugs`
 --
 ALTER TABLE `home_slugs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pentru tabele `home_translations`
+-- AUTO_INCREMENT for table `home_translations`
 --
 ALTER TABLE `home_translations`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pentru tabele `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT pentru tabele `noutatis`
+-- AUTO_INCREMENT for table `noutatis`
 --
 ALTER TABLE `noutatis`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pentru tabele `noutati_revisions`
+-- AUTO_INCREMENT for table `noutati_revisions`
 --
 ALTER TABLE `noutati_revisions`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT pentru tabele `noutati_slugs`
+-- AUTO_INCREMENT for table `noutati_slugs`
 --
 ALTER TABLE `noutati_slugs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT pentru tabele `noutati_translations`
+-- AUTO_INCREMENT for table `noutati_translations`
 --
 ALTER TABLE `noutati_translations`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pentru tabele `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_blocks`
+-- AUTO_INCREMENT for table `twill_blocks`
 --
 ALTER TABLE `twill_blocks`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_features`
+-- AUTO_INCREMENT for table `twill_features`
 --
 ALTER TABLE `twill_features`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_fileables`
+-- AUTO_INCREMENT for table `twill_fileables`
 --
 ALTER TABLE `twill_fileables`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_files`
+-- AUTO_INCREMENT for table `twill_files`
 --
 ALTER TABLE `twill_files`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_mediables`
+-- AUTO_INCREMENT for table `twill_mediables`
 --
 ALTER TABLE `twill_mediables`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=261;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_medias`
+-- AUTO_INCREMENT for table `twill_medias`
 --
 ALTER TABLE `twill_medias`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_related`
+-- AUTO_INCREMENT for table `twill_related`
 --
 ALTER TABLE `twill_related`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_settings`
+-- AUTO_INCREMENT for table `twill_settings`
 --
 ALTER TABLE `twill_settings`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_setting_translations`
+-- AUTO_INCREMENT for table `twill_setting_translations`
 --
 ALTER TABLE `twill_setting_translations`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_tagged`
+-- AUTO_INCREMENT for table `twill_tagged`
 --
 ALTER TABLE `twill_tagged`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_tags`
+-- AUTO_INCREMENT for table `twill_tags`
 --
 ALTER TABLE `twill_tags`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pentru tabele `twill_users`
+-- AUTO_INCREMENT for table `twill_users`
 --
 ALTER TABLE `twill_users`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pentru tabele `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constrângeri pentru tabele eliminate
+-- Constraints for dumped tables
 --
 
 --
--- Constrângeri pentru tabele `contact_revisions`
+-- Constraints for table `contact_revisions`
 --
 ALTER TABLE `contact_revisions`
   ADD CONSTRAINT `contact_revisions_contact_id_foreign` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `contact_revisions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `twill_users` (`id`) ON DELETE SET NULL;
 
 --
--- Constrângeri pentru tabele `contact_slugs`
+-- Constraints for table `contact_slugs`
 --
 ALTER TABLE `contact_slugs`
   ADD CONSTRAINT `fk_contact_slugs_contact_id` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`) ON DELETE CASCADE;
 
 --
--- Constrângeri pentru tabele `contact_translations`
+-- Constraints for table `contact_translations`
 --
 ALTER TABLE `contact_translations`
   ADD CONSTRAINT `fk_contact_translations_contact_id` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`) ON DELETE CASCADE;
 
 --
--- Constrângeri pentru tabele `echipa_revisions`
+-- Constraints for table `echipa_revisions`
 --
 ALTER TABLE `echipa_revisions`
   ADD CONSTRAINT `echipa_revisions_echipa_id_foreign` FOREIGN KEY (`echipa_id`) REFERENCES `echipas` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `echipa_revisions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `twill_users` (`id`) ON DELETE SET NULL;
 
 --
--- Constrângeri pentru tabele `echipa_slugs`
+-- Constraints for table `echipa_slugs`
 --
 ALTER TABLE `echipa_slugs`
   ADD CONSTRAINT `fk_echipa_slugs_echipa_id` FOREIGN KEY (`echipa_id`) REFERENCES `echipas` (`id`) ON DELETE CASCADE;
 
 --
--- Constrângeri pentru tabele `echipa_translations`
+-- Constraints for table `echipa_translations`
 --
 ALTER TABLE `echipa_translations`
   ADD CONSTRAINT `fk_echipa_translations_echipa_id` FOREIGN KEY (`echipa_id`) REFERENCES `echipas` (`id`) ON DELETE CASCADE;
 
 --
--- Constrângeri pentru tabele `home_revisions`
+-- Constraints for table `home_revisions`
 --
 ALTER TABLE `home_revisions`
   ADD CONSTRAINT `home_revisions_home_id_foreign` FOREIGN KEY (`home_id`) REFERENCES `homes` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `home_revisions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `twill_users` (`id`) ON DELETE SET NULL;
 
 --
--- Constrângeri pentru tabele `home_slugs`
+-- Constraints for table `home_slugs`
 --
 ALTER TABLE `home_slugs`
   ADD CONSTRAINT `fk_home_slugs_home_id` FOREIGN KEY (`home_id`) REFERENCES `homes` (`id`) ON DELETE CASCADE;
 
 --
--- Constrângeri pentru tabele `home_translations`
+-- Constraints for table `home_translations`
 --
 ALTER TABLE `home_translations`
   ADD CONSTRAINT `fk_home_translations_home_id` FOREIGN KEY (`home_id`) REFERENCES `homes` (`id`) ON DELETE CASCADE;
 
 --
--- Constrângeri pentru tabele `noutati_revisions`
+-- Constraints for table `noutati_revisions`
 --
 ALTER TABLE `noutati_revisions`
   ADD CONSTRAINT `noutati_revisions_noutati_id_foreign` FOREIGN KEY (`noutati_id`) REFERENCES `noutatis` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `noutati_revisions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `twill_users` (`id`) ON DELETE SET NULL;
 
 --
--- Constrângeri pentru tabele `noutati_slugs`
+-- Constraints for table `noutati_slugs`
 --
 ALTER TABLE `noutati_slugs`
   ADD CONSTRAINT `fk_noutati_slugs_noutati_id` FOREIGN KEY (`noutati_id`) REFERENCES `noutatis` (`id`) ON DELETE CASCADE;
 
 --
--- Constrângeri pentru tabele `noutati_translations`
+-- Constraints for table `noutati_translations`
 --
 ALTER TABLE `noutati_translations`
   ADD CONSTRAINT `fk_noutati_translations_noutati_id` FOREIGN KEY (`noutati_id`) REFERENCES `noutatis` (`id`) ON DELETE CASCADE;
 
 --
--- Constrângeri pentru tabele `twill_fileables`
+-- Constraints for table `twill_fileables`
 --
 ALTER TABLE `twill_fileables`
   ADD CONSTRAINT `fk_files_file_id` FOREIGN KEY (`file_id`) REFERENCES `twill_files` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constrângeri pentru tabele `twill_mediables`
+-- Constraints for table `twill_mediables`
 --
 ALTER TABLE `twill_mediables`
   ADD CONSTRAINT `fk_mediables_media_id` FOREIGN KEY (`media_id`) REFERENCES `twill_medias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constrângeri pentru tabele `twill_password_resets`
+-- Constraints for table `twill_password_resets`
 --
 ALTER TABLE `twill_password_resets`
   ADD CONSTRAINT `twill_password_resets_email_foreign` FOREIGN KEY (`email`) REFERENCES `twill_users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constrângeri pentru tabele `twill_setting_translations`
+-- Constraints for table `twill_setting_translations`
 --
 ALTER TABLE `twill_setting_translations`
   ADD CONSTRAINT `fk_twill_setting_translations_twill_setting_id` FOREIGN KEY (`twill_setting_id`) REFERENCES `twill_settings` (`id`) ON DELETE CASCADE;
