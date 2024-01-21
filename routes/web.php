@@ -29,9 +29,9 @@ Route::get('intrebari-frecvente', [\App\Http\Controllers\EchipaDisplayController
 Route::get('contact', [\App\Http\Controllers\ContactDisplayController::class, 'show'])->name('contact');
 Route::post('send-mail', [ContactFormController::class,'submitForm'])->name('send_contact_mail');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

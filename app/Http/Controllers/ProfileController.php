@@ -55,6 +55,8 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        session()->flash('success', 'Cont șters cu succes! Ne pare rău ca ne-ai părăsit :( .');
+
+        return Redirect::to('/acasa');
     }
 }
