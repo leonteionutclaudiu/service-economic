@@ -3,6 +3,14 @@
     <div class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14">
         {!! $item->renderBlocks() !!}
 
+        <div
+            class="flex flex-wrap flex-col items-center justify-center gap-2 bg-black py-4">
+            <h2 class="text-white">Solicita acum o programare in service-ul nostru !</h2>
+            <a href="/programare"
+                class="text-lg py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-white hover:text-economic-darkgreen font-bold">Vreau
+                o programare</a>
+        </div>
+
         @if (session('success'))
             <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 7000)"
                 x-transition:enter="transition ease-out duration-300"

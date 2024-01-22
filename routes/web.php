@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\ProgramareController;
 use App\Http\Controllers\Twill\ContactController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +30,9 @@ Route::get('intrebari-frecvente', [\App\Http\Controllers\EchipaDisplayController
 Route::get('contact', [\App\Http\Controllers\ContactDisplayController::class, 'show'])->name('contact');
 Route::post('send-mail', [ContactFormController::class,'submitForm'])->name('send_contact_mail');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/programare', [ProgramareController::class, 'showForm']);
+Route::post('/programare', [ProgramareController::class, 'store']);
+Route::get('/programari', [ProgramareController::class, 'showProgramari']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
