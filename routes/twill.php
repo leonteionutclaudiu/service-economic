@@ -7,3 +7,4 @@ TwillRoutes::module('contacts');
 TwillRoutes::module('homes');
 TwillRoutes::module('noutatis');
 TwillRoutes::module('echipas');
+TwillRoutes::module('products');

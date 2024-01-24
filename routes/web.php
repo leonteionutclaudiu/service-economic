@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\ProductDisplayController;
 use App\Http\Controllers\ProgramareController;
 use App\Http\Controllers\Twill\ContactController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,13 @@ Route::post('send-mail', [ContactFormController::class,'submitForm'])->name('sen
 Route::get('/programare', [ProgramareController::class, 'showForm']);
 Route::post('/programare', [ProgramareController::class, 'store']);
 Route::get('/programari', [ProgramareController::class, 'showProgramari']);
+
+Route::get('products/{tag}', [ProductDisplayController::class, 'showProductsByTag'])->name('products-by-tag');
+Route::get('product/{slug}', [ProductDisplayController::class, 'showProduct'])->name('product');
+Route::get('search', [ProductDisplayController::class, 'search'])->name('search');
+
+// API routes
+Route::get('/api/categories', [ProductDisplayController::class, 'getCategories']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

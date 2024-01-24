@@ -40,5 +40,8 @@ class AppServiceProvider extends ServiceProvider
         TwillNavigation::addLink(
             NavigationLink::make()->forModule('echipas')->title('Despre noi')
         );
+        TwillNavigation::addLink(
+            NavigationLink::make()->forModule('products')->title('Produse')
+        );
     }
 }

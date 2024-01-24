@@ -186,3 +186,16 @@ textarea:focus {
         color-stop(1, #008237)
     );
 }
+
+.addToCartBtn svg {
+    fill: #fff;
+}
+
+.addToCartBtn:hover {
+    background-color: #fff;
+    border: 1px solid #008237;
+}
+
+.addToCartBtn:hover svg {
+    fill: #008237;
+}

@@ -13,7 +13,7 @@
             <p class="mb-4 text-xl font-bold text-economic-darkgreen">Utile</p>
             <div class="flex flex-col items-center gap-2 text-gray-300 md:items-start">
                 <a href="/articole" class="transition w-fit hover:text-economic-darkgreen">Articole</a>
-                <a href="/oferte" class="transition w-fit hover:text-economic-darkgreen">Oferte</a>
+                <a href="/produse" class="transition w-fit hover:text-economic-darkgreen">Produse</a>
                 <a href="/despre-noi" class="transition w-fit hover:text-economic-darkgreen">Despre noi</a>
                 <a href="/contact" class="transition w-fit hover:text-economic-darkgreen">Contact</a>
             </div>

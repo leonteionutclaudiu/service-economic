@@ -1,3 +1,37 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // fetch categories (product tags) when the page loads
+        const dropdowns = document.querySelectorAll('.categoryDropdown');
+
+        dropdowns.forEach(dropdown => {
+            const loadingOption = document.createElement('a');
+            loadingOption.textContent = 'Se incarca...';
+            loadingOption.classList.add('block', 'px-4', 'py-2', 'text-base', 'text-gray-700');
+            dropdown.appendChild(loadingOption);
+
+            axios.get('/api/categories')
+                .then(response => {
+                    const categories = response.data.categories;
+
+                    dropdown.removeChild(loadingOption);
+
+                    categories.forEach(category => {
+                        const link = document.createElement('a');
+                        link.href = '/products/' + category.slug;
+                        link.textContent = category.name;
+                        link.classList.add('block', 'px-4', 'py-2', 'text-base',
+                            'text-gray-700',
+                            'transition', 'hover:text-economic-darkgreen');
+                        dropdown.appendChild(link);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching categories:', error);
+                });
+        });
+    });
+</script>
+
 <header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-10 shadow-lg bg-[rgba(255,255,255,0.75)]"
     :class="{ 'backdrop-blur-md': open === false }">
     <div class="container flex items-center justify-between px-6 py-4 mx-auto">
@@ -88,22 +122,23 @@
                     <li><a href="/noutati"
                             class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black">Noutati</a>
                     </li>
-                    <li><a href="#"
-                            class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black">Oferte</a>
+                    <li> <x-nav-dropdown title="Produse" :toPages="['products']">
+                            <div class="categoryDropdown"></div>
+                        </x-nav-dropdown>
                     </li>
                     <li> <x-nav-dropdown title="Despre noi" :toPages="['echipa', 'cariera', 'despre-noi']">
                             <a href="/echipa"
                                 class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen ">Echipa</a>
                             <a href="/cariera"
                                 class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen ">Cariera</a>
+                            <a href="/intrebari-frecvente"
+                                class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Intrebari
+                                frecvente
+                            </a>
                             <a href="/despre-noi"
                                 class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Despre
                             </a>
                         </x-nav-dropdown>
-                    </li>
-                    <li><a href="#"
-                            class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black">Intrebari
-                            frecvente</a>
                     </li>
                     <li><a href="/contact"
                             class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black">Contact</a>
@@ -119,24 +154,48 @@
                 <li><a href="/articole"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>
                 </li>
-                <li><a href="/oferte"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Oferte</a>
+                <li class="py-2 lg:px-4">{{-- dropdown --}}
+                    <div x-data="{ open: false }"
+                        class="relative inline-block font-semibold text-left transition duration-300 transform"
+                        @mouseleave="open = false">
+                        <button @mouseenter="open = true"
+                            class="inline-flex items-center justify-center space-x-2 text-base font-semibold focus:outline-none {{ request()->is('products*') ? 'border-b-2 border-black' : 'custom-link' }} text-black hover:text-economic-darkgreen">
+                            <span class="text-lg">Produse</span>
+                            <svg :class="{ 'transform rotate-180': open }" class="w-4 h-4 transition-transform"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+
+                        <div x-show="open" @mouseenter="open = true" @mouseleave="open = false"
+                            class="left-0 z-50 w-56 origin-top-right bg-white shadow-xl lg:absolute categoryDropdown"
+                            x-show="isOpen" x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-300"
+                            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+                            @click.away="open = false">
+
+                        </div>
+                    </div>
                 </li>
-                <li> <x-nav-dropdown title="Despre noi" :toPages="['echipa', 'cariera', 'despre-noi']">
+                <li class="py-2 lg:px-4"> <x-nav-dropdown title="Despre noi" :toPages="['echipa', 'cariera', 'despre-noi']">
                         <a href="/echipa"
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Echipa</a>
                         <a href="/cariera"
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Cariera</a>
+                        <a href="/intrebari-frecvente"
+                            class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Intrebari
+                            frecvente</a>
                         <a href="/despre-noi"
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Despre
                         </a>
                     </x-nav-dropdown></li>
-                <a href="/intrebari-frecvente"
-                    class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Intrebari
-                    frecvente</a>
                 </li>
+
                 <li><a href="/contact"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Contact</a>
+                        class="block py-2 transition duration-300 lg:px-4 hover:bg-economic-darkgreen bg-economic-red text-white rounded-full">Contact</a>
                 </li>
 
                 @guest
@@ -189,6 +248,7 @@
                         </div>
                     </li>
                 @endauth
+
             </ul>
         </nav>
     </div>
@@ -198,12 +258,14 @@
     @if (auth()->user()->email_verified_at === null)
         <a href="/profile"
             class="flex items-center justify-center gap-2 bg-orange-500 hover:bg-green-500 transition duration-300 ease-in-out fixed bottom-0 left-0 right-0 hover:text-black text-white text-center p-2 rounded z-50 ">
-            <p class="text-sm">Vă rugăm să vă verificați adresa de e-mail pentru a accesa toate funcțiile aplicației. <div class="w-fit">
-                <svg
-                    height='20px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path
-                        d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z" />
-                </svg></div></p>
+            <p class="text-sm">Vă rugăm să vă verificați adresa de e-mail pentru a accesa toate funcțiile aplicației. <div
+                    class="w-fit">
+                    <svg height='20px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path
+                            d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z" />
+                    </svg>
+                </div>
+            </p>
         </a>
     @endif
 @endauth
