@@ -40,27 +40,29 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
 
 <body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); } }" @scroll.window="isVisible = window.scrollY > 100">
     <!-- header/navigation -->
-    @include('partials.header')
+    <div class="min-h-screen flex flex-col justify-between">
 
-    <main class="mt-20 lg:mt-12 md:mt-14">
+        @include('partials.header')
 
-        {{--  preloader --}}
-        <div class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999]" id="preloader">
-            <img src="{{ asset('images/preloader.gif') }}" alt="Preloader">
-        </div>
+        <main class="mt-20 lg:mt-12 md:mt-14">
 
-        {{ $slot }}
-    </main>
+            {{--  preloader --}}
+            <div class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999]" id="preloader">
+                <img src="{{ asset('images/preloader.gif') }}" alt="Preloader">
+            </div>
 
-    {{-- footer --}}
-    @include('partials.footer')
+            {{ $slot }}
+        </main>
 
-    {{-- scroll to top button --}}
-    @include('components.scrollToTopBtn')
+        {{-- footer --}}
+        @include('partials.footer')
 
+        {{-- scroll to top button --}}
+        @include('components.scrollToTopBtn')
+    </div>
 
-    {{-- VANILLA TILT JS IMPORT CDN --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+        {{-- VANILLA TILT JS IMPORT CDN --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
         integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.babel.js"

@@ -153,14 +153,14 @@
             <div class="mx-auto mt-10 text-lg max-w-[75ch] md:text-xl">{!! $product->description !!}</div>
         </div>
         <a href="/contact"
-            class="block px-8 py-4 mx-auto mt-6 font-semibold text-white uppercase transition duration-500 ease-in-out transform rounded-md cursor-pointer w-fit bg-economic-red hover:scale-105 hover:bg-radacini-green hover:border-radacini-green hover:text-black">
-            Solicita oferta personalizata
+            class="block px-8 py-4 mx-auto mt-6 font-semibold text-white uppercase transition duration-500 ease-in-out transform rounded-full cursor-pointer w-fit bg-economic-red hover:scale-105 hover:bg-black hover:border-radacini-green">
+            Vreau o oferta
         </a>
 
 
 
         <div class="px-2 divide-y divide-economic-red md:px-12">
-            <div
+            {{-- <div
                 class="flex flex-col items-center justify-center mx-auto mt-10 text-xl border border-b-0 border-l-0 border-r-0 divide-x-0 lg:divide-x lg:flex-row border-economic-red divide-economic-red w-fit">
                 @php
                     $modeleContent = strip_tags($product->modele);
@@ -190,7 +190,7 @@
                         & fise tehnice</button>
                 @endif
 
-            </div>
+            </div> --}}
             <div class="text-xl text-economic-darkgreen">
                 <div id="modele" class="hidden pt-6 mx-auto overflow-x-auto w-fit max-w-[90vw] content">
                     {!! $product->modele !!}</div>

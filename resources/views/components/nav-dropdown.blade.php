@@ -12,7 +12,7 @@
     </button>
 
     <div x-show="open" @mouseenter="open = true" @mouseleave="open = false"
-        class="left-0 z-50 w-full md:w-[350px] lg:w-[200px] origin-top-right lg:bg-white lg:shadow-xl lg:absolute rounded-md"
+        class="left-0 z-50 w-full md:w-[350px] lg:w-[200px] origin-top-right lg:bg-white lg:shadow-xl lg:absolute rounded-md border border-economic-darkgreen"
         x-show="isOpen" x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
         x-transition:leave="transition ease-in lg:duration-300 duration-500"

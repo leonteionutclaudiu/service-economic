@@ -57,7 +57,7 @@ class ProductDisplayController extends Controller
         $searchInput = $request->input('search');
 
         if (empty($searchInput)) {
-            return redirect()->back()->with('error', 'Campul pentru cautare este gol !');
+            return redirect()->back()->with('error', 'Campul pentru cautare este gol');
         }
 
         $products = Product::whereHas('translations', function ($query) use ($searchInput) {

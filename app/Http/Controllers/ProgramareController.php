@@ -24,7 +24,7 @@ class ProgramareController extends Controller
 
         Programare::create($validatedData);
 
-        return redirect('/acasa')->with('success', 'Programarea a fost înregistrată cu succes!');
+        return redirect('/acasa')->with('success', 'Programarea a fost înregistrată cu succes');
     }
 
     public function showProgramari()

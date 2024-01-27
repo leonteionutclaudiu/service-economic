@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductDisplayController;
@@ -38,6 +39,13 @@ Route::get('/programari', [ProgramareController::class, 'showProgramari']);
 Route::get('products/{tag}', [ProductDisplayController::class, 'showProductsByTag'])->name('products-by-tag');
 Route::get('product/{slug}', [ProductDisplayController::class, 'showProduct'])->name('product');
 Route::get('search', [ProductDisplayController::class, 'search'])->name('search');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+    Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+});
 
 // API routes
 Route::get('/api/categories', [ProductDisplayController::class, 'getCategories']);

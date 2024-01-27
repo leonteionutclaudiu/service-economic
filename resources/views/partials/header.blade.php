@@ -1,5 +1,5 @@
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // fetch categories (product tags) when the page loads
         const dropdowns = document.querySelectorAll('.categoryDropdown');
 
@@ -12,6 +12,9 @@
             axios.get('/api/categories')
                 .then(response => {
                     const categories = response.data.categories;
+
+                    // Sort categories alphabetically by name
+                    categories.sort((a, b) => a.name.localeCompare(b.name));
 
                     dropdown.removeChild(loadingOption);
 
@@ -151,12 +154,15 @@
         <nav id="mainMenu" class="hidden lg:block lg:ml-auto">
             <ul class="items-center justify-end pt-4 text-lg font-semibold text-gray-800 lg:flex lg:pt-0"
                 style="list-style: none;">
+                <li><a href="/programare"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Programare Service</a>
+                </li>
                 <li><a href="/articole"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>
                 </li>
                 <li class="py-2 lg:px-4">{{-- dropdown --}}
                     <div x-data="{ open: false }"
-                        class="relative inline-block font-semibold text-left transition duration-300 transform"
+                        class="relative inline-block font-semibold text-left transition duration-300 transform z-10"
                         @mouseleave="open = false">
                         <button @mouseenter="open = true"
                             class="inline-flex items-center justify-center space-x-2 text-base font-semibold focus:outline-none {{ request()->is('products*') ? 'border-b-2 border-black' : 'custom-link' }} text-black hover:text-economic-darkgreen">
@@ -170,7 +176,7 @@
                         </button>
 
                         <div x-show="open" @mouseenter="open = true" @mouseleave="open = false"
-                            class="left-0 z-50 w-56 origin-top-right bg-white shadow-xl lg:absolute categoryDropdown"
+                            class="left-0 rounded-md w-56 origin-top-right bg-white shadow-xl lg:absolute categoryDropdown divide-y-2 divide-economic-darkgreen border border-economic-darkgreen"
                             x-show="isOpen" x-transition:enter="transition ease-out duration-300"
                             x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
                             x-transition:leave="transition ease-in duration-300"
@@ -195,7 +201,10 @@
                 </li>
 
                 <li><a href="/contact"
-                        class="block py-2 transition duration-300 lg:px-4 hover:bg-economic-darkgreen bg-economic-red text-white rounded-full">Contact</a>
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-white text-economic-red rounded-full">Contact</a>
+                </li>
+                <li><a href="/cart"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black"><svg height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512H430c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32H458.4L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg></a>
                 </li>
 
                 @guest
@@ -215,7 +224,7 @@
                                 <x-slot name="trigger">
                                     <button
                                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                        <div>{{ Auth::user()->name }}</div>
+                                        <div class="max-w-[50px]">{{ Auth::user()->name }}</div>
 
                                         <div class="ms-1">
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"

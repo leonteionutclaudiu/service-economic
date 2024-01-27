@@ -44,8 +44,8 @@ class ContactFormController extends Controller
         $data = $request->all();
         Mail::to($data['email'])->bcc('leonteionut98@yahoo.com')->send(new ContactFormMail($data));
 
-        Session::flash('success_message', 'Mesajul dvs. a fost trimis cu succes!');
+        Session::flash('success_message', 'Mesajul dvs. a fost trimis cu succes');
 
-        return redirect()->back()->with('success', 'Form submitted successfully!');
+        return redirect()->back()->with('success', 'Formularul a fost trimis cu succes');
     }
 }

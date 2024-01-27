@@ -17,6 +17,7 @@ use A17\Twill\Services\Forms\Fields\Tags;
 use A17\Twill\Services\Forms\Fields\Wysiwyg;
 use A17\Twill\Services\Forms\Option;
 use A17\Twill\Services\Forms\Options;
+use App\Models\Product;
 use App\Repositories\CategoryRepository;
 
 class ProductController extends BaseModuleController
@@ -103,4 +104,18 @@ class ProductController extends BaseModuleController
 
         return $table;
     }
+
+    public function addToCart(Product $product)
+{
+    // Check if the product is already in the user's cart
+    $cartItem = auth()->user()->cart->where('product_id', $product->id)->first();
+
+    if ($cartItem) {
+        // Update quantity if the product is already in the cart
+        $cartItem->update(['quantity' => $cartItem->quantity + 1]);
+    } else {
+        // Add the product to the cart
+        auth()->user()->cart->create(['product_id' => $product->id, 'quantity' => 1]);
+    }
+}
 }

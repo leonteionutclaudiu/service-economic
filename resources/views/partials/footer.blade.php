@@ -6,7 +6,7 @@
 </style>
 
 <footer
-    class="{{ !request()->is('acasa') ? 'px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14' : '' }} bg-black text-center md:text-start">
+    class="{{ !request()->is('acasa') ? 'px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14' : '' }} bg-black text-center md:text-start w-full">
     <div
         class="flex flex-col items-center justify-evenly gap-10 mb-8 md:flex-row md:items-start {{ request()->is('acasa') ? 'max-width-1500 px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14' : '' }}">
         <div>
