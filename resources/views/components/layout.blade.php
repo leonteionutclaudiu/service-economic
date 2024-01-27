@@ -35,6 +35,9 @@
     <link href="
 https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
 " rel="stylesheet">
+    <link href="{{ asset('vendor/bladewind/css/animate.min.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" /> --}}
+    <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
 
 </head>
 
@@ -47,7 +50,8 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
         <main class="mt-20 lg:mt-12 md:mt-14">
 
             {{--  preloader --}}
-            <div class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999]" id="preloader">
+            <div class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999]"
+                id="preloader">
                 <img src="{{ asset('images/preloader.gif') }}" alt="Preloader">
             </div>
 
@@ -61,8 +65,8 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
         @include('components.scrollToTopBtn')
     </div>
 
-        {{-- VANILLA TILT JS IMPORT CDN --}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+    {{-- VANILLA TILT JS IMPORT CDN --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
         integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.babel.js"

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,7 +47,6 @@ class CartController extends Controller
             'quantity' => 'required|integer|min:1',
         ]);
 
-        // Update quantity of a product in the user's cart
         $cartItem = Auth::user()->cart->find($id);
         $cartItem->update(['quantity' => $request->quantity]);
 
@@ -57,11 +55,16 @@ class CartController extends Controller
 
     public function destroy($id)
     {
-        // Remove a product from the user's cart
         $cartItem = Auth::user()->cart->find($id);
         $cartItem->delete();
 
-        // You can return a response or redirect back to the cart page
         return redirect('/cart')->with('success', 'Produsul a fost șters din coș');
+    }
+
+    public function getCartItemCount()
+    {
+        $itemCount = Cart::where('user_id', auth()->id())->count();
+
+        return response()->json(['count' => $itemCount]);
     }
 }

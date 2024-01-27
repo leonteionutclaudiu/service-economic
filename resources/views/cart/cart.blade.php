@@ -17,7 +17,7 @@
                                 @csrf
                                 @method('put')
                                 <input type="number" name="quantity" value="{{ $cartItem->quantity }}" min="1"
-                                    class="w-12 text-center mr-4">
+                                    class="w-20 text-center mr-4">
                                 <button type="submit" class="text-economic-darkgreen hover:text-black">Actualizare
                                     cantitate</button>
                             </form>
@@ -34,7 +34,7 @@
             <div class="flex justify-end px-4 md:px-12">
                 <a href="#"
                     class="px-6 py-2 text-lg font-semibold text-white bg-economic-darkgreen rounded-md hover:bg-opacity-80">
-                    Către plată
+                    Continuare
                 </a>
             </div>
         @else

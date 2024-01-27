@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
     Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
     Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::get('/cart/count', [CartController::class, 'getCartItemCount']);
 });
 
 // API routes

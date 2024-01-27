@@ -1,5 +1,5 @@
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         // fetch categories (product tags) when the page loads
         const dropdowns = document.querySelectorAll('.categoryDropdown');
 
@@ -32,7 +32,28 @@
                     console.error('Error fetching categories:', error);
                 });
         });
+
+        // Fetch cart count when the page loads
+        axios.get('/cart/count')
+            .then(response => {
+                const cartCount = response.data.count;
+                updateCartCount(cartCount);
+            })
+            .catch(error => {
+                console.error('Error fetching cart count:', error);
+            });
     });
+
+    // Function to update the cart count
+    function updateCartCount(count) {
+        const cartCountElement = document.getElementById('cartCount');
+        if (count > 0) {
+            cartCountElement.textContent = count;
+            cartCountElement.style.display = 'block';
+        } else {
+            cartCountElement.style.display = 'none';
+        }
+    }
 </script>
 
 <header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-10 shadow-lg bg-[rgba(255,255,255,0.75)]"
@@ -156,8 +177,8 @@
                 style="list-style: none;">
                 <li>
                     <a href="/programare"
-                    class="text-lg py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Vreau
-                    o programare</a>
+                        class="text-lg py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Vreau
+                        o programare</a>
                     {{-- <a href="/programare"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Programare Service</a> --}}
                 </li>
@@ -184,8 +205,8 @@
                             x-show="isOpen" x-transition:enter="transition ease-out duration-300"
                             x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
                             x-transition:leave="transition ease-in duration-300"
-                            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
-                            @click.away="open = false">
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-90" @click.away="open = false">
 
                         </div>
                     </div>
@@ -207,8 +228,16 @@
                 <li><a href="/contact"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-white text-economic-red rounded-full">Contact</a>
                 </li>
-                <li><a href="/cart"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black"><svg height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512H430c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32H458.4L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg></a>
+                <li class="relative"><a href="/cart"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">
+                        <svg height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path
+                                d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512H430c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32H458.4L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z" />
+                        </svg>
+                        <!-- Display the count dynamically -->
+                        <span id="cartCount"
+                            class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"></span>
+                    </a>
                 </li>
 
                 @guest
@@ -265,10 +294,11 @@
             </ul>
         </nav>
         @role('admin')
-        <div class="fixed top-[91.2px] lg:top-[104px] xl:top-[76px] left-0 right-0 bg-red-500 text-white px-6 py-1 z-[-1]">
-            <a href="/programari">Programari</a>
-            <a href="/utilizatori">Utilizatori</a>
-        </div>
+            <div
+                class="fixed top-[91.2px] lg:top-[104px] xl:top-[76px] left-0 right-0 bg-red-500 text-white px-6 py-1 z-[-1]">
+                <a href="/programari">Programari</a>
+                <a href="/utilizatori">Utilizatori</a>
+            </div>
         @endrole
     </div>
 </header>
