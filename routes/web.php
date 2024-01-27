@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactFormController;
@@ -34,7 +35,14 @@ Route::post('send-mail', [ContactFormController::class,'submitForm'])->name('sen
 
 Route::get('/programare', [ProgramareController::class, 'showForm']);
 Route::post('/programare', [ProgramareController::class, 'store']);
-Route::get('/programari', [ProgramareController::class, 'showProgramari']);
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/utilizatori', [RegisteredUserController::class, 'index'])->name('users.index');
+    Route::get('/programari', [ProgramareController::class, 'showProgramari']);
+    Route::patch('/programari/{programare}/acceptata', [ProgramareController::class, 'updateAcceptata'])->name('update.acceptata');
+    Route::get('/utilizatori/{user}/edit-roluri', [RegisteredUserController::class, 'edit'])->name('user.edit');
+    Route::patch('/utilizatori/{user}/update-roluri', [RegisteredUserController::class, 'update'])->name('user.update-roluri');
+});
 
 Route::get('products/{tag}', [ProductDisplayController::class, 'showProductsByTag'])->name('products-by-tag');
 Route::get('product/{slug}', [ProductDisplayController::class, 'showProduct'])->name('product');
@@ -54,6 +62,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+});
+
+Route::fallback(function () {
+    return redirect('/acasa');
 });
 
 require __DIR__.'/auth.php';

@@ -37,7 +37,7 @@
 
 <header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-10 shadow-lg bg-[rgba(255,255,255,0.75)]"
     :class="{ 'backdrop-blur-md': open === false }">
-    <div class="container flex items-center justify-between px-6 py-4 mx-auto">
+    <div class="container flex items-center justify-between px-6 py-4 lg:py-1 mx-auto">
         <a href="/" class="text-2xl font-bold text-gray-800">
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
         </a>
@@ -154,8 +154,12 @@
         <nav id="mainMenu" class="hidden lg:block lg:ml-auto">
             <ul class="items-center justify-end pt-4 text-lg font-semibold text-gray-800 lg:flex lg:pt-0"
                 style="list-style: none;">
-                <li><a href="/programare"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Programare Service</a>
+                <li>
+                    <a href="/programare"
+                    class="text-lg py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Vreau
+                    o programare</a>
+                    {{-- <a href="/programare"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Programare Service</a> --}}
                 </li>
                 <li><a href="/articole"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>
@@ -176,7 +180,7 @@
                         </button>
 
                         <div x-show="open" @mouseenter="open = true" @mouseleave="open = false"
-                            class="left-0 rounded-md w-56 origin-top-right bg-white shadow-xl lg:absolute categoryDropdown divide-y-2 divide-economic-darkgreen border border-economic-darkgreen"
+                            class="left-0 rounded-md w-56 origin-top-right bg-white shadow-xl lg:absolute categoryDropdown divide-y-2 divide-economic-darkgreen border border-economic-darkgreen z-10"
                             x-show="isOpen" x-transition:enter="transition ease-out duration-300"
                             x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
                             x-transition:leave="transition ease-in duration-300"
@@ -260,6 +264,12 @@
 
             </ul>
         </nav>
+        @role('admin')
+        <div class="fixed top-[91.2px] lg:top-[104px] xl:top-[76px] left-0 right-0 bg-red-500 text-white px-6 py-1 z-[-1]">
+            <a href="/programari">Programari</a>
+            <a href="/utilizatori">Utilizatori</a>
+        </div>
+        @endrole
     </div>
 </header>
 

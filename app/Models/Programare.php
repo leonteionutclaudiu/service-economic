@@ -14,6 +14,8 @@ class Programare extends Model
         'telefon',
         'nr_inmatriculare',
         'mesaj',
+        'acceptata',
+        'data_programare',
     ];
 
 }

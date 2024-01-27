@@ -25,30 +25,37 @@
                 <div class="mb-4">
                     <label for="nume" class="block text-gray-600 font-bold">Nume:</label>
                     <input type="text" name="nume" id="nume"
-                        class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" required>
+                        class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" placeholder="Popescu" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="email" class="block text-gray-600 font-bold">Email:</label>
                     <input type="email" name="email" id="email"
-                        class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" required>
+                        class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" placeholder="Alexandru" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="telefon" class="block text-gray-600 font-bold">Telefon:</label>
                     <input type="text" name="telefon" id="telefon"
-                        class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" required>
+                        class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" placeholder="0712345678" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="nr_inmatriculare" class="block text-gray-600 font-bold">Nr. Înmatriculare:</label>
                     <input type="text" name="nr_inmatriculare" id="nr_inmatriculare"
-                        class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" required>
+                        class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" placeholder="B183ARJ" required>
                 </div>
 
                 <div class="mb-4">
-                    <label for="mesaj" class="block text-gray-600 font-bold">Mesaj:</label>
-                    <textarea name="mesaj" id="mesaj" class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" rows="4"></textarea>
+                    <label for="data_programare" class="block text-gray-600 font-bold">Ziua dorita pentru programare:</label>
+                    <input type="date" name="data_programare" id="data_programare"
+                        class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" min="{{ date('Y-m-d') }}" required>
+                </div>
+
+
+                <div class="mb-4">
+                    <label for="mesaj" class="block text-gray-600 font-bold">Lasa-ne un mesaj:</label>
+                    <textarea name="mesaj" id="mesaj" class="mt-1 block w-full ring-economic-darkgreen hover:ring-2" rows="4" placeholder="Doresc o revizie tehnica pentru un VW Polo din anul 2017." required></textarea>
                 </div>
 
                 <button type="submit"

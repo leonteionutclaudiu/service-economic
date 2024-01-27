@@ -20,7 +20,10 @@ class ProgramareController extends Controller
             'telefon' => 'required|string',
             'nr_inmatriculare' => 'required|string',
             'mesaj' => 'nullable|string',
+            'data_programare' => 'required',
         ]);
+
+        $validatedData['acceptata'] = false;
 
         Programare::create($validatedData);
 
@@ -29,8 +32,24 @@ class ProgramareController extends Controller
 
     public function showProgramari()
 {
-    $programari = Programare::all();
+    $programari = Programare::latest()->get();
 
     return view('programari.programari', compact('programari'));
+}
+public function updateAcceptata(Request $request, Programare $programare)
+{
+    if (!auth()->user()->hasRole('admin')) {
+        return redirect()->back()->with('error', 'Nu aveți permisiunea de a actualiza starea programării.');
+    }
+
+    $request->validate([
+        'acceptata' => 'required|boolean',
+    ]);
+
+    $programare->update([
+        'acceptata' => $request->acceptata,
+    ]);
+
+    return redirect()->back()->with('success', 'Starea programării a fost actualizată cu succes.');
 }
 }

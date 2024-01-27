@@ -128,11 +128,8 @@
     <button type='submit' id='trimitebtnblock' class='uppercase feedback_button'>Trimite mesajul</button>
 </form>
 
-@if (Session::has('success_message'))
-    <div id="flashMessage"
-        class="fixed w-full max-w-xs p-4 mb-4 text-center text-white transition-opacity duration-500 rounded opacity-0 bg-economic-darkgreen bottom-4 left-4">
-        {{ Session::get('success_message') }}
-    </div>
+@if (session('success'))
+    <x-flash-message type="success" :message="session('success')" />
 @endif
 
 <script>

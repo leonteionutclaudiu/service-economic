@@ -53,10 +53,9 @@
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Salvează') }}</x-primary-button>
 
-            @if (session('status') === 'profile-updated')
-                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600">{{ __('Salvat.') }}</p>
-            @endif
+            @if (session('status'))
+            <x-flash-message type="status" :message="session('status')" />
+        @endif
         </div>
     </form>
 </section>

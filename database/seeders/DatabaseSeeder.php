@@ -2,21 +2,44 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
+    public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // Adaugă roluri și permisiuni
+        $this->createRolesAndPermissions();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // Asignează roluri utilizatorilor
+        $this->assignRolesToUsers();
+    }
+
+    private function createRolesAndPermissions()
+    {
+        // Adaugă roluri
+        $adminRole = Role::create(['name' => 'admin']);
+        $userRole = Role::create(['name' => 'user']);
+
+        // Adaugă permisiuni
+        $manageUsersPermission = Permission::create(['name' => 'manage_users']);
+        $manageProgramariPermission = Permission::create(['name' => 'manage_programari']);
+
+        // Asociază permisiunile cu rolurile
+        $adminRole->syncPermissions([$manageUsersPermission, $manageProgramariPermission]);
+    }
+
+    private function assignRolesToUsers()
+    {
+        // Asignează roluri utilizatorilor
+        $adminUser = User::create([
+            'name' => 'Admin User',
+            'email' => 'admin@economic.com',
+            'password' => bcrypt('Parola123'),
+        ]);
+        $adminUser->assignRole('admin');
     }
 }

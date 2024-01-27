@@ -114,6 +114,7 @@ ul {
 input[type="text"],
 input[type="tel"],
 input[type="email"],
+input[type="date"],
 textarea {
     width: 100%;
     padding: 10px;
@@ -128,6 +129,7 @@ textarea {
 input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="email"]:focus,
+input[type="date"]:focus,
 textarea:focus {
     border-color: #008237;
     outline: none;

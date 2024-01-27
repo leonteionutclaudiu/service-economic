@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
 
 class RegisteredUserController extends Controller
 {
@@ -44,8 +45,33 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
+        $user->assignRole('user');
+
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function index()
+    {
+        $users = User::latest()->get();
+        return view('users.users', compact('users'));
+    }
+    public function edit(User $user)
+    {
+        $roles = Role::all();
+
+        return view('users.user-edit', compact('user', 'roles'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $request->validate([
+            'roles' => 'array',
+        ]);
+
+        $user->syncRoles($request->roles);
+
+        return redirect()->route('users.index')->with('success', 'Rolurile utilizatorului au fost actualizate cu succes.');
     }
 }
