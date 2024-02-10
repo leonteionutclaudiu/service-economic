@@ -64,6 +64,7 @@ class Product extends Model
             if ($product->isDirty('published') && $product->published == 0) {
                 // Product is being unpublished, delete associated cart items
                 DB::table('carts')->where('product_id', $product->id)->delete();
+                DB::table('favorites')->where('product_id', $product->id)->delete();
             }
         });
     }

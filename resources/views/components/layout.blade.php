@@ -63,6 +63,9 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
 
         {{-- scroll to top button --}}
         @include('components.scrollToTopBtn')
+
+        @include('components.whatsapp-button')
+        @include('components.messenger-button')
     </div>
 
     {{-- VANILLA TILT JS IMPORT CDN --}}

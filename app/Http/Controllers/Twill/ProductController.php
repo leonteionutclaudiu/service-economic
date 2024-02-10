@@ -106,7 +106,7 @@ class ProductController extends BaseModuleController
     }
 
     public function addToCart(Product $product)
-{
+    {
     // Check if the product is already in the user's cart
     $cartItem = auth()->user()->cart->where('product_id', $product->id)->first();
 
@@ -117,5 +117,11 @@ class ProductController extends BaseModuleController
         // Add the product to the cart
         auth()->user()->cart->create(['product_id' => $product->id, 'quantity' => 1]);
     }
-}
+    }
+    public function addToFavorites(Product $product)
+    {
+        // Add the product to the favorites list
+        auth()->user()->favorites->create(['product_id' => $product->id]);
+
+    }
 }

@@ -44,7 +44,7 @@
         <div class='control_group'>
             <label class='label' for='nume'>Nume*</label>
             <input type='text' name='nume' placeholder='Ion Popescu' id='nume'
-                class="@error('nume') bg-red-50 @enderror ring-economic-darkgreen hover:ring-2"
+                class="@error('nume') bg-red-50 @enderror ring-economic-darkgreen focus:ring-economic-darkgreen"
                 value="{{ old('nume') }}">
             @error('nume')
                 <span class="text-red-500">{{ $message }}</span>
@@ -54,7 +54,7 @@
         <div class='control_group'>
             <label class='label' for='nr'>Telefon*</label>
             <input type='tel' name='nr' placeholder='0737600600' id='nr'
-                class="@error('nr') bg-red-50 @enderror ring-economic-darkgreen hover:ring-2"
+                class="@error('nr') bg-red-50 @enderror focus:ring-economic-darkgreen ring-economic-darkgreen"
                 value="{{ old('nr') }}">
             @error('nr')
                 <span class="text-red-500">{{ $message }}</span>
@@ -64,7 +64,7 @@
         <div class='control_group'>
             <label class='label' for='companie'>Companie*</label>
             <input type='text' name='companie' placeholder='Numele Companiei' id='companie'
-                class="@error('companie') bg-red-50 @enderror ring-economic-darkgreen hover:ring-2"
+                class="@error('companie') bg-red-50 @enderror focus:ring-economic-darkgreen  ring-economic-darkgreen"
                 value="{{ old('companie') }}">
             @error('companie')
                 <span class="text-red-500">{{ $message }}</span>
@@ -74,7 +74,7 @@
         <div class='control_group'>
             <label class='label' for='judet'>Judet*</label>
             <input type='text' name='judet' placeholder='Judetul' id='judet'
-                class="@error('judet') bg-red-50 @enderror ring-economic-darkgreen hover:ring-2"
+                class="@error('judet') bg-red-50 @enderror focus:ring-economic-darkgreen ring-economic-darkgreen"
                 value="{{ old('judet') }}">
             @error('judet')
                 <span class="text-red-500">{{ $message }}</span>
@@ -86,7 +86,7 @@
     <div class='control_group'>
         <label class='label' for='email'>Email*</label>
         <input type='text' name='email' placeholder='popescu.ion@gmail.com' id='email'
-            class="@error('email') bg-red-50 @enderror ring-economic-darkgreen hover:ring-2"
+            class="@error('email') bg-red-50 @enderror focus:ring-economic-darkgreen ring-economic-darkgreen"
             value="{{ old('email') }}">
         @error('email')
             <span class="text-red-500">{{ $message }}</span>
@@ -96,7 +96,7 @@
     <div class="control_group">
         <label class='label' for='mesaj'>Mesaj*</label>
         <textarea name='mesaj' rows="4" id='mesaj'
-            class="@error('mesaj') bg-red-50 @enderror ring-economic-darkgreen hover:ring-2">{{ old('mesaj') }}</textarea>
+            class="@error('mesaj') bg-red-50 @enderror focus:ring-economic-darkgreen ring-economic-darkgreen">{{ old('mesaj') }}</textarea>
         @error('mesaj')
             <span class="text-red-500">{{ $message }}</span>
         @enderror
@@ -104,7 +104,7 @@
 
     <div class="flex items-center justify-center gap-2 control_group">
         <input type="checkbox" name="privacy_policy" id="privacy_policy"
-            class="@error('privacy_policy') bg-red-50 @enderror" {{ old('privacy_policy') ? 'checked' : '' }}>
+            class="@error('privacy_policy') bg-red-50 @enderror focus:ring-economic-darkgreen" {{ old('privacy_policy') ? 'checked' : '' }}>
         <label class="m-0 text-economic-gri" for="privacy_policy">Am citit și sunt de acord cu <a
                 href="/politica-de-confidentialitate" target="_blank" class="font-bold underline">Politica de
                 confidențialitate</a></label>

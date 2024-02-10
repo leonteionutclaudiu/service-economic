@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductDisplayController;
@@ -54,6 +55,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
     Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
     Route::get('/cart/count', [CartController::class, 'getCartItemCount']);
+
+    Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites.index');
+    Route::post('/favorites', [FavoritesController::class, 'store'])->name('favorites.store');
+    // Route::put('/favorites/{id}', [FavoritesController::class, 'update'])->name('favorites.update');
+    Route::delete('/favorites/{id}', [FavoritesController::class, 'destroy'])->name('favorites.destroy');
+    Route::get('/favorites/count', [FavoritesController::class, 'getFavoritesItemCount']);
 });
 
 // API routes

@@ -8,6 +8,7 @@ use App\Repositories\ProductRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductDisplayController extends Controller
 {
@@ -45,11 +46,24 @@ class ProductDisplayController extends Controller
     {
         $product = $productRepository->forSlug($slug);
 
+
         if (! $product) {
             abort(404);
         }
 
-        return view('site.product', ['product' => $product]);
+    // Verificați dacă utilizatorul este autentificat
+    if (auth()->check()) {
+        // Obțineți id-ul utilizatorului curent
+        $userId = auth()->id();
+
+        // Utilizăm un join pentru a verifica dacă există o înregistrare în tabela de favorite pentru produsul și utilizatorul curent
+        $favorite = DB::table('favorites')
+        ->where('product_id', $product->id)
+        ->where('user_id', $userId)
+        ->first();
+    }
+
+        return view('site.product', ['product' => $product, 'favorite' => $favorite]);
     }
 
     public function search(Request $request)
