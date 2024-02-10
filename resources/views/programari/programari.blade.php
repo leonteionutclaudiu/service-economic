@@ -48,7 +48,7 @@
                                         </x-bladewind.button>
 
                                         <x-bladewind.modal name="programare-{{ $programare->id }}" type="info"
-                                            okButtonLabel="Inchide" cancelButtonLabel="">
+                                            okButtonLabel="Inchide" cancelButtonLabel="" >
                                             {{ $programare->mesaj }}
                                         </x-bladewind.modal>
 

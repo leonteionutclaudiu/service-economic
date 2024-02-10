@@ -18,7 +18,8 @@
 
                     dropdown.removeChild(loadingOption);
 
-                    categories.forEach(category => {
+                    // categories.forEach(category => {
+                        Object.values(categories).forEach(category => {
                         const link = document.createElement('a');
                         link.href = '/products/' + category.slug;
                         link.textContent = category.name;

@@ -4,10 +4,10 @@
 
 <x-layout>
 
-    <div class="py-6 mx-auto lg:py-20 md:py-14">
+    <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-[1500px]">
 
         {{-- Breadcrumb --}}
-        <nav class="flex flex-wrap gap-2 px-4 py-2 mb-4 bg-gray-100 md:px-12 text-economic-darkgray"
+        <nav class="flex flex-wrap gap-2 px-4 py-2 mb-4 md:px-12 text-economic-darkgray"
             aria-label="Breadcrumb">
             <a href="/" class="transition hover:text-black"><i class="fa fa-home" aria-hidden="true"></i>
                 Pagina principala / </a>
