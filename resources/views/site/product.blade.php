@@ -200,7 +200,7 @@
 
             <div class="mx-auto mt-10 text-lg max-w-[75ch] md:text-xl">{!! $product->description !!}</div>
             <a href="/contact"
-                class="block px-8 py-4 mx-auto mt-6 font-semibold text-white uppercase transition duration-500 ease-in-out transform rounded-full cursor-pointer w-fit bg-economic-red hover:scale-105 hover:bg-black hover:border-radacini-green">
+                class="block px-8 py-4 mx-auto mt-6 font-semibold text-white uppercase transition duration-500 ease-in-out transform rounded-full cursor-pointer w-fit bg-economic-red hover:scale-105 hover:bg-black hover:border-economic-green">
                 Vreau o oferta
             </a>
 
@@ -271,7 +271,7 @@
                                         'm2v',
                                     ]))
                                     <a href="{{ asset('storage/uploads/' . $file->uuid) }}" download
-                                        class="block mb-2 transition text-economic-darkgreen hover:text-radacini-green hover:underline">
+                                        class="block mb-2 transition text-economic-darkgreen hover:text-economic-green hover:underline">
                                         <i class="mr-2 fas fa-download"></i>{{ $file->filename }}
                                     </a>
                                 @endif
