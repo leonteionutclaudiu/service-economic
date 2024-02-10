@@ -36,7 +36,7 @@ class ProductDisplayController extends Controller
         $products = Product::whereHas('tags', function ($query) use ($tagSlug) {
             $query->where('taggable_type', '=', 'App\Models\Product')
                 ->where('slug', $tagSlug);
-        })->paginate(12);
+        })->where('published', 1)->paginate(12);
 
         return view('site.products', ['products' => $products, 'tag' => $tag]);
     }

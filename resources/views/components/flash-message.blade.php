@@ -7,7 +7,7 @@
     x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 transform scale-100"
     x-transition:leave-end="opacity-0 transform scale-90"
-    class="fixed top-28 left-2 flex items-center p-4 mb-4 text-lg rounded-lg z-[999]"
+    class="fixed top-28 left-2 right-0 md:right-auto flex items-center p-4 mb-4 text-lg rounded-lg z-[999]"
     :class="{
         'text-green-800 bg-green-50 dark:bg-gray-800 dark:text-green-400': '{{ $type }}' === 'success',
         'text-red-800 bg-red-50 dark:bg-red-800 dark:text-red-400': '{{ $type }}' === 'error',

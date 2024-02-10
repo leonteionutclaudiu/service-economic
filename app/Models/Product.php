@@ -8,6 +8,7 @@ use A17\Twill\Models\Behaviors\HasMedias;
 use A17\Twill\Models\Behaviors\HasFiles;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Model;
+use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
@@ -54,4 +55,16 @@ class Product extends Model
         ],
     ];
     public $filesParams = ['file_role', 'file_role1', 'file_role2', 'files', 'videos'];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($product) {
+            if ($product->isDirty('published') && $product->published == 0) {
+                // Product is being unpublished, delete associated cart items
+                DB::table('carts')->where('product_id', $product->id)->delete();
+            }
+        });
+    }
 }

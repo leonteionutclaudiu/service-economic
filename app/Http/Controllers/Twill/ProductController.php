@@ -44,7 +44,7 @@ class ProductController extends BaseModuleController
             Tags::make()->label('Categorie *')->required(true)->note('Obligatoriu !')
         );
 
-        $form->add(Medias::make()->name('picture')->label('Imagini (max.10)')->max(10)->required(true)->note('Obligatoriu !'));
+        $form->add(Medias::make()->name('picture')->label('Imagini cu acelasi format-ratio (max.10 imagini)')->max(10)->required(true)->note('Obligatoriu !'));
 
         $form->add(
             Wysiwyg::make()->name('description')->label('Descriere')

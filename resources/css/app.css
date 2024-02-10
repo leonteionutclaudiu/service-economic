@@ -192,8 +192,14 @@ textarea:focus {
     );
 }
 
-.addToCartBtn svg {
+.addToCartBtn svg,
+.addToFavoriteBtn svg {
     fill: #fff;
+}
+
+.addToFavoriteBtn:hover {
+    background-color: #fff;
+    border: 1px solid #FF0000;
 }
 
 .addToCartBtn:hover {
@@ -201,6 +207,18 @@ textarea:focus {
     border: 1px solid #008237;
 }
 
+.addToFavoriteBtn:hover svg {
+    fill:#FF0000 ;
+}
+
 .addToCartBtn:hover svg {
     fill: #008237;
+}
+
+.addToCartBtn:hover span {
+    color: #008237;
+}
+
+.addToFavoriteBtn:hover span {
+    color: #FF0000;
 }
