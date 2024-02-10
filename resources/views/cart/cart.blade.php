@@ -53,4 +53,7 @@
     @if (session('success'))
         <x-flash-message type="success" :message="session('success')" />
     @endif
+    @if (session('error'))
+        <x-flash-message type="error" :message="session('error')" />
+    @endif
 </x-layout>
