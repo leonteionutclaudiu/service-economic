@@ -12,20 +12,28 @@
                                 class="block w-16 md:w-24 mr-4" />
                             <p class="text-lg font-semibold">{{ $cartItem->product->title }}</p>
                         </div>
-                        <div class="flex items-center">
+                        <div class="flex items-end flex-col gap-2">
                             <form class="flex" action="{{ route('cart.update', $cartItem->id) }}" method="post">
                                 @csrf
                                 @method('put')
                                 <input type="number" name="quantity" value="{{ $cartItem->quantity }}" min="1"
                                     class="w-24 text-center mr-4 focus:ring-economic-darkgreen rounded-md">
-                                <button type="submit" class="text-economic-darkgreen hover:text-black whitespace-nowrap">Actualizare
+                                <button type="submit"
+                                    class="text-economic-darkgreen hover:text-black whitespace-nowrap">Actualizare
                                     cantitate</button>
                             </form>
                             <form action="{{ route('cart.destroy', $cartItem->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="text-red-500 hover:text-red-700 ml-4"><i class="fa-solid fa-trash text-2xl transition duration-300 hover:scale-110"></i></button>
+                                <button type="submit" class="text-red-500 hover:text-red-700 ml-4"><i
+                                        class="fa-solid fa-trash text-2xl transition duration-300 hover:scale-110"></i></button>
                             </form>
+                            <div>
+                                <p class="font-bold text-lg">
+                                    {{ $cartItem->product->price * $cartItem->quantity }} RON</p>
+                                <p class="font-bold text-sm text-gray-500">
+                                    {{ $cartItem->product->price }} RON / buc</p>
+                            </div>
                         </div>
                     </div>
                 @endforeach
