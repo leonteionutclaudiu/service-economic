@@ -39,6 +39,8 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
     {{-- <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" /> --}}
     <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
 
+    <script src="https://kit.fontawesome.com/092372ecfa.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); } }" @scroll.window="isVisible = window.scrollY > 100">

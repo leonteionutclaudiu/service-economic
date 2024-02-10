@@ -6,25 +6,25 @@
             <div class="grid grid-cols-1 gap-4 px-4 py-6 mx-auto md:px-12">
                 @foreach ($cartItems as $cartItem)
                     <div
-                        class="flex flex-col items-center justify-between p-4 mb-4 bg-light rounded-lg shadow-lg text-economic-darkgreen">
-                        <div class="flex items-center">
+                        class="flex flex-col md:flex-row items-center justify-between p-4 mb-4 bg-light rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-economic-darkgreen">
+                        <div class="flex items-center mb-2">
                             <img src="{{ $cartItem->product->image('picture') }}" alt="{{ $cartItem->product->title }}"
-                                class="block object-contain w-16 h-16 mr-4" />
+                                class="block w-16 md:w-24 mr-4" />
                             <p class="text-lg font-semibold">{{ $cartItem->product->title }}</p>
                         </div>
                         <div class="flex items-center">
-                            <form action="{{ route('cart.update', $cartItem->id) }}" method="post">
+                            <form class="flex" action="{{ route('cart.update', $cartItem->id) }}" method="post">
                                 @csrf
                                 @method('put')
                                 <input type="number" name="quantity" value="{{ $cartItem->quantity }}" min="1"
-                                    class="w-24 text-center mr-4 focus:ring-economic-darkgreen">
-                                <button type="submit" class="text-economic-darkgreen hover:text-black">Actualizare
+                                    class="w-24 text-center mr-4 focus:ring-economic-darkgreen rounded-md">
+                                <button type="submit" class="text-economic-darkgreen hover:text-black whitespace-nowrap">Actualizare
                                     cantitate</button>
                             </form>
                             <form action="{{ route('cart.destroy', $cartItem->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="text-red-500 hover:text-red-700 ml-4">Șterge</button>
+                                <button type="submit" class="text-red-500 hover:text-red-700 ml-4"><i class="fa-solid fa-trash text-2xl transition duration-300 hover:scale-110"></i></button>
                             </form>
                         </div>
                     </div>
