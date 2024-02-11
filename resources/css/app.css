@@ -197,14 +197,8 @@ input[type="checkbox"]:checked {
     );
 }
 
-.addToCartBtn svg,
-.addToFavoriteBtn svg {
-    fill: #fff;
-}
-
-.addToFavoriteBtn:hover {
-    background-color: #fff;
-    border: 1px solid #ff0000;
+.addToCartBtn i {
+    color: #fff;
 }
 
 .addToCartBtn:hover {
@@ -212,18 +206,10 @@ input[type="checkbox"]:checked {
     border: 1px solid #008237;
 }
 
-.addToFavoriteBtn:hover svg {
-    fill: #ff0000;
-}
-
-.addToCartBtn:hover svg {
-    fill: #008237;
+.addToCartBtn:hover i {
+    color: #008237;
 }
 
 .addToCartBtn:hover span {
     color: #008237;
-}
-
-.addToFavoriteBtn:hover span {
-    color: #ff0000;
 }

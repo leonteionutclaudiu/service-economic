@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use A17\Twill\Models\Tag;
+use App\Models\Favorites;
 use App\Models\Product;
 use App\Repositories\ProductRepository;
 use Illuminate\Contracts\View\View;
@@ -28,18 +29,26 @@ class ProductDisplayController extends Controller
 
     public function showProductsByTag(string $tagSlug)
     {
-        $tag = Tag::where('slug', $tagSlug)->first();
-
-        if (! $tag) {
-            abort(404);
-        }
+        $tag = Tag::where('slug', $tagSlug)->firstOrFail();
 
         $products = Product::whereHas('tags', function ($query) use ($tagSlug) {
             $query->where('taggable_type', '=', 'App\Models\Product')
-                ->where('slug', $tagSlug);
+                  ->where('slug', $tagSlug);
         })->where('published', 1)->paginate(12);
 
-        return view('site.products', ['products' => $products, 'tag' => $tag]);
+        // Verificați dacă utilizatorul este autentificat
+        if (auth()->check()) {
+            // Obțineți id-ul utilizatorului curent
+            $userId = auth()->id();
+
+            // Obțineți toate produsele favorite ale utilizatorului curent
+            $favorites = DB::table('favorites')
+            ->where('user_id', $userId)
+            ->get();
+
+        }
+
+        return view('site.products', ['products' => $products, 'tag' => $tag, 'favorites'=> $favorites]);
     }
 
     public function showProduct(string $slug, ProductRepository $productRepository): View
@@ -51,12 +60,9 @@ class ProductDisplayController extends Controller
             abort(404);
         }
 
-    // Verificați dacă utilizatorul este autentificat
-    if (auth()->check()) {
-        // Obțineți id-ul utilizatorului curent
+        if (auth()->check()) {
         $userId = auth()->id();
 
-        // Utilizăm un join pentru a verifica dacă există o înregistrare în tabela de favorite pentru produsul și utilizatorul curent
         $favorite = DB::table('favorites')
         ->where('product_id', $product->id)
         ->where('user_id', $userId)
