@@ -84,9 +84,8 @@ class ProductDisplayController extends Controller
             return redirect()->back()->with('error', 'Campul pentru cautare este gol');
         }
 
-        $products = Product::whereHas('translations', function ($query) use ($searchInput) {
-            $query->where('title', 'like', "%{$searchInput}%");
-        })->paginate(12);
+        $products = Product::where('title', 'like', "%{$searchInput}%")->paginate(12);
+        $products->appends(['search' => $searchInput]);
 
         return view('site.search-results', compact('products', 'searchInput'));
     }

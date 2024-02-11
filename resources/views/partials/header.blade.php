@@ -80,9 +80,9 @@
 
 <header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-10 shadow-lg bg-[rgba(255,255,255,0.75)]"
     :class="{ 'backdrop-blur-md': open === false }">
-    <div class="container flex items-center justify-between px-6 py-4 lg:py-1 mx-auto">
+    <div class="xl:container flex items-center justify-between px-6 py-4 lg:py-1 mx-auto">
         <a href="/" class="text-2xl font-bold text-gray-800">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 min-w-28 h-auto" />
         </a>
 
         <!-- Butonul de meniu pentru dispozitivele mici -->
@@ -110,17 +110,14 @@
             </div>
             <div>
                 <a href="/">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 h-auto" />
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 min-w-28 h-auto" />
                 </a>
                 <ul class="text-center" style="list-style: none;">
 
                     @guest
                         <li><a href="/login"
-                                class="block fixed top-4 left-0 right-0 w-fit mx-auto py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black"><svg
-                                    height='30px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path
-                                        d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
-                                </svg></a>
+                                class="block fixed top-4 left-0 right-0 w-fit mx-auto py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black"><i
+                                    class="fa-solid fa-user text-3xl"></i></a>
                         </li>
                     @endguest
 
@@ -194,20 +191,31 @@
         </nav>
 
         <!-- Meniul pentru dispozitivele mari -->
-        <nav id="mainMenu" class="hidden lg:block lg:ml-auto">
-            <ul class="items-center justify-end pt-4 text-lg font-semibold text-gray-800 lg:flex lg:pt-0"
+        <nav id="mainMenu" class="hidden lg:block ">
+            <ul class="items-center justify-end text-lg font-semibold text-gray-800 lg:flex p-0"
                 style="list-style: none;">
+                <li class="mx-2">
+                    <form method="GET" action="search" class="m-0">
+                        <div class="relative">
+                            <input type='text' name='search' placeholder='Cauta produse...'
+                                class="min-w-44 text-sm xl:text-base pr-12 pl-4 py-2 rounded-lg focus:outline-none focus:ring-0 focus:border-0"
+                                style="margin: 0; border:none;" />
+                            <button type="submit"
+                                class="absolute inset-y-0 right-0 flex items-center px-3 bg-gray-400 text-white hover:bg-economic-darkgreen transition duration-300 rounded-r-md">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </li>
                 <li>
                     <a href="/programare"
-                        class="text-lg py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Vreau
+                        class="text-[15px] xl:text-lg py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Vreau
                         o programare</a>
-                    {{-- <a href="/programare"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Programare Service</a> --}}
                 </li>
                 <li><a href="/articole"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>
                 </li>
-                <li class="py-2 lg:px-4">{{-- dropdown --}}
+                <li class="py-2 lg:px-4">
                     <div x-data="{ open: false }"
                         class="relative inline-block font-semibold text-left transition duration-300 transform z-10"
                         @mouseleave="open = false">
@@ -225,7 +233,8 @@
                         <div x-show="open" @mouseenter="open = true" @mouseleave="open = false"
                             class="left-0 rounded-md w-56 origin-top-right bg-white shadow-xl lg:absolute categoryDropdown divide-y-2 divide-economic-darkgreen border border-economic-darkgreen z-10"
                             x-show="isOpen" x-transition:enter="transition ease-out duration-300"
-                            x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:enter-start="opacity-0 scale-90"
+                            x-transition:enter-end="opacity-100 scale-100"
                             x-transition:leave="transition ease-in duration-300"
                             x-transition:leave-start="opacity-100 scale-100"
                             x-transition:leave-end="opacity-0 scale-90" @click.away="open = false">
@@ -251,19 +260,16 @@
                         class="block py-2 transition duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-white text-economic-red rounded-full">Contact</a>
                 </li>
                 <li class="relative"><a href="/cart"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">
-                        <svg height="24px" fill="#008237" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                            <path
-                                d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512H430c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32H458.4L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z" />
-                        </svg>
+                        class="block py-2 transition duration-300 lg:px-4 text-economic-darkgreen hover:text-economic-lightgreen">
+                        <i class="fa-solid fa-cart-shopping text-2xl"></i>
                         <!-- Display the count dynamically -->
                         <span id="cartCount"
                             class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"></span>
                     </a>
                 </li>
                 <li class="relative"><a href="/favorites"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">
-                        <svg height="24px" fill="#FF0000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                        class="block py-2 transition duration-300 xl:px-4 text-economic-red hover:text-economic-orange">
+                        <i class="fa-solid fa-heart text-2xl"></i>
                         <!-- Display the count dynamically -->
                         <span id="favoritesCount"
                             class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"></span>
@@ -272,11 +278,8 @@
 
                 @guest
                     <li><a href="/login"
-                            class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black"><svg
-                                height='20px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path
-                                    d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
-                            </svg></a>
+                            class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgray text-black"><i
+                                class="fa-solid fa-user text-2xl"></i></a>
                     </li>
                 @endguest
 

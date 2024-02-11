@@ -7,6 +7,10 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
+            <img src="{{ asset('images/logo.png') }}" alt="logo" class="block mx-auto w-full max-w-64 mb-4" />
+
+            <h3 class="text-center text-economic-darkgray">Salut!</h3>
+
             <!-- Email Address -->
             <div>
                 <x-input-label for="email" :value="__('Email')" />

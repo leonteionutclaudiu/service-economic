@@ -4,6 +4,14 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
+            <img src="{{ asset('images/logo.png') }}" alt="logo" class="block mx-auto w-full max-w-64 mb-4" />
+
+            <h3 class="text-center text-economic-darkgray">Vreau un cont nou</h3>
+
+            <h6>De ce sa iti faci un cont la noi ?</h6>
+            <p class="mx-1 my-2 text-green-900"><i class="fa-solid fa-wand-sparkles"></i> Poti plasa comenzi si sa urmaresti statusul lor</p>
+            <p class="mx-1 my-2 text-green-900"><i class="fa-solid fa-wand-sparkles"></i> Salvezi produse in wishlist si faci liste de cumparaturi</p>
+
             <!-- Name -->
             <div>
                 <x-input-label for="name" :value="__('Nume')" />

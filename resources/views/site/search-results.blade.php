@@ -4,7 +4,7 @@
 
 <x-layout>
 
-    <div class="py-6 mx-auto lg:py-20 md:py-14">
+    <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-[1500px]">
         @if (session('error'))
             <div class="relative px-4 py-3 text-center text-red-700 bg-red-100 border border-red-400 rounded"
                 role="alert">
