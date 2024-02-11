@@ -161,14 +161,14 @@
                                 class="fa-solid fa-cart-plus text-xl"></i>
                         </button>
                     </form>
-                    @if ($favorite)
+                    @if (auth()->check() && $favorite)
                         <form method="post" action="{{ route('favorites.destroy', $favorite->id) }}"
                             class="product-form">
                             @csrf
                             @method('DELETE')
                             <button type="submit"
                                 class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md bg-economic-red text-white mx-auto transition border border-economic-red w-full addToFavoriteBtn"><span
-                                    class="hidden md:block">Sterge din favorite</span><i class="fa-solid fa-heart"></i>
+                                    class="hidden md:block">Sterge din favorite</span><i class="fa-solid fa-heart text-xl"></i>
                             </button>
                         </form>
                     @else
@@ -176,15 +176,15 @@
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <button type="submit"
-                                class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md bg-economic-red text-white mx-auto transition border border-economic-red w-full addToFavoriteBtn"><span
-                                    class="hidden md:block">Adauga la favorite</span><i class="fa-regular fa-heart"></i>
+                                class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md bg-economic-red text-white mx-auto transition border border-economic-red hover:bg-white hover:text-economic-red w-full addToFavoriteBtn"><span
+                                    class="hidden md:block">Adauga la favorite</span><i class="fa-regular fa-heart text-xl"></i>
                             </button>
                         </form>
                     @endif
                 </div>
             </div>
 
-            <div class="flex gap-2 items-center w-full md:hidden">
+            <div class="flex gap-2 items-center w-full md:hidden sticky top-24 z-[2]">
                 <form method="post" action="{{ route('cart.store') }}" class="product-form w-full">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -207,7 +207,7 @@
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <button type="submit"
-                            class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md  mx-auto transition border border-economic-red text-economic-red w-full text-2xl hover:bg-economic-red hover:text-white addToFavoriteBtn"><i
+                            class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md  mx-auto transition border bg-white border-economic-red text-economic-red w-full text-2xl hover:bg-economic-red hover:text-white addToFavoriteBtn"><i
                                 class="fa-regular fa-heart"></i>
                         </button>
                     </form>

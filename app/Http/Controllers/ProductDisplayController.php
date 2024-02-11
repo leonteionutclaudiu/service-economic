@@ -36,6 +36,8 @@ class ProductDisplayController extends Controller
                   ->where('slug', $tagSlug);
         })->where('published', 1)->paginate(12);
 
+        $favorites = null;
+
         // Verificați dacă utilizatorul este autentificat
         if (auth()->check()) {
             // Obțineți id-ul utilizatorului curent
@@ -59,6 +61,8 @@ class ProductDisplayController extends Controller
         if (! $product) {
             abort(404);
         }
+
+        $favorite = null;
 
         if (auth()->check()) {
         $userId = auth()->id();

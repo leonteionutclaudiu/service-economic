@@ -36,8 +36,8 @@
                                     class="fa-solid fa-cart-plus"></i>
                             </button>
                         </form>
-                        @if ($favorites->contains('product_id', $product->id))
-                            @foreach ($favorites as $favorite)
+                        @if (auth()->check() && $favorites && $favorites->contains('product_id', $product->id))
+                        @foreach ($favorites as $favorite)
                                 @if ($favorite->product_id === $product->id)
                                     <form method="post" action="{{ route('favorites.destroy', $favorite->id) }}"
                                         class="product-form">
