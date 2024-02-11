@@ -198,7 +198,7 @@
                     <form method="GET" action="search" class="m-0">
                         <div class="relative">
                             <input type='text' name='search' placeholder='Cauta produse...'
-                                class="min-w-44 text-sm xl:text-base pr-12 pl-4 py-2 rounded-lg focus:outline-none focus:ring-0 focus:border-0"
+                                class="min-w-44 text-sm xl:text-base pr-12 pl-4 py-2 rounded-lg focus:outline-none bg-gray-100 focus:ring-0 focus:border-0"
                                 style="margin: 0; border:none;" />
                             <button type="submit"
                                 class="absolute inset-y-0 right-0 flex items-center px-3 bg-gray-400 text-white hover:bg-economic-darkgreen transition duration-300 rounded-r-md">
