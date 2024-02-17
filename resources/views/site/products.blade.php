@@ -4,7 +4,7 @@
 
 <x-layout>
 
-    <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-[1500px]">
+    <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-7xl">
 
         {{-- Breadcrumb --}}
         <nav class="flex flex-wrap gap-2 px-4 py-2 mb-4 md:px-12 text-economic-darkgray" aria-label="Breadcrumb">
@@ -18,7 +18,7 @@
         <h2 class="px-2 mb-4 text-center text-economic-darkgreen md:px-12">{!! $tag->name !!}</h2>
 
         <div
-            class="grid grid-cols-1 gap-4 px-4 py-6 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 md:px-12 ">
+            class="grid grid-cols-1 gap-4 px-4 py-6 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:px-12 ">
             @forelse ($products as $product)
                 <div
                     class="relative w-full mx-auto mb-6 overflow-hidden font-semibold text-center transition-transform duration-300 transform rounded-lg shadow-lg text-economic-darkgreen bg-light md:max-w-sm hover:shadow-xl hover:scale-105 flex flex-col justify-between h-full gap-4">

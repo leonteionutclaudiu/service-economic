@@ -8,11 +8,12 @@ use A17\Twill\Models\Behaviors\HasMedias;
 use A17\Twill\Models\Behaviors\HasFiles;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
-    use HasBlocks, HasSlug, HasMedias, HasFiles, HasRevisions;
+    use HasBlocks, HasSlug, HasMedias, HasFiles, HasRevisions , SoftDeletes;
 
     protected $fillable = [
         'published',
@@ -62,6 +63,12 @@ class Product extends Model
 
         static::saving(function ($product) {
             if ($product->isDirty('published') && $product->published == 0) {
+                // Product is being unpublished, delete associated cart items
+                DB::table('carts')->where('product_id', $product->id)->delete();
+                DB::table('favorites')->where('product_id', $product->id)->delete();
+            }
+
+            if ($product->isDirty('deleted_at') && $product->deleted_at != null) {
                 // Product is being unpublished, delete associated cart items
                 DB::table('carts')->where('product_id', $product->id)->delete();
                 DB::table('favorites')->where('product_id', $product->id)->delete();

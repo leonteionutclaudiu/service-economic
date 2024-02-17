@@ -16,9 +16,11 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $user = $request->user();
+        $shippingAddress = $user->shippingAddress;
+        $billingAddress = $user->billingAddress;
+
+        return view('profile.edit', compact('user', 'shippingAddress', 'billingAddress'));
     }
 
     /**
@@ -26,13 +28,36 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
+        $user->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
 
-        $request->user()->save();
+        $user->save();
+
+        // update or save shipping address
+        $user->shippingAddress()->updateOrCreate(
+            ['user_id' => $user->id],
+            [
+                'address_line' => $request->shipping_address_line,
+                'city' => $request->shipping_city,
+                'state' => $request->shipping_state,
+                'postal_code' => $request->shipping_postal_code,
+            ]
+        );
+
+        // update or save billing address
+        $user->billingAddress()->updateOrCreate(
+            ['user_id' => $user->id],
+            [
+                'address_line' => $request->billing_address_line,
+                'city' => $request->billing_city,
+                'state' => $request->billing_state,
+                'postal_code' => $request->billing_postal_code,
+            ]
+        );
 
         return Redirect::route('profile.edit')->with('status', 'Profil actualizat.');
     }
@@ -57,6 +82,6 @@ class ProfileController extends Controller
 
         session()->flash('success', 'Cont șters cu succes! Ne pare rău ca ne-ai părăsit :( .');
 
-        return Redirect::to('/acasa');
+        return Redirect::to('/');
     }
 }

@@ -11,7 +11,9 @@ class FavoritesController extends Controller
     public function index()
     {
         // Fetch the user's favorites items
-        $favoritesItems = Auth::user()->favorites;
+        $favoritesItems = Auth::user()->favorites()->whereHas('product', function ($query) {
+            $query->where('published', 1)->whereNull('deleted_at');
+        })->get();
 
         return view('favorites.favorites', compact('favoritesItems'));
     }
@@ -51,7 +53,9 @@ class FavoritesController extends Controller
 
     public function getFavoritesItemCount()
     {
-        $itemCount = Favorites::where('user_id', auth()->id())->count();
+        $itemCount = Favorites::whereHas('product', function ($query) {
+            $query->where('published', 1)->whereNull('deleted_at');
+        })->where('user_id', auth()->id())->count();
 
         return response()->json(['count' => $itemCount]);
     }

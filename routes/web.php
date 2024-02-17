@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\BillingAddressController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductDisplayController;
 use App\Http\Controllers\ProgramareController;
+use App\Http\Controllers\ShippingAddressController;
 use App\Http\Controllers\Twill\ContactController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,10 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('acasa', [\App\Http\Controllers\HomeDisplayController::class, 'show'])->name('acasa');
-Route::get('/', function () {
-    return redirect('/acasa');
-});
+Route::get('/', [\App\Http\Controllers\HomeDisplayController::class, 'show'])->name('acasa');
 Route::get('articole', [\App\Http\Controllers\NoutatiDisplayController::class, 'index'])->name('noutati-all');
 Route::get('articole/{slug}', [\App\Http\Controllers\NoutatiDisplayController::class, 'show'])->name('noutati');
 Route::get('despre-noi', [\App\Http\Controllers\EchipaDisplayController::class, 'show_despre_noi'])->name('despre-noi');
@@ -70,10 +69,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-});
+    Route::get('address/shipping', [ShippingAddressController::class, 'editShippingAddress'])->name('address.shipping.edit');
+    Route::patch('address/shipping', [ShippingAddressController::class, 'updateShippingAddress'])->name('address.shipping.update');
+
+    Route::get('address/billing', [BillingAddressController::class, 'editBillingAddress'])->name('address.billing.edit');
+    Route::patch('address/billing', [BillingAddressController::class, 'updateBillingAddress'])->name('address.billing.update');
+    });
 
 Route::fallback(function () {
-    return redirect('/acasa');
+    return redirect('/');
 });
 
 require __DIR__.'/auth.php';

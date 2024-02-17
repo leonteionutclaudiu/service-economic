@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-[1500px]">
+    <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-7xl">
         <h2 class="px-2 mb-4 text-center text-economic-darkgreen md:px-12">Coșul meu</h2>
 
         @if (count($cartItems) > 0)

@@ -100,7 +100,7 @@
         }
     </style>
 
-    <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-[1500px]">
+    <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-7xl">
 
         {{-- Breadcrumb --}}
         <nav class="flex flex-wrap gap-2 px-4 py-2 mb-4 md:px-12 text-economic-darkgray" aria-label="Breadcrumb">
@@ -125,7 +125,7 @@
         md:px-12">
             {{ $product->title }}</h2>
 
-        <div class="justify-center px-2 md:px-12 max-w-[1500px] mx-auto relative">
+        <div class="justify-center px-2 md:px-12 max-w-7xl mx-auto relative">
             <div class="grid grid-cols-12 gap-2">
                 <div class="col-span-12 md:col-span-10">
                     <swiper-container class="mySwiper" thumbs-swiper=".mySwiper2" space-between="10">
@@ -321,7 +321,7 @@
                             'm4v',
                             'm2v',
                         ]))
-                        <div class="video-container w-full max-w-[1500px]">
+                        <div class="video-container w-full max-w-7xl">
                             <video width="100%" height="auto" controls>
                                 <source src="{{ asset('storage/uploads/' . $file->uuid) }}"
                                     type="video/{{ $fileExtension }}">

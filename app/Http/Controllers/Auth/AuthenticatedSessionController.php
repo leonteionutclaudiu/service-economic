@@ -48,6 +48,6 @@ class AuthenticatedSessionController extends Controller
 
         session()->flash('success', 'Te-ai delogat cu succes din cont!');
 
-        return redirect('/acasa');
+        return redirect('/');
     }
 }

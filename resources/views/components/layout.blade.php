@@ -49,12 +49,12 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
 
         @include('partials.header')
 
-        <main class="mt-20 lg:mt-12 md:mt-14">
+        <main class="@if(auth()->check() && auth()->user()->isAdmin()) mt-24 lg:mt-20 md:mt-20 @else mt-20 lg:mt-10 md:mt-14 @endif">
 
             {{--  preloader --}}
             <div class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999]"
                 id="preloader">
-                <img src="{{ asset('images/preloader.gif') }}" alt="Preloader">
+                <img src="{{ asset('images/logo.png') }}" alt="Preloader" class="w-full max-w-96">
             </div>
 
             {{ $slot }}

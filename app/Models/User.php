@@ -44,6 +44,17 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        // La crearea unui nou utilizator, adaugă înregistrări pentru adresele de livrare și facturare
+        static::created(function ($user) {
+            $user->shippingAddress()->create();
+            $user->billingAddress()->create();
+        });
+    }
+
     public function cart()
     {
         return $this->hasMany(Cart::class);
@@ -51,5 +62,24 @@ class User extends Authenticatable implements MustVerifyEmail
     public function favorites()
     {
         return $this->hasMany(Favorites::class);
+    }
+      /**
+     * Check if the user has admin role.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
+    }
+
+    public function shippingAddress()
+    {
+        return $this->hasOne(ShippingAddress::class);
+    }
+
+    public function billingAddress()
+    {
+        return $this->hasOne(BillingAddress::class);
     }
 }

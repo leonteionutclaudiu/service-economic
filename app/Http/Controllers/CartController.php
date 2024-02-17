@@ -11,8 +11,10 @@ class CartController extends Controller
 {
     public function index()
     {
-        // Fetch the user's cart items
-        $cartItems = Auth::user()->cart;
+       // Fetch the user's cart items
+       $cartItems = Auth::user()->cart()->whereHas('product', function ($query) {
+        $query->where('published', 1)->whereNull('deleted_at');
+        })->get();
 
         return view('cart.cart', compact('cartItems'));
     }
@@ -84,7 +86,9 @@ public function update(Request $request, $id)
 
     public function getCartItemCount()
     {
-        $itemCount = Cart::where('user_id', auth()->id())->count();
+        $itemCount = Cart::whereHas('product', function ($query) {
+            $query->where('published', 1)->whereNull('deleted_at');
+        })->where('user_id', auth()->id())->count();
 
         return response()->json(['count' => $itemCount]);
     }

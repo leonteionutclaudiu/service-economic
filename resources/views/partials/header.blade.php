@@ -191,7 +191,7 @@
         </nav>
 
         <!-- Meniul pentru dispozitivele mari -->
-        <nav id="mainMenu" class="hidden lg:block ">
+        <nav id="mainMenu" class="hidden lg:flex flex-col">
             <ul class="items-center justify-end text-lg font-semibold text-gray-800 lg:flex p-0"
                 style="list-style: none;">
                 <li class="mx-2">
@@ -325,14 +325,14 @@
                 @endauth
 
             </ul>
-        </nav>
-        @role('admin')
+            @role('admin')
             <div
-                class="fixed top-[91.2px] lg:top-[104px] xl:top-[76px] left-0 right-0 bg-red-500 text-white px-6 py-1 z-[-1]">
-                <a href="/programari">Programari</a>
-                <a href="/utilizatori">Utilizatori</a>
+                class="bg-red-500 text-white px-6 py-1">
+                <a href="/programari" class="text-lg">Programari</a>
+                <a href="/utilizatori" class="text-lg">Utilizatori</a>
             </div>
         @endrole
+        </nav>
     </div>
 </header>
 
