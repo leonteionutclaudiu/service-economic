@@ -213,3 +213,7 @@ input[type="checkbox"]:checked {
 .addToCartBtn:hover span {
     color: #008237;
 }
+
+.productCard:hover .offerTag {
+    background-color: hsla(118, 100%, 21%, 0.8);
+}

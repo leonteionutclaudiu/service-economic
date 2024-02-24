@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\BillingAddressController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactFormController;
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeDisplayController::class, 'show'])->name('acasa');
+Route::get('oferte', [ProductDisplayController::class, 'showOffersProducts'])->name('offers-products');
 Route::get('articole', [\App\Http\Controllers\NoutatiDisplayController::class, 'index'])->name('noutati-all');
 Route::get('articole/{slug}', [\App\Http\Controllers\NoutatiDisplayController::class, 'show'])->name('noutati');
 Route::get('despre-noi', [\App\Http\Controllers\EchipaDisplayController::class, 'show_despre_noi'])->name('despre-noi');
@@ -54,6 +56,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
     Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
     Route::get('/cart/count', [CartController::class, 'getCartItemCount']);
+    Route::get('/checkout', [CheckoutController::class, 'index']);
 
     Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites.index');
     Route::post('/favorites', [FavoritesController::class, 'store'])->name('favorites.store');

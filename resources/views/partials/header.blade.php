@@ -192,7 +192,7 @@
 
         <!-- Meniul pentru dispozitivele mari -->
         <nav id="mainMenu" class="hidden lg:flex flex-col">
-            <ul class="items-center justify-end text-lg font-semibold text-gray-800 lg:flex p-0"
+            <ul class="items-center justify-end text-base font-semibold text-gray-800 lg:flex p-0"
                 style="list-style: none;">
                 <li class="mx-2">
                     <form method="GET" action="search" class="m-0">
@@ -209,11 +209,14 @@
                 </li>
                 <li>
                     <a href="/programare"
-                        class="text-[15px] xl:text-lg py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Vreau
+                        class="py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Vreau
                         o programare</a>
                 </li>
                 <li><a href="/articole"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>
+                </li>
+                <li><a href="/oferte"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Oferte</a>
                 </li>
                 <li class="py-2 lg:px-4">
                     <div x-data="{ open: false }"
@@ -221,7 +224,7 @@
                         @mouseleave="open = false">
                         <button @mouseenter="open = true"
                             class="inline-flex items-center justify-center space-x-2 text-base font-semibold focus:outline-none {{ request()->is('products*') ? 'border-b-2 border-black' : 'custom-link' }} text-black hover:text-economic-darkgreen">
-                            <span class="text-lg">Produse</span>
+                            <span>Produse</span>
                             <svg :class="{ 'transform rotate-180': open }" class="w-4 h-4 transition-transform"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -260,7 +263,7 @@
                         class="block py-2 transition duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-white text-economic-red rounded-full">Contact</a>
                 </li>
                 <li class="relative"><a href="/cart"
-                        class="block py-2 transition duration-300 lg:px-4 text-economic-darkgreen hover:text-economic-lightgreen">
+                        class="block py-2 transition duration-300 px-4 text-economic-darkgreen hover:text-economic-lightgreen">
                         <i class="fa-solid fa-cart-shopping text-2xl"></i>
                         <!-- Display the count dynamically -->
                         <span id="cartCount"
@@ -268,7 +271,7 @@
                     </a>
                 </li>
                 <li class="relative"><a href="/favorites"
-                        class="block py-2 transition duration-300 xl:px-4 text-economic-red hover:text-economic-orange">
+                        class="block py-2 transition duration-300 px-4 text-economic-red hover:text-economic-orange">
                         <i class="fa-solid fa-heart text-2xl"></i>
                         <!-- Display the count dynamically -->
                         <span id="favoritesCount"
@@ -290,7 +293,7 @@
                                 <x-slot name="trigger">
                                     <button
                                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                        <div class="max-w-[50px]">{{ Auth::user()->name }}</div>
+                                        <div>{{ Auth::user()->name }}</div>
 
                                         <div class="ms-1">
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"

@@ -1,27 +1,27 @@
 {{-- products.blade.php --}}
 
-<title>{{ $tag->name }}</title>
+<title>Oferte produse</title>
 
 <x-layout>
 
     <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-7xl">
 
         {{-- Breadcrumb --}}
-        <nav class="flex flex-wrap gap-2 px-4 py-2 mb-4 md:px-12 text-economic-darkgray" aria-label="Breadcrumb">
+        {{-- <nav class="flex flex-wrap gap-2 px-4 py-2 mb-4 md:px-12 text-economic-darkgray" aria-label="Breadcrumb">
             <a href="/" class="transition hover:text-black"><i class="fa fa-home" aria-hidden="true"></i>
                 Pagina principala / </a>
             <a href="{{ url('/products/' . $tag->slug) }}" class="font-semibold transition hover:text-black">
                 {{ $tag->name }}
             </a>
-        </nav>
+        </nav> --}}
 
-        <h2 class="px-2 mb-4 text-center text-economic-darkgreen md:px-12">{!! $tag->name !!}</h2>
+        {{-- <h2 class="px-2 mb-4 text-center text-economic-darkgreen md:px-12">{!! $tag->name !!}</h2> --}}
 
         <div
             class="grid grid-cols-1 gap-4 px-4 py-6 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:px-12 ">
             @forelse ($products as $product)
                 <div
-                    class="relative overflow-hidden w-full mx-auto mb-6 font-semibold text-center duration-300 transform rounded-lg shadow-lg text-economic-darkgreen bg-light md:max-w-sm hover:shadow-xl hover:scale-105 flex flex-col justify-between h-full gap-4 productCard transition">
+                    class="relative overflow-hidden w-full mx-auto mb-6 font-semibold text-center  duration-300 transform rounded-lg shadow-lg text-economic-darkgreen bg-light md:max-w-sm hover:shadow-xl hover:scale-105 flex flex-col justify-between h-full gap-4 productCard transition">
                     <a href="{{ route('product', ['slug' => $product->slug]) }}">
                         <img src="{{ $product->image('picture') }}" alt="{{ $product->title }}"
                             class="block object-contain w-full h-auto mb-4 max-h-60" />
@@ -39,27 +39,22 @@
                                 <p class="p-4 pb-0 text-lg font-semibold">{{ $product->sale_price }} RON <span
                                         class="text-gray-400 text-xs">TVA inclus</span></p>
                                 <p class="text-xs line-through font-semibold text-red-500">{{ $product->price }} RON
-                                    <span class="text-gray-400">TVA inclus</span>
-                                </p>
+                                    <span class="text-gray-400">TVA inclus</span></p>
                             </div>
                         @else
                             <p class="p-4 text-lg font-semibold">{{ $product->price }} RON <span
                                     class="text-gray-400 text-xs">TVA inclus</span></p>
                         @endif
 
-                        <div class="flex items-center">
-                            @if ($product->stock_quantity)
-                                <form method="post" action="{{ route('cart.store') }}" class="product-form">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <button
-                                        class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md  w-fit mx-auto text-3xl hover:scale-125 transition"><i
-                                            class="fa-solid fa-cart-plus"></i>
-                                    </button>
-                                </form>
-                            @else
-                                <p class="text-economic-red mb-6">STOC EPUIZAT</p>
-                            @endif
+                        <div class="flex">
+                            <form method="post" action="{{ route('cart.store') }}" class="product-form">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <button
+                                    class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md  w-fit mx-auto text-3xl hover:scale-125 transition"><i
+                                        class="fa-solid fa-cart-plus"></i>
+                                </button>
+                            </form>
                             @if (auth()->check() && $favorites && $favorites->contains('product_id', $product->id))
                                 @foreach ($favorites as $favorite)
                                     @if ($favorite->product_id === $product->id)
@@ -89,7 +84,7 @@
                 </div>
 
             @empty
-                <p class="text-center text-gray-500 col-span-full">Nu există produse pentru această categorie.</p>
+                <p class="text-center text-gray-500 col-span-full">Momentan nu există produse la promoție.</p>
             @endforelse
         </div>
     </div>

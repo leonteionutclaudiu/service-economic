@@ -7,11 +7,11 @@
                 @foreach ($cartItems as $cartItem)
                     <div
                         class="flex flex-col md:flex-row items-center justify-between p-4 mb-4 bg-light rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-economic-darkgreen">
-                        <div class="flex items-center mb-2">
+                        <a href="{{ route('product', ['slug' => $cartItem->product->slug]) }}" class="flex items-center mb-2">
                             <img src="{{ $cartItem->product->image('picture') }}" alt="{{ $cartItem->product->title }}"
                                 class="block w-16 md:w-24 mr-4" />
                             <p class="text-lg font-semibold">{{ $cartItem->product->title }}</p>
-                        </div>
+                        </a>
                         <div class="flex items-end flex-col gap-2">
                             <form class="flex" action="{{ route('cart.update', $cartItem->id) }}" method="post">
                                 @csrf
@@ -28,19 +28,34 @@
                                 <button type="submit" class="text-red-500 hover:text-red-700 ml-4"><i
                                         class="fa-solid fa-trash text-2xl transition duration-300 hover:scale-110"></i></button>
                             </form>
-                            <div>
-                                <p class="font-bold text-lg">
-                                    {{ $cartItem->product->price * $cartItem->quantity }} RON</p>
-                                <p class="font-bold text-sm text-gray-500">
-                                    {{ $cartItem->product->price }} RON / buc</p>
-                            </div>
+                            @if ($cartItem->product->sale_price)
+                                <div>
+                                    <p class="font-bold text-lg">
+                                        {{ $cartItem->product->sale_price * $cartItem->quantity }} RON <span
+                                            class="text-xs text-gray-500">TVA
+                                            inclus</span></p>
+                                    <p class="font-bold text-sm text-gray-500">
+                                        {{ $cartItem->product->sale_price }} RON / buc</p>
+                                    <p class="font-bold text-sm line-through text-economic-red">
+                                        {{ $cartItem->product->price }} RON / buc</p>
+                                </div>
+                            @else
+                                <div>
+                                    <p class="font-bold text-lg">
+                                        {{ $cartItem->product->price * $cartItem->quantity }} RON <span
+                                            class="text-xs text-gray-500">TVA
+                                            inclus</span></p>
+                                    <p class="font-bold text-sm text-gray-500">
+                                        {{ $cartItem->product->price }} RON / buc</p>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 @endforeach
             </div>
 
             <div class="flex justify-end px-4 md:px-12">
-                <a href="#"
+                <a href="/checkout"
                     class="px-6 py-2 text-lg font-semibold text-white bg-economic-darkgreen rounded-md hover:bg-opacity-80">
                     Continuare
                 </a>

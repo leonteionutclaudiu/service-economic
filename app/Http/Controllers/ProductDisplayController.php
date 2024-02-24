@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use A17\Twill\Models\Tag;
-use App\Models\Favorites;
 use App\Models\Product;
 use App\Repositories\ProductRepository;
 use Illuminate\Contracts\View\View;
@@ -33,7 +32,7 @@ class ProductDisplayController extends Controller
 
         $products = Product::whereHas('tags', function ($query) use ($tagSlug) {
             $query->where('taggable_type', '=', 'App\Models\Product')
-                  ->where('slug', $tagSlug);
+                ->where('slug', $tagSlug);
         })->where('published', 1)->paginate(12);
 
         $favorites = null;
@@ -45,18 +44,17 @@ class ProductDisplayController extends Controller
 
             // Obțineți toate produsele favorite ale utilizatorului curent
             $favorites = DB::table('favorites')
-            ->where('user_id', $userId)
-            ->get();
+                ->where('user_id', $userId)
+                ->get();
 
         }
 
-        return view('site.products', ['products' => $products, 'tag' => $tag, 'favorites'=> $favorites]);
+        return view('site.products', ['products' => $products, 'tag' => $tag, 'favorites' => $favorites]);
     }
 
     public function showProduct(string $slug, ProductRepository $productRepository): View
     {
         $product = $productRepository->forSlug($slug);
-
 
         if (! $product) {
             abort(404);
@@ -65,13 +63,13 @@ class ProductDisplayController extends Controller
         $favorite = null;
 
         if (auth()->check()) {
-        $userId = auth()->id();
+            $userId = auth()->id();
 
-        $favorite = DB::table('favorites')
-        ->where('product_id', $product->id)
-        ->where('user_id', $userId)
-        ->first();
-    }
+            $favorite = DB::table('favorites')
+                ->where('product_id', $product->id)
+                ->where('user_id', $userId)
+                ->first();
+        }
 
         return view('site.product', ['product' => $product, 'favorite' => $favorite]);
     }
@@ -88,5 +86,27 @@ class ProductDisplayController extends Controller
         $products->appends(['search' => $searchInput]);
 
         return view('site.search-results', compact('products', 'searchInput'));
+    }
+
+    public function showOffersProducts()
+    {
+        $products = Product::where('published', 1)
+            ->whereNotNull('sale_price')
+            ->paginate(12);
+        $favorites = null;
+
+        // Verificați dacă utilizatorul este autentificat
+        if (auth()->check()) {
+            // Obțineți id-ul utilizatorului curent
+            $userId = auth()->id();
+
+            // Obțineți toate produsele favorite ale utilizatorului curent
+            $favorites = DB::table('favorites')
+                ->where('user_id', $userId)
+                ->get();
+
+        }
+
+        return view('site.offers', ['products' => $products, 'favorites' => $favorites]);
     }
 }

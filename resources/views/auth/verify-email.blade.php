@@ -3,7 +3,7 @@
         {{ __('Mulțumesc pentru înscriere! Înainte de a începe, ați putea să vă verificați adresa de e-mail făcând clic pe linkul pe care tocmai vi l-am trimis prin e-mail? Dacă nu ați primit e-mailul, vă vom trimite cu plăcere un altul.') }}
     </div>
 
-    @if (session('status') == 'verification-link-sent')
+    @if (session('status') === 'verification-link-sent')
         <div class="mb-4 font-medium text-sm text-green-600">
             {{ __('Un nou link de verificare a fost trimis la adresa de e-mail pe care ați furnizat-o în timpul înregistrării.') }}
         </div>

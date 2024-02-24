@@ -1,6 +1,7 @@
 {{-- product.blade.php --}}
 
-<title>{{ $product->title }}</title>
+<title>
+    {{ $product->title }}</title>
 
 <x-layout>
 
@@ -152,15 +153,38 @@
                     </swiper-container>
                 </div>
                 <div class="hidden md:block sticky right-0 top-[100px] h-fit col-span-2">
-                    <form method="post" action="{{ route('cart.store') }}" class="product-form">
-                        @csrf
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <button
-                            class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md bg-economic-darkgreen text-white mx-auto transition border border-economic-darkgreen w-full addToCartBtn"><span
-                                class="hidden md:block">Adauga in cos</span><i
-                                class="fa-solid fa-cart-plus text-xl"></i>
-                        </button>
-                    </form>
+                    @if ($product->sale_price)
+                        <div class="mx-auto mb-4 w-fit">
+                            <p class="text-2xl font-bold">
+                                {{ $product->sale_price }} RON
+                            </p>
+                            <p class="line-through text-xl text-economic-red">
+                                {{ $product->price }} RON
+                            </p>
+                            <p class="text-md font-bold text-gray-500">TVA inclus</p>
+                        </div>
+                    @else
+                        <div class="mx-auto mb-4 w-fit">
+                            <p class="text-2xl font-bold">
+                                {{ $product->price }} RON
+                            </p>
+                            <p class="text-md font-bold text-gray-500">TVA inclus</p>
+                        </div>
+                    @endif
+
+                    @if ($product->stock_quantity)
+                        <form method="post" action="{{ route('cart.store') }}" class="product-form">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <button
+                                class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md bg-economic-darkgreen text-white mx-auto transition border border-economic-darkgreen w-full addToCartBtn"><span
+                                    class="hidden md:block">Adauga in cos</span><i
+                                    class="fa-solid fa-cart-plus text-xl"></i>
+                            </button>
+                        </form>
+                    @else
+                        <p class="text-economic-red font-bold text-center mb-6">STOC EPUIZAT</p>
+                    @endif
                     @if (auth()->check() && $favorite)
                         <form method="post" action="{{ route('favorites.destroy', $favorite->id) }}"
                             class="product-form">
@@ -168,7 +192,8 @@
                             @method('DELETE')
                             <button type="submit"
                                 class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md bg-economic-red text-white mx-auto transition border border-economic-red w-full addToFavoriteBtn"><span
-                                    class="hidden md:block">Sterge din favorite</span><i class="fa-solid fa-heart text-xl"></i>
+                                    class="hidden md:block">Sterge din favorite</span><i
+                                    class="fa-solid fa-heart text-xl"></i>
                             </button>
                         </form>
                     @else
@@ -177,22 +202,46 @@
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <button type="submit"
                                 class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md bg-economic-red text-white mx-auto transition border border-economic-red hover:bg-white hover:text-economic-red w-full addToFavoriteBtn"><span
-                                    class="hidden md:block">Adauga la favorite</span><i class="fa-regular fa-heart text-xl"></i>
+                                    class="hidden md:block">Adauga la favorite</span><i
+                                    class="fa-regular fa-heart text-xl"></i>
                             </button>
                         </form>
                     @endif
                 </div>
             </div>
-
-            <div class="flex gap-2 items-center w-full md:hidden sticky top-24 z-[2]">
-                <form method="post" action="{{ route('cart.store') }}" class="product-form w-full">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <button
-                        class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md bg-economic-darkgreen text-white mx-auto transition border border-economic-darkgreen w-full addToCartBtn"><span>Adauga
-                            in cos</span><i class="fa-solid fa-cart-plus text-xl"></i>
-                    </button>
-                </form>
+            <div class="md:hidden">
+                @if ($product->sale_price)
+                    <div class="mx-auto mb-4 w-fit">
+                        <p class="text-2xl font-bold">
+                            {{ $product->sale_price }} RON
+                        </p>
+                        <p class="line-through text-xl text-economic-red">
+                            {{ $product->price }} RON
+                        </p>
+                        <p class="text-md font-bold text-gray-500">TVA inclus</p>
+                    </div>
+                @else
+                    <div class="mx-auto mb-4 w-fit">
+                        <p class="text-2xl font-bold">
+                            {{ $product->price }} RON
+                        </p>
+                        <p class="text-md font-bold text-gray-500">TVA inclus</p>
+                    </div>
+                @endif
+            </div>
+            <div class="flex gap-2 items-center justify-center w-full md:hidden sticky top-24 z-[2]">
+                @if ($product->stock_quantity)
+                    <form method="post" action="{{ route('cart.store') }}" class="product-form w-full">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button
+                            class="flex items-center justify-center gap-2 mb-2 p-2 rounded-md bg-economic-darkgreen text-white mx-auto transition border border-economic-darkgreen w-full addToCartBtn"><span>Adauga
+                                in cos</span><i class="fa-solid fa-cart-plus text-xl"></i>
+                        </button>
+                    </form>
+                @else
+                    <p class="text-economic-red font-bold mb-6">STOC EPUIZAT</p>
+                @endif
                 @if ($favorite)
                     <form method="post" action="{{ route('favorites.destroy', $favorite->id) }}" class="product-form">
                         @csrf

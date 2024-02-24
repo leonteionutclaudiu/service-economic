@@ -7,11 +7,11 @@
                 @foreach ($favoritesItems as $favoriteItem)
                     <div
                         class="flex flex-col md:flex-row items-center justify-between p-4 mb-4 bg-light rounded-lg shadow-lg transition duration-300 hover:shadow-xl text-economic-darkgreen">
-                        <div class="flex items-center">
+                        <a href="{{ route('product', ['slug' => $favoriteItem->product->slug]) }}" class="flex items-center">
                             <img src="{{ $favoriteItem->product->image('picture') }}"
                                 alt="{{ $favoriteItem->product->title }}" class="block w-16 md:w-24 mr-4" />
                             <p class="text-lg font-semibold">{{ $favoriteItem->product->title }}</p>
-                        </div>
+                        </a>
                         <div class="flex items-center">
                             <form action="{{ route('favorites.destroy', $favoriteItem->id) }}" method="post">
                                 @csrf
