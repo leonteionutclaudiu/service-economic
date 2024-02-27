@@ -6,16 +6,7 @@
 
     <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-7xl">
 
-        {{-- Breadcrumb --}}
-        {{-- <nav class="flex flex-wrap gap-2 px-4 py-2 mb-4 md:px-12 text-economic-darkgray" aria-label="Breadcrumb">
-            <a href="/" class="transition hover:text-black"><i class="fa fa-home" aria-hidden="true"></i>
-                Pagina principala / </a>
-            <a href="{{ url('/products/' . $tag->slug) }}" class="font-semibold transition hover:text-black">
-                {{ $tag->name }}
-            </a>
-        </nav> --}}
-
-        {{-- <h2 class="px-2 mb-4 text-center text-economic-darkgreen md:px-12">{!! $tag->name !!}</h2> --}}
+        <h2 class="px-2 mb-4 text-center text-economic-darkgreen md:px-12">Produse promoționale</h2>
 
         <div
             class="grid grid-cols-1 gap-4 px-4 py-6 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:px-12 ">

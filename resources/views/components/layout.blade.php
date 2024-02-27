@@ -41,6 +41,10 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
 
     <script src="https://kit.fontawesome.com/092372ecfa.js" crossorigin="anonymous"></script>
 
+    <script src="
+    https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+    "></script>
+
 </head>
 
 <body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); } }" @scroll.window="isVisible = window.scrollY > 100">
@@ -49,14 +53,12 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
 
         @include('partials.header')
 
-        <main class="@if(auth()->check() && auth()->user()->isAdmin()) mt-24 lg:mt-20 md:mt-20 @else mt-20 lg:mt-10 md:mt-14 @endif">
+        <main class="@if (auth()->check() && auth()->user()->isAdmin()) mt-24 lg:mt-20 md:mt-20 @else mt-20 lg:mt-10 md:mt-14 @endif">
 
             {{--  preloader --}}
-            <div class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999]"
-                id="preloader">
-                <img src="{{ asset('images/logo.png') }}" alt="Preloader" class="w-full max-w-96">
+            <div class="preloader" id="preloader">
+                <div class="spinner"></div>
             </div>
-
             {{ $slot }}
         </main>
 

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,9 +33,10 @@ class CheckoutController extends Controller
                 ->whereNull('deleted_at');
         })->get();
 
-        // Calculate total price
         foreach ($cartItems as $cartItem) {
-            $totalPrice += $cartItem->product->price * $cartItem->quantity;
+            $product = $cartItem->product;
+            $price = $product->sale_price ?? $product->price;
+            $totalPrice += $price * $cartItem->quantity;
         }
 
         // Check if the cart is empty
@@ -46,39 +45,5 @@ class CheckoutController extends Controller
         }
 
         return view('checkout', compact('cartItems', 'user', 'shippingAddress', 'billingAddress', 'totalPrice'));
-    }
-
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $user = $request->user();
-        $user->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $user->save();
-
-        // update or save shipping address
-        $user->shippingAddress()->updateOrCreate(
-            ['user_id' => $user->id],
-            [
-                'address_line' => $request->shipping_address_line,
-                'city' => $request->shipping_city,
-                'state' => $request->shipping_state,
-                'postal_code' => $request->shipping_postal_code,
-            ]
-        );
-
-        // update or save billing address
-        $user->billingAddress()->updateOrCreate(
-            ['user_id' => $user->id],
-            [
-                'address_line' => $request->billing_address_line,
-                'city' => $request->billing_city,
-                'state' => $request->billing_state,
-                'postal_code' => $request->billing_postal_code,
-            ]
-        );
     }
 }

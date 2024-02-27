@@ -7,7 +7,8 @@
                 @foreach ($cartItems as $cartItem)
                     <div
                         class="flex flex-col md:flex-row items-center justify-between p-4 mb-4 bg-light rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-economic-darkgreen">
-                        <a href="{{ route('product', ['slug' => $cartItem->product->slug]) }}" class="flex items-center mb-2">
+                        <a href="{{ route('product', ['slug' => $cartItem->product->slug]) }}"
+                            class="flex items-center mb-2">
                             <img src="{{ $cartItem->product->image('picture') }}" alt="{{ $cartItem->product->title }}"
                                 class="block w-16 md:w-24 mr-4" />
                             <p class="text-lg font-semibold">{{ $cartItem->product->title }}</p>
@@ -52,12 +53,17 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="mt-10 mb-6 flex gap-2 justify-between flex-wrap text-2xl md:text-3xl font-bold">
+                    <p>Pret total <span class="text-gray-500 text-lg">(TVA inclus)</span></p>
+                    <p>{{ $totalPrice }} RON</p>
+                </div>
             </div>
+
 
             <div class="flex justify-end px-4 md:px-12">
                 <a href="/checkout"
-                    class="px-6 py-2 text-lg font-semibold text-white bg-economic-darkgreen rounded-md hover:bg-opacity-80">
-                    Continuare
+                    class="w-full md:w-fit px-6 py-2 text-xl font-semibold text-white bg-economic-darkgreen rounded-md hover:bg-opacity-80 text-center">
+                    Către checkout <i class="fa-solid fa-right-long"></i>
                 </a>
             </div>
         @else

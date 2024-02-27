@@ -24,13 +24,22 @@ class CartController extends Controller
             }
         }
 
-         // Fetch the user's cart items after delete
-         $cartItems = Auth::user()->cart()->whereHas('product', function ($query) {
+        // Fetch the user's cart items after delete
+        $cartItems = Auth::user()->cart()->whereHas('product', function ($query) {
             $query->where('published', 1)
                 ->whereNull('deleted_at');
         })->get();
 
-        return view('cart.cart', compact('cartItems'));
+        // Calculate total price
+        $totalPrice = 0;
+
+        foreach ($cartItems as $cartItem) {
+            $product = $cartItem->product;
+            $price = $product->sale_price ?? $product->price;
+            $totalPrice += $price * $cartItem->quantity;
+        }
+
+        return view('cart.cart', compact('cartItems', 'totalPrice'));
     }
 
     public function store(Request $request)
