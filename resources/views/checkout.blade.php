@@ -1,7 +1,4 @@
 <x-layout>
-    {{-- @php
-        dd($addressesCompleted);
-    @endphp --}}
     <div class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14 max-w-7xl">
         <h2 class="px-2 mb-4 text-center text-economic-darkgreen md:px-12">Finalizare comanda</h2>
         <div class="px-4 py-6 mx-auto md:px-12 shadow-lg shadow-economic-lightgreen">
@@ -139,10 +136,12 @@
 
             <div class="w-full text-center mt-10 mb-4 text-xl md:text-3xl">
                 <p class="my-3 font-semibold">Total: {{ $totalPrice }} RON</p>
-                <button
-                    class="px-6 py-2 font-semibold text-white bg-economic-darkgreen rounded-md hover:bg-opacity-80 transition">
-                    Plateste cu cardul acum <i class="fa-solid fa-credit-card"></i>
-                </button>
+                <form action="/create-checkout-session" method="POST">
+                    <button type="submit"
+                        class="px-6 py-2 font-semibold text-white bg-economic-darkgreen rounded-md hover:bg-opacity-80 transition">
+                        Plateste cu cardul acum <i class="fa-solid fa-credit-card"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

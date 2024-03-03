@@ -312,7 +312,7 @@
                                     <x-dropdown-link :href="route('profile.edit')">
                                         <i class="fas fa-user mr-2"></i>{{ __('Profilul meu') }}
                                     </x-dropdown-link>
-                                    <x-dropdown-link :href="route('profile.edit')">
+                                    <x-dropdown-link :href="route('profile.orders')">
                                         <i class="fa-solid fa-cubes"></i> {{ __('Comenzile mele') }}
                                     </x-dropdown-link>
 

@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/api/categories', [ProductDisplayController::class, 'getCategories']);
 
 Route::middleware('auth')->group(function () {
+    Route::get('/comenzi', [ProfileController::class, 'getOrders'])->name('profile.orders');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
