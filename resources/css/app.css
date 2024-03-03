@@ -14,6 +14,23 @@
     --swiper-pagination-bullet-vertical-gap: 6px; */
 }
 
+/* QUILL CSS */
+.ql-align-center {
+    text-align: center !important;
+}
+
+.ql-align-left {
+    text-align: left !important;
+}
+
+.ql-align-right {
+    text-align: right !important;
+}
+
+.ql-align-justify {
+    text-align: justify !important;
+}
+
 body {
     font-family: "Inter", sans-serif;
     scroll-behavior: smooth;
@@ -139,15 +156,6 @@ textarea:focus {
 input[type="checkbox"]:checked {
     background-color: #008237;
 }
-/* input[type="radio"]:hover,
-input[type="radio"]:focus {
-    border-color: #008237;
-}
-
-input[type="checkbox"]:hover,
-input[type="checkbox"]:focus {
-    border-color: #008237;
-} */
 
 .hidden {
     display: none;

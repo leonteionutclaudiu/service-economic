@@ -43,7 +43,7 @@
             <p class="text-gray-600 text-center my-4"><i class="fa-solid fa-circle-info text-blue-600"></i> Continuand ,
                 iti declari acordul pentru <a href="termeni-si-conditii" target="_blank"
                     class="text-blue-600 underline transition duration-300 hover:text-blue-800">termenii si
-                    conditiile</a>.</p>
+                    conditiile</a> noastre.</p>
             {{-- Alegere adrese --}}
             <!-- Radio buttons pentru adresa de livrare și facturare -->
             <div class="flex flex-col gap-3 text-xl">
