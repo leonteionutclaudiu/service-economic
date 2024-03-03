@@ -53,10 +53,7 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="mt-10 mb-6 flex gap-2 justify-between flex-wrap text-2xl md:text-3xl font-bold">
-                    <p>Pret total <span class="text-gray-500 text-lg">(TVA inclus)</span></p>
-                    <p>{{ $totalPrice }} RON</p>
-                </div>
+                    <p class="text-right text-2xl font-bold text-economic-darkgreen">Pret total <span class="text-gray-500 text-lg">(TVA inclus)</span> {{ $totalPrice }} RON</p>
             </div>
 
 

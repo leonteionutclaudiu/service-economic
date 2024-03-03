@@ -192,7 +192,7 @@
 
         <!-- Meniul pentru dispozitivele mari -->
         <nav id="mainMenu" class="hidden lg:flex flex-col">
-            <ul class="items-center justify-end text-base font-semibold text-gray-800 lg:flex p-0"
+            <ul class="items-center justify-end text-base flex-wrap font-semibold text-gray-800 lg:flex p-0"
                 style="list-style: none;">
                 <li class="mx-2">
                     <form method="GET" action="search" class="m-0">
@@ -209,8 +209,7 @@
                 </li>
                 <li>
                     <a href="/programare"
-                        class="py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Vreau
-                        o programare</a>
+                        class="py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Programare</a>
                 </li>
                 <li><a href="/articole"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>

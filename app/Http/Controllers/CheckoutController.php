@@ -13,6 +13,15 @@ class CheckoutController extends Controller
         $shippingAddress = $user->shippingAddress;
         $billingAddress = $user->billingAddress;
 
+        // Verificăm dacă toate campurile din adresa de livrare sunt completate
+        $shippingAddressCompleted = $this->checkAddressCompleteness($shippingAddress);
+
+        // Verificăm dacă toate campurile din adresa de facturare sunt completate
+        $billingAddressCompleted = $this->checkAddressCompleteness($billingAddress);
+
+        // Verificăm dacă toate campurile adreselor sunt completate
+        $addressesCompleted = $shippingAddressCompleted && $billingAddressCompleted;
+
         $totalPrice = 0;
 
         // Fetch the user's cart items
@@ -44,6 +53,16 @@ class CheckoutController extends Controller
             return redirect('/')->with('error', 'Nu ai produse în coș.');
         }
 
-        return view('checkout', compact('cartItems', 'user', 'shippingAddress', 'billingAddress', 'totalPrice'));
+        return view('checkout', compact('cartItems', 'user', 'shippingAddress', 'billingAddress', 'totalPrice', 'addressesCompleted'));
     }
+
+     // Metoda pentru a verifica completarea adresei
+     private function checkAddressCompleteness($address)
+     {
+         return $address &&
+                !empty($address->address_line) &&
+                !empty($address->city) &&
+                !empty($address->state) &&
+                !empty($address->postal_code);
+     }
 }
