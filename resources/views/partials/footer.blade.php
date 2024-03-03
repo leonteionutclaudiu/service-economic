@@ -1,14 +1,6 @@
 {{-- footer --}}
-<style>
-    .max-width-1500 {
-        max-width: 1500px;
-    }
-</style>
-
-<footer
-    class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14 bg-black text-center md:text-start w-full">
-    <div
-        class="max-w-7xl mx-auto flex flex-col items-center justify-evenly gap-10 mb-8 md:flex-row md:items-start">
+<footer class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14 bg-black text-center md:text-start w-full">
+    <div class="max-w-7xl mx-auto flex flex-col items-center justify-evenly gap-10 mb-8 md:flex-row md:items-start">
         <div>
             <p class="mb-4 text-xl font-bold text-economic-darkgreen">Utile</p>
             <div class="flex flex-col items-center gap-2 text-gray-300 md:items-start">
@@ -60,15 +52,11 @@
         </a>
     </div>
     <div class="text-center text-gray-400">
-        © Service Economic Trade <span id="currentYear"></span>. Toate drepturile rezervate
+        © Service Economic Trade <span id="currentYear">@php
+            echo date('Y');
+        @endphp</span>. Toate drepturile rezervate
     </div>
     <div class="text-center text-gray-400">
         Aplicatie web realizata de Leonte Ionut-Claudiu
     </div>
 </footer>
-
-<script>
-    // Get the current year and update the footer
-    let currentYear = new Date().getFullYear();
-    document.getElementById('currentYear').textContent = currentYear;
-</script>

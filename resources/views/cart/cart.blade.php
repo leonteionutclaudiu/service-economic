@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="py-6 mx-auto lg:py-20 md:py-14 max-w-7xl">
+    <div class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14 max-w-7xl">
         <h2 class="px-2 mb-4 text-center text-economic-darkgreen md:px-12">Coșul meu</h2>
 
         @if (count($cartItems) > 0)
@@ -53,13 +53,13 @@
                         </div>
                     </div>
                 @endforeach
-                    <p class="text-right text-2xl font-bold text-economic-darkgreen">Pret total <span class="text-gray-500 text-lg">(TVA inclus)</span> {{ $totalPrice }} RON</p>
+                <p class="text-right text-2xl font-bold text-economic-darkgreen">Pret total <span
+                        class="text-gray-500 text-lg">(TVA inclus)</span> {{ $totalPrice }} RON</p>
             </div>
-
 
             <div class="flex justify-end px-4 md:px-12">
                 <a href="/checkout"
-                    class="w-full md:w-fit px-6 py-2 text-xl font-semibold text-white bg-economic-darkgreen rounded-md hover:bg-opacity-80 text-center">
+                    class="w-full md:w-fit px-6 py-2 text-xl font-semibold text-white bg-economic-darkgreen rounded-md hover:bg-opacity-80 text-center transition">
                     Către checkout <i class="fa-solid fa-right-long"></i>
                 </a>
             </div>
