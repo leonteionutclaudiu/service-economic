@@ -261,22 +261,25 @@
                 <li><a href="/contact"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-white text-economic-red rounded-full">Contact</a>
                 </li>
-                <li class="relative"><a href="/cart"
-                        class="block py-2 transition duration-300 px-4 text-economic-darkgreen hover:text-economic-lightgreen">
-                        <i class="fa-solid fa-cart-shopping text-2xl"></i>
-                        <!-- Display the count dynamically -->
-                        <span id="cartCount"
-                            class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"></span>
-                    </a>
-                </li>
-                <li class="relative"><a href="/favorites"
-                        class="block py-2 transition duration-300 px-4 text-economic-red hover:text-economic-orange">
-                        <i class="fa-solid fa-heart text-2xl"></i>
-                        <!-- Display the count dynamically -->
-                        <span id="favoritesCount"
-                            class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"></span>
-                    </a>
-                </li>
+                <div class="flex">
+
+                    <li class="relative"><a href="/cart"
+                            class="block py-2 transition duration-300 px-4 text-economic-darkgreen hover:text-economic-lightgreen">
+                            <i class="fa-solid fa-cart-shopping text-2xl"></i>
+                            <!-- Display the count dynamically -->
+                            <span id="cartCount"
+                                class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"></span>
+                        </a>
+                    </li>
+                    <li class="relative"><a href="/favorites"
+                            class="block py-2 transition duration-300 px-4 text-economic-red hover:text-economic-orange">
+                            <i class="fa-solid fa-heart text-2xl"></i>
+                            <!-- Display the count dynamically -->
+                            <span id="favoritesCount"
+                                class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"></span>
+                        </a>
+                    </li>
+                </div>
 
                 @guest
                     <li><a href="/login"
@@ -307,7 +310,10 @@
 
                                 <x-slot name="content">
                                     <x-dropdown-link :href="route('profile.edit')">
-                                        {{ __('Profilul meu') }}
+                                        <i class="fas fa-user mr-2"></i>{{ __('Profilul meu') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link :href="route('profile.edit')">
+                                        <i class="fa-solid fa-cubes"></i> {{ __('Comenzile mele') }}
                                     </x-dropdown-link>
 
                                     <!-- Authentication -->
@@ -317,7 +323,7 @@
                                         <x-dropdown-link :href="route('logout')"
                                             onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                            {{ __('Ieși din cont') }}
+                                            <i class="fa-solid fa-arrow-right-from-bracket"></i> {{ __('Ieși din cont') }}
                                         </x-dropdown-link>
                                     </form>
                                 </x-slot>
@@ -328,12 +334,11 @@
 
             </ul>
             @role('admin')
-            <div
-                class="bg-red-500 text-white px-6 py-1">
-                <a href="/programari" class="text-lg">Programari</a>
-                <a href="/utilizatori" class="text-lg">Utilizatori</a>
-            </div>
-        @endrole
+                <div class="bg-red-500 text-white px-6 py-1">
+                    <a href="/programari" class="text-lg">Programari</a>
+                    <a href="/utilizatori" class="text-lg">Utilizatori</a>
+                </div>
+            @endrole
         </nav>
     </div>
 </header>
