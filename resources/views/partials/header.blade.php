@@ -80,7 +80,7 @@
 
 <header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-10 shadow-lg bg-[rgba(255,255,255,0.75)]"
     :class="{ 'backdrop-blur-md': open === false }">
-    <div class="xl:container flex items-center justify-between px-6 py-4 lg:py-1 mx-auto">
+    <div class="xl:container flex items-center justify-between px-6 py-2 mx-auto">
         <a href="/" class="text-2xl font-bold text-gray-800">
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 min-w-28 h-auto" />
         </a>
@@ -114,12 +114,12 @@
                 </a>
                 <ul class="text-center" style="list-style: none;">
 
-                    @guest
+                    {{-- @guest
                         <li><a href="/login"
                                 class="block fixed top-4 left-0 right-0 w-fit mx-auto py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black"><i
                                     class="fa-solid fa-user text-3xl"></i></a>
                         </li>
-                    @endguest
+                    @endguest --}}
 
                     @auth
                         <li>
@@ -165,10 +165,10 @@
                     <li><a href="/noutati"
                             class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black">Noutati</a>
                     </li>
-                    <li> <x-nav-dropdown title="Produse" :toPages="['products']">
+                    {{-- <li> <x-nav-dropdown title="Produse" :toPages="['products']">
                             <div class="categoryDropdown"></div>
                         </x-nav-dropdown>
-                    </li>
+                    </li> --}}
                     <li> <x-nav-dropdown title="Despre noi" :toPages="['echipa', 'cariera', 'despre-noi']">
                             <a href="/echipa"
                                 class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen ">Echipa</a>
@@ -194,7 +194,7 @@
         <nav id="mainMenu" class="hidden lg:flex flex-col">
             <ul class="items-center justify-end text-base flex-wrap font-semibold text-gray-800 lg:flex p-0"
                 style="list-style: none;">
-                <li class="mx-2">
+                {{-- <li class="mx-2">
                     <form method="GET" action="search" class="m-0">
                         <div class="relative">
                             <input type='text' name='search' placeholder='Cauta produse...'
@@ -206,10 +206,10 @@
                             </button>
                         </div>
                     </form>
-                </li>
+                </li> --}}
                 <li>
                     <a href="/programare"
-                        class="py-2 px-4 bg-economic-darkgreen text-white rounded-full transition hover:bg-black hover:text-white font-bold block text-center">Programare</a>
+                        class="py-2 px-4 bg-economic-darkgreen hover:bg-economic-red text-white rounded-full transition duration-300 ease-in-out hover:text-white font-bold block text-center">Programare</a>
                 </li>
                 <li><a href="/articole"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>
@@ -217,7 +217,7 @@
                 <li><a href="/oferte"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Oferte</a>
                 </li>
-                <li class="py-2 lg:px-4">
+                {{-- <li class="py-2 lg:px-4">
                     <div x-data="{ open: false }"
                         class="relative inline-block font-semibold text-left transition duration-300 transform z-10"
                         @mouseleave="open = false">
@@ -243,7 +243,7 @@
 
                         </div>
                     </div>
-                </li>
+                </li> --}}
                 <li class="py-2 lg:px-4"> <x-nav-dropdown title="Despre noi" :toPages="['echipa', 'cariera', 'despre-noi']">
                         <a href="/echipa"
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Echipa</a>
@@ -259,9 +259,9 @@
                 </li>
 
                 <li><a href="/contact"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-white text-economic-red rounded-full">Contact</a>
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full">Contact</a>
                 </li>
-                <div class="flex">
+                {{-- <div class="flex">
 
                     <li class="relative"><a href="/cart"
                             class="block py-2 transition duration-300 px-4 text-economic-darkgreen hover:text-economic-lightgreen">
@@ -279,14 +279,14 @@
                                 class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"></span>
                         </a>
                     </li>
-                </div>
+                </div> --}}
 
-                @guest
+                {{-- @guest
                     <li><a href="/login"
                             class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgray text-black"><i
                                 class="fa-solid fa-user text-2xl"></i></a>
                     </li>
-                @endguest
+                @endguest --}}
 
                 @auth
                     <li>
@@ -312,9 +312,9 @@
                                     <x-dropdown-link :href="route('profile.edit')">
                                         <i class="fas fa-user mr-2"></i>{{ __('Profilul meu') }}
                                     </x-dropdown-link>
-                                    <x-dropdown-link :href="route('profile.orders')">
+                                    {{-- <x-dropdown-link :href="route('profile.orders')">
                                         <i class="fa-solid fa-cubes"></i> {{ __('Comenzile mele') }}
-                                    </x-dropdown-link>
+                                    </x-dropdown-link> --}}
 
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">

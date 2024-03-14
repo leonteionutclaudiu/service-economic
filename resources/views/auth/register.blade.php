@@ -8,10 +8,10 @@
 
             <h3 class="text-center text-economic-darkgray">Vreau un cont nou</h3>
 
-            <h6>De ce sa iti faci un cont la noi ?</h6>
+            {{-- <h6>De ce sa iti faci un cont la noi ?</h6>
             <p class="mx-1 my-2 text-green-900"><i class="fa-solid fa-wand-sparkles"></i> Poti plasa comenzi si sa urmaresti statusul lor</p>
             <p class="mx-1 my-2 text-green-900"><i class="fa-solid fa-wand-sparkles"></i> Salvezi produse in lista de favorite si faci liste de cumparaturi</p>
-            <p class="mx-1 my-2 text-green-900"><i class="fa-solid fa-wand-sparkles"></i> Salvezi in contul tau adresa de livrare si adresa de facturare</p>
+            <p class="mx-1 my-2 text-green-900"><i class="fa-solid fa-wand-sparkles"></i> Salvezi in contul tau adresa de livrare si adresa de facturare</p> --}}
 
             <!-- Name -->
             <div>

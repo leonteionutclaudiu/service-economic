@@ -61,7 +61,7 @@
             @enderror
         </div>
 
-        <div class='control_group'>
+        {{-- <div class='control_group'>
             <label class='label' for='companie'>Companie*</label>
             <input type='text' name='companie' placeholder='Numele Companiei' id='companie'
                 class="@error('companie') bg-red-50 @enderror focus:ring-economic-darkgreen  ring-economic-darkgreen"
@@ -69,7 +69,10 @@
             @error('companie')
                 <span class="text-red-500">{{ $message }}</span>
             @enderror
-        </div>
+        </div> --}}
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
 
         <div class='control_group'>
             <label class='label' for='judet'>Judet*</label>
@@ -81,16 +84,15 @@
             @enderror
         </div>
 
-    </div>
-
-    <div class='control_group'>
-        <label class='label' for='email'>Email*</label>
-        <input type='text' name='email' placeholder='popescu.ion@gmail.com' id='email'
-            class="@error('email') bg-red-50 @enderror focus:ring-economic-darkgreen ring-economic-darkgreen"
-            value="{{ old('email') }}">
-        @error('email')
-            <span class="text-red-500">{{ $message }}</span>
-        @enderror
+        <div class='control_group'>
+            <label class='label' for='email'>Email*</label>
+            <input type='text' name='email' placeholder='popescu.ion@gmail.com' id='email'
+                class="@error('email') bg-red-50 @enderror focus:ring-economic-darkgreen ring-economic-darkgreen"
+                value="{{ old('email') }}">
+            @error('email')
+                <span class="text-red-500">{{ $message }}</span>
+            @enderror
+        </div>
     </div>
 
     <div class="control_group">
@@ -104,7 +106,8 @@
 
     <div class="flex items-center justify-center gap-2 control_group">
         <input type="checkbox" name="privacy_policy" id="privacy_policy"
-            class="@error('privacy_policy') bg-red-50 @enderror focus:ring-economic-darkgreen" {{ old('privacy_policy') ? 'checked' : '' }}>
+            class="@error('privacy_policy') bg-red-50 @enderror focus:ring-economic-darkgreen"
+            {{ old('privacy_policy') ? 'checked' : '' }}>
         <label class="m-0 text-economic-gri" for="privacy_policy">Am citit și sunt de acord cu <a
                 href="/politica-de-confidentialitate" target="_blank" class="font-bold underline">Politica de
                 confidențialitate</a></label>

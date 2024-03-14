@@ -4,13 +4,13 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\BillingAddressController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\FavoritesController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\ProductDisplayController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramareController;
 use App\Http\Controllers\ShippingAddressController;
-use App\Http\Controllers\Twill\ContactController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,7 +33,7 @@ Route::get('echipa', [\App\Http\Controllers\EchipaDisplayController::class, 'sho
 Route::get('cariera', [\App\Http\Controllers\EchipaDisplayController::class, 'show_cariera'])->name('cariera');
 Route::get('intrebari-frecvente', [\App\Http\Controllers\EchipaDisplayController::class, 'show_intrebari_frecvente'])->name('intrebari-frecvente');
 Route::get('contact', [\App\Http\Controllers\ContactDisplayController::class, 'show'])->name('contact');
-Route::post('send-mail', [ContactFormController::class,'submitForm'])->name('send_contact_mail');
+Route::post('send-mail', [ContactFormController::class, 'submitForm'])->name('send_contact_mail');
 
 Route::get('/programare', [ProgramareController::class, 'showForm']);
 Route::post('/programare', [ProgramareController::class, 'store']);
@@ -78,7 +78,17 @@ Route::middleware('auth')->group(function () {
 
     Route::get('address/billing', [BillingAddressController::class, 'editBillingAddress'])->name('address.billing.edit');
     Route::patch('address/billing', [BillingAddressController::class, 'updateBillingAddress'])->name('address.billing.update');
-    });
+});
+
+Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/process-payment', [PaymentController::class,'processPayment'])->name('process.payment');
+Route::get('/payment/success', function () {
+    return view('payment-success');
+})->name('payment.success');
+
+Route::get('/payment/failure', function () {
+    return view('payment-failure');
+})->name('payment.failure');
 
 Route::fallback(function () {
     return redirect('/');

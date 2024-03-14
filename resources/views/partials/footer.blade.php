@@ -4,11 +4,15 @@
         <div>
             <p class="mb-4 text-xl font-bold text-economic-darkgreen">Utile</p>
             <div class="flex flex-col items-center gap-2 text-gray-300 md:items-start">
-                <a href="/articole" class="transition w-fit hover:text-economic-darkgreen">Articole</a>
-                <a href="/produse" class="transition w-fit hover:text-economic-darkgreen">Produse</a>
-                <a href="/despre-noi" class="transition w-fit hover:text-economic-darkgreen">Despre noi</a>
-                <a href="/contact" class="transition w-fit hover:text-economic-darkgreen">Contact</a>
-            </div>
+                <a href="/intrebari-frecvente" class="transition w-fit hover:text-economic-darkgreen">Intrebari
+                    frecvente</a>
+                    {{-- <a href="/produse" class="transition w-fit hover:text-economic-darkgreen">Produse</a> --}}
+                    <a href="/echipa" class="transition w-fit hover:text-economic-darkgreen">Echipa</a>
+                    <a href="/cariera" class="transition w-fit hover:text-economic-darkgreen">Cariera</a>
+                    <a href="/despre-noi" class="transition w-fit hover:text-economic-darkgreen">Despre noi</a>
+                    <a href="/contact" class="transition w-fit hover:text-economic-darkgreen">Contact</a>
+                    <a href="/articole" class="transition w-fit hover:text-economic-darkgreen">Articole</a>
+                </div>
         </div>
         <div>
             <p class="mb-4 text-xl font-bold text-economic-darkgreen">Legal</p>

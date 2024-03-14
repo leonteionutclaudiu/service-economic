@@ -17,10 +17,18 @@ class ProgramareController extends Controller
         $validatedData = $request->validate([
             'nume' => 'required|string',
             'email' => 'required|email',
-            'telefon' => 'required|string',
-            'nr_inmatriculare' => 'required|string',
-            'mesaj' => 'nullable|string',
+            'telefon' => 'required',
+            'nr_inmatriculare' => 'required',
+            'mesaj' => 'required',
             'data_programare' => 'required',
+        ], [
+            'nume.required' => 'Câmpul nume este obligatoriu.',
+            'email.required' => 'Câmpul email este obligatoriu.',
+            'email.email' => 'Adresa de email introdusă nu este validă.',
+            'telefon.required' => 'Câmpul telefon este obligatoriu.',
+            'nr_inmatriculare.required' => 'Câmpul număr înmatriculare este obligatoriu.',
+            'mesaj.required' => 'Câmpul mesaj este obligatoriu.',
+            'data_programare.required' => 'Câmpul dată programare este obligatoriu.',
         ]);
 
         $validatedData['acceptata'] = false;
@@ -31,25 +39,26 @@ class ProgramareController extends Controller
     }
 
     public function showProgramari()
-{
-    $programari = Programare::latest()->get();
+    {
+        $programari = Programare::latest()->get();
 
-    return view('programari.programari', compact('programari'));
-}
-public function updateAcceptata(Request $request, Programare $programare)
-{
-    if (!auth()->user()->hasRole('admin')) {
-        return redirect()->back()->with('error', 'Nu aveți permisiunea de a actualiza starea programării.');
+        return view('programari.programari', compact('programari'));
     }
 
-    $request->validate([
-        'acceptata' => 'required|boolean',
-    ]);
+    public function updateAcceptata(Request $request, Programare $programare)
+    {
+        if (! auth()->user()->hasRole('admin')) {
+            return redirect()->back()->with('error', 'Nu aveți permisiunea de a actualiza starea programării.');
+        }
 
-    $programare->update([
-        'acceptata' => $request->acceptata,
-    ]);
+        $request->validate([
+            'acceptata' => 'required|boolean',
+        ]);
 
-    return redirect()->back()->with('success', 'Starea programării a fost actualizată cu succes.');
-}
+        $programare->update([
+            'acceptata' => $request->acceptata,
+        ]);
+
+        return redirect()->back()->with('success', 'Starea programării a fost actualizată cu succes.');
+    }
 }

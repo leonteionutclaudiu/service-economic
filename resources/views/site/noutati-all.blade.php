@@ -1,6 +1,6 @@
 {{-- noutati-all.blade.php --}}
 
-<title>Service Economic Trade - Noutati</title>
+<title>Service Economic Trade - Articole</title>
 
 <x-layout>
 

@@ -52,7 +52,7 @@
                     @endif
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row gap-4">
+            {{-- <div class="flex flex-col md:flex-row gap-4">
                 <!-- câmpuri pentru adresa de livrare -->
                 <div>
                     <h4 class="mb-4"><i class="fa-solid fa-truck-fast"></i> Adresa de livrare</h4>
@@ -116,7 +116,7 @@
                         <x-input-error class="mt-2" :messages="$errors->get('billing_postal_code')" />
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <div class="flex items-center gap-4">

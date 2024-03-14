@@ -11,7 +11,7 @@ class NoutatiDisplayController extends Controller
     public function index()
     {
 
-        $noutati = Noutati::orderBy('updated_at', 'desc')->paginate(9);
+        $noutati = Noutati::orderBy('updated_at', 'desc')->paginate(12);
 
         return view('site.noutati-all', ['noutati' => $noutati]);
     }
