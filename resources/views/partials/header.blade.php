@@ -76,10 +76,76 @@
             favoritesCountElement.style.display = 'none';
         }
     }
+    document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY < 40) {
+            header.classList.add('scrollUp');
+        } else {
+            header.classList.remove('scrollUp');
+        }
+    });
+
+    // Verificăm poziția paginii la încărcarea paginii
+    if (window.scrollY > 40) {
+        header.classList.add('stickyHeader');
+    }
+
+    // Ascultă evenimentul de scroll
+    window.addEventListener('scroll', function() {
+        // Dacă pagina este rulată în jos de 40px, adăugăm clasa 'sticky' la header, altfel o eliminăm
+        if (window.scrollY > 40) {
+            header.classList.add('stickyHeader');
+        } else {
+            header.classList.remove('stickyHeader');
+        }
+    });
+
+    // Verificăm dacă pagina a fost actualizată și este deja rulată în jos
+    if (window.scrollY > 40) {
+        header.classList.add('stickyHeader');
+    }
+});
 </script>
 
-<header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-10 shadow-lg bg-[rgba(255,255,255,0.75)]"
-    :class="{ 'backdrop-blur-md': open === false }">
+<style>
+    .stickyHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: slideDown 0.4s forwards;
+}
+
+.scrollUp {
+    animation: fadeInOut 0.4s forwards;
+}
+
+@keyframes fadeInOut {
+    from {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    to {
+        box-shadow: none;
+    }
+}
+
+@keyframes slideDown {
+        from {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(0);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    }
+</style>
+
+<header x-data="{ open: false, isSticky: false }" :class="{ 'stickyHeader': isSticky, 'backdrop-blur-md': open === false }"
+    class=" z-10 bg-[rgba(255,255,255,0.75)] transition-all duration-300 ease-in-out"
+    @scroll.window="isSticky = window.scrollY > 40">
     <div class="xl:container flex items-center justify-between px-6 py-2 mx-auto">
         <a href="/" class="text-2xl font-bold text-gray-800">
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 min-w-28 h-auto" />

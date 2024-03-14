@@ -47,13 +47,13 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
 
 </head>
 
-<body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); } }" @scroll.window="isVisible = window.scrollY > 100">
+<body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); } }" @scroll.window="isVisible = window.scrollY > 40">
     <!-- header/navigation -->
     <div class="min-h-screen flex flex-col justify-between">
 
         @include('partials.header')
 
-        <main class="@if (auth()->check() && auth()->user()->isAdmin()) mt-24 lg:mt-20 md:mt-20 @else mt-20 lg:mt-10 md:mt-14 @endif">
+        <main x-bind:class="{ 'mt-20': isVisible }">
 
             {{--  preloader --}}
             <div class="preloader" id="preloader">
