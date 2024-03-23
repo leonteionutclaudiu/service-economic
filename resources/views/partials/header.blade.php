@@ -1,141 +1,146 @@
 <script>
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     // fetch categories (product tags) when the page loads
+    //     const dropdowns = document.querySelectorAll('.categoryDropdown');
+
+    //     dropdowns.forEach(dropdown => {
+    //         const loadingOption = document.createElement('a');
+    //         loadingOption.textContent = 'Se incarca...';
+    //         loadingOption.classList.add('block', 'px-4', 'py-2', 'text-base', 'text-gray-700');
+    //         dropdown.appendChild(loadingOption);
+
+    //         axios.get('/api/categories')
+    //             .then(response => {
+    //                 const categories = response.data.categories;
+
+    //                 // Sort categories alphabetically by name
+    //                 categories.sort((a, b) => a.name.localeCompare(b.name));
+
+    //                 dropdown.removeChild(loadingOption);
+
+    //                 // categories.forEach(category => {
+    //                 Object.values(categories).forEach(category => {
+    //                     const link = document.createElement('a');
+    //                     link.href = '/products/' + category.slug;
+    //                     link.textContent = category.name;
+    //                     link.classList.add('block', 'px-4', 'py-2', 'text-base',
+    //                         'text-gray-700',
+    //                         'transition', 'hover:text-economic-darkgreen');
+    //                     dropdown.appendChild(link);
+    //                 });
+    //             })
+    //             .catch(error => {
+    //                 console.error('Error fetching categories:', error);
+    //             });
+    //     });
+
+    //     // Fetch cart count when the page loads
+    //     axios.get('/cart/count')
+    //         .then(response => {
+    //             const cartCount = response.data.count;
+    //             updateCartCount(cartCount);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching cart count:', error);
+    //         });
+
+    //     // Function to update the cart count
+    //     function updateCartCount(count) {
+    //         const cartCountElement = document.getElementById('cartCount');
+    //         if (count > 0) {
+    //             cartCountElement.textContent = count;
+    //             cartCountElement.style.display = 'block';
+    //         } else {
+    //             cartCountElement.style.display = 'none';
+    //         }
+    //     }
+
+    //     // Fetch favorites count when the page loads
+    //     axios.get('/favorites/count')
+    //         .then(response => {
+    //             const favoritesCount = response.data.count;
+    //             updateFavoritesCount(favoritesCount);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching favorites count:', error);
+    //         });
+    // });
+
+    // // Function to update the favorites count
+    // function updateFavoritesCount(count) {
+    //     const favoritesCountElement = document.getElementById('favoritesCount');
+    //     if (count > 0) {
+    //         favoritesCountElement.textContent = count;
+    //         favoritesCountElement.style.display = 'block';
+    //     } else {
+    //         favoritesCountElement.style.display = 'none';
+    //     }
+    // }
     document.addEventListener('DOMContentLoaded', function() {
-        // fetch categories (product tags) when the page loads
-        const dropdowns = document.querySelectorAll('.categoryDropdown');
+        const header = document.querySelector('header');
 
-        dropdowns.forEach(dropdown => {
-            const loadingOption = document.createElement('a');
-            loadingOption.textContent = 'Se incarca...';
-            loadingOption.classList.add('block', 'px-4', 'py-2', 'text-base', 'text-gray-700');
-            dropdown.appendChild(loadingOption);
-
-            axios.get('/api/categories')
-                .then(response => {
-                    const categories = response.data.categories;
-
-                    // Sort categories alphabetically by name
-                    categories.sort((a, b) => a.name.localeCompare(b.name));
-
-                    dropdown.removeChild(loadingOption);
-
-                    // categories.forEach(category => {
-                    Object.values(categories).forEach(category => {
-                        const link = document.createElement('a');
-                        link.href = '/products/' + category.slug;
-                        link.textContent = category.name;
-                        link.classList.add('block', 'px-4', 'py-2', 'text-base',
-                            'text-gray-700',
-                            'transition', 'hover:text-economic-darkgreen');
-                        dropdown.appendChild(link);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching categories:', error);
-                });
+        window.addEventListener('scroll', function() {
+            if (window.scrollY < 40) {
+                header.classList.add('scrollUp');
+            } else {
+                header.classList.remove('scrollUp');
+            }
         });
 
-        // Fetch cart count when the page loads
-        axios.get('/cart/count')
-            .then(response => {
-                const cartCount = response.data.count;
-                updateCartCount(cartCount);
-            })
-            .catch(error => {
-                console.error('Error fetching cart count:', error);
-            });
-
-        // Function to update the cart count
-        function updateCartCount(count) {
-            const cartCountElement = document.getElementById('cartCount');
-            if (count > 0) {
-                cartCountElement.textContent = count;
-                cartCountElement.style.display = 'block';
-            } else {
-                cartCountElement.style.display = 'none';
-            }
-        }
-
-        // Fetch favorites count when the page loads
-        axios.get('/favorites/count')
-            .then(response => {
-                const favoritesCount = response.data.count;
-                updateFavoritesCount(favoritesCount);
-            })
-            .catch(error => {
-                console.error('Error fetching favorites count:', error);
-            });
-    });
-
-    // Function to update the favorites count
-    function updateFavoritesCount(count) {
-        const favoritesCountElement = document.getElementById('favoritesCount');
-        if (count > 0) {
-            favoritesCountElement.textContent = count;
-            favoritesCountElement.style.display = 'block';
-        } else {
-            favoritesCountElement.style.display = 'none';
-        }
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('header');
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY < 40) {
-            header.classList.add('scrollUp');
-        } else {
-            header.classList.remove('scrollUp');
-        }
-    });
-
-    // Verificăm poziția paginii la încărcarea paginii
-    if (window.scrollY > 40) {
-        header.classList.add('stickyHeader');
-    }
-
-    // Ascultă evenimentul de scroll
-    window.addEventListener('scroll', function() {
-        // Dacă pagina este rulată în jos de 40px, adăugăm clasa 'sticky' la header, altfel o eliminăm
+        // Verificăm poziția paginii la încărcarea paginii
         if (window.scrollY > 40) {
             header.classList.add('stickyHeader');
-        } else {
-            header.classList.remove('stickyHeader');
+        }
+
+        // Ascultă evenimentul de scroll
+        window.addEventListener('scroll', function() {
+            // Dacă pagina este rulată în jos de 40px, adăugăm clasa 'sticky' la header, altfel o eliminăm
+            if (window.scrollY > 40) {
+                header.classList.add('stickyHeader');
+            } else {
+                header.classList.remove('stickyHeader');
+            }
+        });
+
+        // Verificăm dacă pagina a fost actualizată și este deja rulată în jos
+        if (window.scrollY > 40) {
+            header.classList.add('stickyHeader');
         }
     });
-
-    // Verificăm dacă pagina a fost actualizată și este deja rulată în jos
-    if (window.scrollY > 40) {
-        header.classList.add('stickyHeader');
-    }
-});
 </script>
 
 <style>
     .stickyHeader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    animation: slideDown 0.4s forwards;
-}
-
-.scrollUp {
-    animation: fadeInOut 0.4s forwards;
-}
-
-@keyframes fadeInOut {
-    from {
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        animation: slideDown 0.5s forwards;
     }
 
-    to {
-        box-shadow: none;
+    .scrollUp {
+        animation: fadeInOut 0.5s forwards;
     }
-}
 
-@keyframes slideDown {
+    @keyframes fadeInOut {
+        0% {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+
+        75% {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        100% {
+            box-shadow: none;
+        }
+    }
+
+    @keyframes slideDown {
         from {
             transform: translateY(-100%);
         }
+
         to {
             transform: translateY(0);
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -324,8 +329,8 @@
                     </x-nav-dropdown></li>
                 </li>
 
-                <li><a href="/contact"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full">Contact</a>
+                <li><p @click="contactModalForm = true"
+                        class="block py-2 transition cursor-pointer duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full">Contact</p>
                 </li>
                 {{-- <div class="flex">
 

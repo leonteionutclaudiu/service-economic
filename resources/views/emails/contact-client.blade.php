@@ -316,8 +316,7 @@
                                                                         style="line-height: 19.6px;"></span>Service
                                                                     Economic Trade este partenerul dvs. de incredere
                                                                     pentru servicii auto de inalta calitate în
-                                                                    Bucuresti! <br /><br /><em><strong>Acesta este un
-                                                                            test de Leonte Ionut-Claudiu. </strong></em>
+                                                                    Bucuresti! <br /><br />
                                                                 </p>
                                                             </div>
 

@@ -1,5 +1,5 @@
 {{-- footer --}}
-<footer class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14 bg-black text-center md:text-start w-full">
+<footer class="px-2 py-6 mx-auto md:px-12 lg:py-10 bg-black text-center md:text-start w-full">
     <div class="max-w-7xl mx-auto flex flex-col items-center justify-evenly gap-10 mb-8 md:flex-row md:items-start">
         <div>
             <p class="mb-4 text-xl font-bold text-economic-darkgreen">Utile</p>
@@ -10,7 +10,7 @@
                     <a href="/echipa" class="transition w-fit hover:text-economic-darkgreen">Echipa</a>
                     <a href="/cariera" class="transition w-fit hover:text-economic-darkgreen">Cariera</a>
                     <a href="/despre-noi" class="transition w-fit hover:text-economic-darkgreen">Despre noi</a>
-                    <a href="/contact" class="transition w-fit hover:text-economic-darkgreen">Contact</a>
+                    <p @click="contactModalForm = true" class="transition w-fit hover:text-economic-darkgreen cursor-pointer">Contact</p>
                     <a href="/articole" class="transition w-fit hover:text-economic-darkgreen">Articole</a>
                 </div>
         </div>

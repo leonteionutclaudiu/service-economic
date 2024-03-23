@@ -24,7 +24,7 @@
 
     @vite('resources/js/app.js')
     {{-- <script src="{{ mix('js/app.js') }}"></script> --}}
-    <script src="//unpkg.com/alpinejs" defer></script>
+    {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -42,16 +42,17 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
     <script src="https://kit.fontawesome.com/092372ecfa.js" crossorigin="anonymous"></script>
 
     <script src="
-    https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
-    "></script>
+                    https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+                    "></script>
 
 </head>
 
-<body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); } }" @scroll.window="isVisible = window.scrollY > 40">
+<body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); }, contactOpen: false, contactModalForm: false }" @scroll.window="isVisible = window.scrollY > 40">
     <!-- header/navigation -->
     <div class="min-h-screen flex flex-col justify-between">
 
         @include('partials.header')
+        @include('components.contact-modal-form')
 
         <main x-bind:class="{ 'mt-20': isVisible }">
 
@@ -65,10 +66,12 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
         {{-- footer --}}
         @include('partials.footer')
 
+        {{-- contact buttons --}}
+        @include('components.contact-buttons')
+
         {{-- scroll to top button --}}
         @include('components.scrollToTopBtn')
 
-        @include('components.whatsapp-messenger-button')
     </div>
 
     {{-- VANILLA TILT JS IMPORT CDN --}}

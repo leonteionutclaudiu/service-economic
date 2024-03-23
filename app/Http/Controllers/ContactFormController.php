@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactFormMail;
+use App\Mail\ContactAdminMail;
+use App\Mail\ContactClientMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class ContactFormController extends Controller
 {
     public function submitForm(Request $request)
     {
         // Validate the form data
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nume' => 'required|min:3',
             'nr' => 'required|regex:/^[0-9]{10}$/u',
             // 'companie' => 'required|min:3',
@@ -40,12 +42,21 @@ class ContactFormController extends Controller
             'privacy_policy.required' => 'Trebuie sa fiti de acord cu politica de confidentialitate.',
         ]);
 
-        // Send email using Bcc to leonteionut98@yahoo.com and the email address provided in the form
+        // Check if validation fails
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        // Send email to client email address provided in the form
         $data = $request->all();
-        Mail::to($data['email'])->bcc('leonteionut98@yahoo.com')->send(new ContactFormMail($data));
 
-        Session::flash('success_message', 'Mesajul dvs. a fost trimis cu succes');
+        Mail::to($data['email'])->send(new ContactClientMail($data));
 
-        return redirect()->back()->with('success', 'Formularul a fost trimis cu succes');
+        // Send email to admin email
+        Mail::to('leonteionut98@yahoo.com')->send(new ContactAdminMail($data));
+
+        Session::flash('success', 'Mesajul dvs. a fost trimis cu succes');
+
+        return response()->json(['message' => 'Multumim! Mesajul a fost trimis cu succes!']);
     }
 }
