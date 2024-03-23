@@ -32,7 +32,7 @@
                                     </td>
                                     <td class="py-2 px-4 border-b">{{ $programare->nume }}</td>
                                     <td class="py-2 px-4 border-b">{{ $programare->email }}</td>
-                                    <td class="py-2 px-4 border-b">{{ $programare->telefon }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $programare->nr }}</td>
                                     <td class="py-2 px-4 border-b">{{ $programare->nr_inmatriculare }}</td>
                                     <td class="py-2 px-4 border-b">
                                         {{ \Carbon\Carbon::parse($programare->data_programare)->isoFormat('dddd, D MMMM YYYY') }}

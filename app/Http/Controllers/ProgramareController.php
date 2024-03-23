@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactClientMail;
+use App\Mail\ProgramareAdminMail;
 use App\Models\Programare;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class ProgramareController extends Controller
 {
@@ -14,28 +20,48 @@ class ProgramareController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        // Validate the form data
+        $validator = Validator::make($request->all(), [
             'nume' => 'required|string',
             'email' => 'required|email',
-            'telefon' => 'required',
+            'nr' => 'required',
             'nr_inmatriculare' => 'required',
             'mesaj' => 'required',
             'data_programare' => 'required',
+            'g-recaptcha-response' => 'required|recaptcha',
         ], [
             'nume.required' => 'Câmpul nume este obligatoriu.',
             'email.required' => 'Câmpul email este obligatoriu.',
             'email.email' => 'Adresa de email introdusă nu este validă.',
-            'telefon.required' => 'Câmpul telefon este obligatoriu.',
+            'nr.required' => 'Câmpul telefon este obligatoriu.',
             'nr_inmatriculare.required' => 'Câmpul număr înmatriculare este obligatoriu.',
             'mesaj.required' => 'Câmpul mesaj este obligatoriu.',
             'data_programare.required' => 'Câmpul dată programare este obligatoriu.',
+            'g-recaptcha-response.recaptcha' => 'Verificarea Captcha a esuat.',
+            'g-recaptcha-response.required' => 'Va rugam completati Captcha.',
         ]);
 
-        $validatedData['acceptata'] = false;
+         // Check if validation fails
+         if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
 
-        Programare::create($validatedData);
+        // Send email to client email address provided in the form
+        $data = $request->all();
+        $data['acceptata'] = false;
 
-        return redirect('/')->with('success', 'Programarea a fost înregistrată cu succes');
+        Programare::create($data);
+
+        $data['data_programare'] = Carbon::parse($request->data_programare)->locale('ro_RO')->translatedFormat('d F Y');
+
+        Mail::to($data['email'])->send(new ContactClientMail($data));
+
+        // Send email to admin email
+        Mail::to('leonteionut98@yahoo.com')->send(new ProgramareAdminMail($data));
+
+        // Session::flash('success', 'Mesajul dvs. a fost trimis cu succes');
+
+        return response()->json(['message' => 'Multumim! Mesajul a fost trimis cu succes!']);
     }
 
     public function showProgramari()

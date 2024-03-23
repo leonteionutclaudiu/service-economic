@@ -11,7 +11,7 @@ class Programare extends Model
     protected $fillable = [
         'nume',
         'email',
-        'telefon',
+        'nr',
         'nr_inmatriculare',
         'mesaj',
         'acceptata',

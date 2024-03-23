@@ -55,7 +55,7 @@ class ContactFormController extends Controller
         // Send email to admin email
         Mail::to('leonteionut98@yahoo.com')->send(new ContactAdminMail($data));
 
-        Session::flash('success', 'Mesajul dvs. a fost trimis cu succes');
+        // Session::flash('success', 'Mesajul dvs. a fost trimis cu succes');
 
         return response()->json(['message' => 'Multumim! Mesajul a fost trimis cu succes!']);
     }

@@ -6,13 +6,14 @@
             <div class="flex flex-col items-center gap-2 text-gray-300 md:items-start">
                 <a href="/intrebari-frecvente" class="transition w-fit hover:text-economic-darkgreen">Intrebari
                     frecvente</a>
-                    {{-- <a href="/produse" class="transition w-fit hover:text-economic-darkgreen">Produse</a> --}}
-                    <a href="/echipa" class="transition w-fit hover:text-economic-darkgreen">Echipa</a>
-                    <a href="/cariera" class="transition w-fit hover:text-economic-darkgreen">Cariera</a>
-                    <a href="/despre-noi" class="transition w-fit hover:text-economic-darkgreen">Despre noi</a>
-                    <p @click="contactModalForm = true" class="transition w-fit hover:text-economic-darkgreen cursor-pointer">Contact</p>
-                    <a href="/articole" class="transition w-fit hover:text-economic-darkgreen">Articole</a>
-                </div>
+                {{-- <a href="/produse" class="transition w-fit hover:text-economic-darkgreen">Produse</a> --}}
+                <a href="/echipa" class="transition w-fit hover:text-economic-darkgreen">Echipa</a>
+                <a href="/cariera" class="transition w-fit hover:text-economic-darkgreen">Cariera</a>
+                <a href="/despre-noi" class="transition w-fit hover:text-economic-darkgreen">Despre noi</a>
+                <p @click="contactModalForm = true"
+                    class="transition w-fit hover:text-economic-darkgreen cursor-pointer">Contact</p>
+                <a href="/articole" class="transition w-fit hover:text-economic-darkgreen">Articole</a>
+            </div>
         </div>
         <div>
             <p class="mb-4 text-xl font-bold text-economic-darkgreen">Legal</p>
@@ -22,11 +23,18 @@
                 <a href="/politica-de-confidentialitate" class="transition w-fit hover:text-economic-darkgreen">Politica
                     de
                     confidentialitate</a>
+                <p class="text-economic-darkgray">Service Economic Trade S.R.L.
+                </p>
+                <p class="text-economic-darkgray">REG. COM.:
+                    J40/10039/2023
+                </p>
+                <p class="text-economic-darkgray">CUI: RO 39431025
+                </p>
             </div>
         </div>
         <div>
             <p class="mb-4 text-xl font-bold text-economic-darkgreen">
-                Ne găsești aici:</p>
+                Ne gasesti aici:</p>
             <div class="flex flex-col items-center gap-2 text-gray-300 md:items-start">
                 <a class="transition w-fit hover:text-economic-darkgreen"
                     href='https://maps.app.goo.gl/WWbdhoGfniRpBjae6' target='_blank'><i class="fa fa-map-marker"></i>
@@ -42,6 +50,16 @@
                     class="flex items-center gap-1 transition w-fit hover:text-economic-darkgreen"><i
                         class="fa fa-envelope"></i>
                     office@serviceeconomic.ro</a>
+                <div class="flex gap-4 justify-between items-center border rounded-2xl px-4 py-2">
+                    <a href="https://www.facebook.com/profile.php?id=100090017734346" target="_blank">
+                        <i
+                            class="fa-brands fa-square-facebook text-2xl transition hover:scale-125 hover:text-economic-darkgreen"></i>
+                    </a>
+                    <a href="https://www.instagram.com/service.economic.trade/" target="_blank">
+                        <i
+                            class="fa-brands fa-square-instagram text-2xl transition hover:scale-125 hover:text-economic-darkgreen"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

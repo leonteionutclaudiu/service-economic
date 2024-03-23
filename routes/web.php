@@ -36,7 +36,7 @@ Route::get('contact', [\App\Http\Controllers\ContactDisplayController::class, 's
 Route::post('send-mail', [ContactFormController::class, 'submitForm'])->name('send_contact_mail');
 
 Route::get('/programare', [ProgramareController::class, 'showForm']);
-Route::post('/programare', [ProgramareController::class, 'store']);
+Route::post('/programare', [ProgramareController::class, 'store'])->name('programare');
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/utilizatori', [RegisteredUserController::class, 'index'])->name('users.index');

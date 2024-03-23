@@ -18,12 +18,13 @@
 
             <div class="text-center">
                 <div class='mb-6 font-bold'>
-                    <p class="text-lg md:text-xl">Ne puteti contacta la numarul de telefon:</p>
+                    <p class="text-lg md:text-xl">
+                        Puteți lua legătura cu noi la numărul de telefon:</p>
                     <a href="tel:+40744322011"
-                        class='flex items-center gap-1 mx-auto transition w-fit hover:text-gray-100 hover:underline text-lg md:text-2xl'>
+                        class='flex items-center gap-1 mx-auto transition w-fit hover:underline text-lg md:text-2xl'>
                         0744 322 011
                     </a>
-                    <p class="text-lg md:text-xl">sau completand formularul de mai jos</p>
+                    <p class="text-lg md:text-xl"> sau completați formularul de mai jos pentru a ne contacta.</p>
                 </div>
             </div>
 

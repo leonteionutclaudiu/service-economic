@@ -1,11 +1,11 @@
 <!-- Toggle button -->
-<div class="fixed bottom-10 left-0 md:left-8">
+<div class="fixed bottom-10 left-0 md:left-8 z-10">
     <div class="relative w-[76px]">
-        <button @click="contactOpen = !contactOpen"
-            class="bg-economic-darkgreen hover:bg-economic-lightgreen active:bg-economic-red transition  text-white p-4 rounded-full shadow-lg focus:outline-none block mx-auto h-14 w-14">
+        <button @click="contactOpen = !contactOpen" :class="{ 'bg-stone-900 hover:bg-stone-700': contactOpen }"
+            class="bg-economic-darkgreen hover:bg-economic-lightgreen active:bg-economic-red transition  text-white p-4 rounded-full focus:outline-none block mx-auto h-14 w-14 shadow-sm">
             <i class="fas fa-comment fa-lg"></i>
             <!-- Mic cerc pentru indicarea stării -->
-            <div x-data="{ currentTime: new Date() }" :class="{ 'bg-green-500': currentTime.getHours() >= 8 && currentTime.getHours() < 18, 'bg-red-500': currentTime.getHours() < 8 || currentTime.getHours() >= 18 }" class="absolute top-0 right-0 w-4 h-4 rounded-full border-2 border-white"></div>
+            <div x-data="{ currentTime: new Date() }" class="absolute top-0 right-0 w-4 h-4 rounded-full border-2 border-white"></div>
         </button>
 
         <!-- Dropdown content -->
@@ -31,13 +31,33 @@
 </div>
 
 <script defer>
+    // Funcție pentru actualizarea culorilor în funcție de timp
     const currentTimeElement = document.querySelector('[x-data="{ currentTime: new Date() }"]');
-
-    setInterval(() => {
+    function updateColors() {
+        console.log(currentTimeElement);
         const currentTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Europe/Bucharest"}));
+        const currentDay = currentTime.getDay(); // 0 = Duminică, 1 = Luni, ..., 6 = Sâmbătă
+        const isWeekday = currentDay >= 1 && currentDay <= 5; // Verifică dacă este zi lucrătoare
+        const isWorkHours = currentTime.getHours() >= 8 && currentTime.getHours() < 17; // Verifică dacă este în timpul programului de lucru (Luni-Vineri)
+        const isSaturday = currentDay === 6; // Verifică dacă este Sâmbătă
+        const isSaturdayWorkHours = isSaturday && currentTime.getHours() >= 8 && currentTime.getHours() < 14; // Verifică dacă este în timpul programului de lucru de Sâmbătă
+
+        let isDayTime = false;
+
+        if (isWeekday && isWorkHours) {
+            isDayTime = true; // Programul de lucru de Luni-Vineri, între orele 8:00 și 17:00
+        } else if (isSaturday && isSaturdayWorkHours) {
+            isDayTime = true; // Programul de lucru de Sâmbătă, între orele 8:00 și 14:00
+        }
+
         currentTimeElement.setAttribute('x-data', `{ currentTime: new Date('${currentTime.toISOString()}') }`);
-        const isDayTime = currentTime.getHours() >= 8 && currentTime.getHours() < 18;
         currentTimeElement.classList.toggle('bg-green-500', isDayTime);
         currentTimeElement.classList.toggle('bg-red-500', !isDayTime);
-    }, 30000); // Actualizează timpul la fiecare 30 secunde
+    }
+
+    // Actualizează culorile la încărcarea completă a paginii
+    window.addEventListener('DOMContentLoaded', updateColors);
+
+    // Funcție pentru actualizarea culorilor la fiecare 30 de secunde
+    setInterval(updateColors, 30000);
 </script>
