@@ -183,7 +183,7 @@
                 <a href="/">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 min-w-28 h-auto" />
                 </a>
-                <ul class="text-center" style="list-style: none;">
+                <ul class="text-center flex flex-col items-start" style="list-style: none;">
 
                     {{-- @guest
                         <li><a href="/login"
@@ -254,9 +254,9 @@
                             </a>
                         </x-nav-dropdown>
                     </li>
-                    <li><a href="/contact"
-                            class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black">Contact</a>
-                    </li>
+                    <li><p @click="contactModalForm = true"
+                        class="block py-2 transition cursor-pointer duration-300 px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full">Contact</p>
+                </li>
                 </ul>
             </div>
         </nav>
@@ -285,9 +285,13 @@
                 <li><a href="/articole"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>
                 </li>
-                <li><a href="/oferte"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Oferte</a>
+                <li>  <a href="/intrebari-frecvente"
+                    class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Intrebari
+                    frecvente</a>
                 </li>
+                {{-- <li><a href="/oferte"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Oferte</a>
+                </li> --}}
                 {{-- <li class="py-2 lg:px-4">
                     <div x-data="{ open: false }"
                         class="relative inline-block font-semibold text-left transition duration-300 transform z-10"
@@ -320,9 +324,9 @@
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Echipa</a>
                         <a href="/cariera"
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Cariera</a>
-                        <a href="/intrebari-frecvente"
+                        {{-- <a href="/intrebari-frecvente"
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Intrebari
-                            frecvente</a>
+                            frecvente</a> --}}
                         <a href="/despre-noi"
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Despre
                         </a>

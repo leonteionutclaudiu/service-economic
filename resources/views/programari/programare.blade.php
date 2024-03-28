@@ -13,11 +13,11 @@
                 <h5>Completați formularul nostru rapid și ușor
                     pentru a asigura îngrijirea optimă a vehiculului dvs. Echipa noastră calificată este pregătită să vă
                     ofere servicii de înaltă calitate.</h5>
-                <img src="{{ asset('images/programare.jpeg') }}" alt="Logo" class="h-auto" />
+                <img src="{{ asset('images/programare.jpg') }}" alt="Logo" class="max-h-[800px] rounded-md" />
             </div>
 
             <form action="/programare" method="post"
-                class="max-w-lg mx-auto bg-white p-2 md:p-8 rounded shadow flex-grow w-full programare-form">
+                class="max-w-lg mx-auto bg-white p-2 md:p-8 rounded shadow-md hover:shadow-lg transition hover:shadow-economic-darkgreen shadow-economic-darkgreen flex-grow w-full programare-form">
                 @csrf
 
                 <h4 class="text-center mb-4">Formular programare service</h4>

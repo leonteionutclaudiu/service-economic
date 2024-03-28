@@ -42,8 +42,10 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
     <script src="https://kit.fontawesome.com/092372ecfa.js" crossorigin="anonymous"></script>
 
     <script src="
-                    https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
-                    "></script>
+                        https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+                        "></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
 
 </head>
 

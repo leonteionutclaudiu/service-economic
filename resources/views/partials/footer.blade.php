@@ -30,6 +30,7 @@
                 </p>
                 <p class="text-economic-darkgray">CUI: RO 39431025
                 </p>
+                <a href="javascript:void(0)" class="js-lcc-settings-toggle transition w-fit hover:text-economic-darkgreen">Setari cookie-uri <i class="fa-solid fa-cookie-bite"></i></a>
             </div>
         </div>
         <div>
