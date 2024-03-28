@@ -1,6 +1,6 @@
 <!-- contact-form.blade.php -->
 
-<form class='w-full max-w-5xl p-5 mx-auto transition duration-300 contact_form' action="/send-mail" method="post">
+<form class='w-full max-w-5xl p-5 mx-auto transition duration-300 contact_form wow animate__animated animate__fadeIn' action="/send-mail" method="post">
     @csrf
 
     <div class="text-center">

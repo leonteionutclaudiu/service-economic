@@ -42,11 +42,16 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
     <script src="https://kit.fontawesome.com/092372ecfa.js" crossorigin="anonymous"></script>
 
     <script src="
-                        https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
-                        "></script>
+                                https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+                                "></script>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
 
+    <!-- Wow.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
 <body x-data="{ isVisible: false, scrollToTop: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); }, contactOpen: false, contactModalForm: false }" @scroll.window="isVisible = window.scrollY > 40">
@@ -95,6 +100,10 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    <script>
+        new WOW().init();
+    </script>
 
 </body>
 

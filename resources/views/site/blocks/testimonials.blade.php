@@ -46,7 +46,7 @@
     keenSliderNextDesktop.addEventListener('click', () => keenSlider.next())
 </script>
 
-<section class="bg-gray-50">
+<section class="bg-gray-50 wow animate__animated animate__fadeIn">
     <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
             <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
