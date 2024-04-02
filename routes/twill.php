@@ -8,3 +8,5 @@ TwillRoutes::module('homes');
 TwillRoutes::module('noutatis');
 TwillRoutes::module('echipas');
 TwillRoutes::module('products');
+
+TwillRoutes::module('legals');

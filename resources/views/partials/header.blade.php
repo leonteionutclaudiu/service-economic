@@ -180,10 +180,12 @@
                 </button>
             </div>
             <div>
-                <a href="/">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-32 min-w-28 h-auto" />
-                </a>
-                <ul class="text-center flex flex-col items-start" style="list-style: none;">
+                <ul class="flex flex-col mx-auto space-y-6 h-[70vh] md:w-[350px] w-[50vw] font-semibold"
+                    style="list-style: none;">
+                    <a href="/">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo"
+                            class="w-32 min-w-28 h-auto mx-auto mb-10" />
+                    </a>
 
                     {{-- @guest
                         <li><a href="/login"
@@ -194,7 +196,7 @@
 
                     @auth
                         <li>
-                            <div class="fixed top-4 left-0 right-0 w-fit mx-auto sm:flex sm:items-center sm:ms-6">
+                            <div class="w-fit mx-auto sm:flex sm:items-center sm:ms-6">
                                 <x-dropdown align="right" width="48">
                                     <x-slot name="trigger">
                                         <button
@@ -233,8 +235,15 @@
                         </li>
                     @endauth
 
-                    <li><a href="/noutati"
-                            class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black">Noutati</a>
+                    <li> <a href="/programare"
+                            class="py-2 px-4 bg-economic-darkgreen hover:bg-economic-red text-white rounded-full transition duration-300 ease-in-out hover:text-white font-bold block text-center">Programare</a>
+                    </li>
+                    <li><a href="/articole"
+                            class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black {{ request()->is('articole*') ? 'border-b-2 border-black' : 'custom-link' }}">Articole</a>
+                    </li>
+                    <li><a href="/intrebari-frecvente"
+                            class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black {{ request()->is('intrebari-frecvente*') ? 'border-b-2 border-black' : 'custom-link' }}">Intrebari
+                            frecvente</a>
                     </li>
                     {{-- <li> <x-nav-dropdown title="Produse" :toPages="['products']">
                             <div class="categoryDropdown"></div>
@@ -245,18 +254,16 @@
                                 class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen ">Echipa</a>
                             <a href="/cariera"
                                 class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen ">Cariera</a>
-                            <a href="/intrebari-frecvente"
-                                class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Intrebari
-                                frecvente
-                            </a>
                             <a href="/despre-noi"
                                 class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Despre
                             </a>
                         </x-nav-dropdown>
                     </li>
-                    <li><p @click="contactModalForm = true"
-                        class="block py-2 transition cursor-pointer duration-300 px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full">Contact</p>
-                </li>
+                    <li>
+                        <p @click="contactModalForm = true"
+                            class="block py-2 transition cursor-pointer duration-300 px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full text-center">
+                            Contact</p>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -283,11 +290,11 @@
                         class="py-2 px-4 bg-economic-darkgreen hover:bg-economic-red text-white rounded-full transition duration-300 ease-in-out hover:text-white font-bold block text-center">Programare</a>
                 </li>
                 <li><a href="/articole"
-                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Articole</a>
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black {{ request()->is('articole*') ? 'border-b-2 border-black' : 'custom-link' }}">Articole</a>
                 </li>
-                <li>  <a href="/intrebari-frecvente"
-                    class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Intrebari
-                    frecvente</a>
+                <li> <a href="/intrebari-frecvente"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black  {{ request()->is('intrebari-frecvente*') ? 'border-b-2 border-black' : 'custom-link' }}">Intrebari
+                        frecvente</a>
                 </li>
                 {{-- <li><a href="/oferte"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black">Oferte</a>
@@ -324,17 +331,16 @@
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Echipa</a>
                         <a href="/cariera"
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Cariera</a>
-                        {{-- <a href="/intrebari-frecvente"
-                            class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Intrebari
-                            frecvente</a> --}}
                         <a href="/despre-noi"
                             class="block px-4 py-2 text-base text-gray-700 transition hover:text-economic-darkgreen">Despre
                         </a>
                     </x-nav-dropdown></li>
                 </li>
 
-                <li><p @click="contactModalForm = true"
-                        class="block py-2 transition cursor-pointer duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full">Contact</p>
+                <li>
+                    <p @click="contactModalForm = true"
+                        class="block py-2 transition cursor-pointer duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full">
+                        Contact</p>
                 </li>
                 {{-- <div class="flex">
 
@@ -407,13 +413,22 @@
                     </li>
                 @endauth
 
+                @role('admin')
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger"><button><i class="fa-solid fa-user-tie"></i> Zona de
+                                administrator</button></x-slot>
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('programari')">
+                                <i class="fa-solid fa-calendar-days"></i> {{ __('Programari') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('users.index')">
+                                <i class="fa-solid fa-users"></i> {{ __('Utilizatori') }}
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
+                @endrole
+
             </ul>
-            @role('admin')
-                <div class="bg-red-500 text-white px-6 py-1">
-                    <a href="/programari" class="text-lg">Programari</a>
-                    <a href="/utilizatori" class="text-lg">Utilizatori</a>
-                </div>
-            @endrole
         </nav>
     </div>
 </header>

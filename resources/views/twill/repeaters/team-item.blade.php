@@ -1,4 +1,4 @@
-@twillBlockTitle('Coleg')
+@twillBlockTitle('Membru')
 @twillBlockIcon('image')
 @twillBlockGroup('app')
 

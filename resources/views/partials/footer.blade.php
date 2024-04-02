@@ -13,6 +13,7 @@
                 <p @click="contactModalForm = true"
                     class="transition w-fit hover:text-economic-darkgreen cursor-pointer">Contact</p>
                 <a href="/articole" class="transition w-fit hover:text-economic-darkgreen">Articole</a>
+                <a href="/programare" class="transition w-fit hover:text-economic-darkgreen">Programare</a>
             </div>
         </div>
         <div>
@@ -30,7 +31,9 @@
                 </p>
                 <p class="text-economic-darkgray">CUI: RO 39431025
                 </p>
-                <a href="javascript:void(0)" class="js-lcc-settings-toggle transition w-fit hover:text-economic-darkgreen">Setari cookie-uri <i class="fa-solid fa-cookie-bite"></i></a>
+                <a href="javascript:void(0)"
+                    class="js-lcc-settings-toggle transition w-fit hover:text-economic-darkgreen">Setari cookie-uri <i
+                        class="fa-solid fa-cookie-bite"></i></a>
             </div>
         </div>
         <div>

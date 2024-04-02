@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14 mt-5">
+    <div class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14">
         <h1 class="text-2xl font-bold mb-4 text-center">Utilizatori Înregistrați</h1>
 
         <div class="overflow-x-auto">
@@ -32,6 +32,11 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="my-4">
+            {{ $users->links('vendor.pagination.tailwind') }}
+        </div>
+
     </div>
 
     @if (session('success'))

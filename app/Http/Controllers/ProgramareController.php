@@ -41,8 +41,8 @@ class ProgramareController extends Controller
             'g-recaptcha-response.required' => 'Va rugam completati Captcha.',
         ]);
 
-         // Check if validation fails
-         if ($validator->fails()) {
+        // Check if validation fails
+        if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
@@ -64,11 +64,14 @@ class ProgramareController extends Controller
         return response()->json(['message' => 'Multumim! Mesajul a fost trimis cu succes!']);
     }
 
-    public function showProgramari()
+    public function showProgramari(Request $request)
     {
-        $programari = Programare::latest()->get();
+        $sortBy = $request->query('sort', 'created_at');
+        $sortOrder = $request->query('order', 'desc');
 
-        return view('programari.programari', compact('programari'));
+        $programari = Programare::orderBy($sortBy, $sortOrder)->paginate(20);
+
+        return view('programari.programari', compact('programari', 'sortBy', 'sortOrder'));
     }
 
     public function updateAcceptata(Request $request, Programare $programare)

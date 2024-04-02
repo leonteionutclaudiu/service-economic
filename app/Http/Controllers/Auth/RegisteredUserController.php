@@ -54,9 +54,10 @@ class RegisteredUserController extends Controller
 
     public function index()
     {
-        $users = User::latest()->get();
+        $users = User::latest()->paginate(20);
         return view('users.users', compact('users'));
     }
+
     public function edit(User $user)
     {
         $roles = Role::all();

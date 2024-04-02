@@ -4,7 +4,7 @@
 
 <x-layout>
 
-    <div class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14">
+    <div class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14 container">
         <h2 class="mb-6 text-center text-economic-darkgreen">{{ $item->title }}</h2>
         <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
 

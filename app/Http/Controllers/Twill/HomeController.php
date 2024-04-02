@@ -44,9 +44,9 @@ class HomeController extends BaseModuleController
     {
         $table = parent::additionalIndexTableColumns();
 
-        $table->add(
-            Text::make()->field('description')->title('Description')
-        );
+        // $table->add(
+        //     Text::make()->field('description')->title('Description')
+        // );
 
         return $table;
     }

@@ -1,6 +1,6 @@
 <x-layout>
     <div class="px-2 py-6 mx-auto md:px-12 lg:py-20 md:py-14">
-        <div class="container mx-auto mt-8">
+        <div class="container mx-auto">
             <h1 class="text-2xl font-bold mb-4 text-center">Lista Programărilor</h1>
 
             @if ($programari->isEmpty())
@@ -10,17 +10,71 @@
                     <table class="min-w-full bg-white border border-gray-300 shadow">
                         <thead>
                             <tr>
-                                <th class="py-2 px-4 border-b">Data creare</th>
-                                <th class="py-2 px-4 border-b">Nume</th>
-                                <th class="py-2 px-4 border-b">Email</th>
-                                <th class="py-2 px-4 border-b">Telefon</th>
-                                <th class="py-2 px-4 border-b">Nr. Înmatriculare</th>
-                                <th class="py-2 px-4 border-b">Data dorita</th>
+                                <th class="py-2 px-4 border-b cursor-pointer" onclick="sortTable('created_at')">
+                                    Data creare
+                                    @if ($sortBy === 'created_at')
+                                        @if ($sortOrder === 'asc')
+                                            <span>&#9650;</span>
+                                        @else
+                                            <span>&#9660;</span>
+                                        @endif
+                                    @endif
+                                </th>
+                                <th class="py-2 px-4 border-b cursor-pointer" onclick="sortTable('nume')">
+                                    Nume
+                                    @if ($sortBy === 'nume')
+                                        @if ($sortOrder === 'asc')
+                                            <span>&#9650;</span>
+                                        @else
+                                            <span>&#9660;</span>
+                                        @endif
+                                    @endif
+                                </th>
+                                <th class="py-2 px-4 border-b cursor-pointer" onclick="sortTable('email')">
+                                    Email
+                                    @if ($sortBy === 'email')
+                                        @if ($sortOrder === 'asc')
+                                            <span>&#9650;</span>
+                                        @else
+                                            <span>&#9660;</span>
+                                        @endif
+                                    @endif
+                                </th>
+                                <th class="py-2 px-4 border-b cursor-pointer" onclick="sortTable('nr')">
+                                    Telefon
+                                    @if ($sortBy === 'nr')
+                                        @if ($sortOrder === 'asc')
+                                            <span>&#9650;</span>
+                                        @else
+                                            <span>&#9660;</span>
+                                        @endif
+                                    @endif
+                                </th>
+                                <th class="py-2 px-4 border-b cursor-pointer" onclick="sortTable('nr_inmatriculare')">
+                                    Nr. Înmatriculare
+                                    @if ($sortBy === 'nr_inmatriculare')
+                                        @if ($sortOrder === 'asc')
+                                            <span>&#9650;</span>
+                                        @else
+                                            <span>&#9660;</span>
+                                        @endif
+                                    @endif
+                                </th>
+                                <th class="py-2 px-4 border-b cursor-pointer" onclick="sortTable('data_programare')">
+                                    Data dorita
+                                    @if ($sortBy === 'data_programare')
+                                        @if ($sortOrder === 'asc')
+                                            <span>&#9650;</span>
+                                        @else
+                                            <span>&#9660;</span>
+                                        @endif
+                                    @endif
+                                </th>
                                 <th class="py-2 px-4 border-b">Mesaj</th>
                                 <th class="py-2 px-4 border-b">Status programare</th>
-
                             </tr>
                         </thead>
+
                         <tbody>
                             @foreach ($programari as $programare)
                                 <tr>
@@ -48,7 +102,7 @@
                                         </x-bladewind.button>
 
                                         <x-bladewind.modal name="programare-{{ $programare->id }}" type="info"
-                                            okButtonLabel="Inchide" cancelButtonLabel="" >
+                                            okButtonLabel="" cancelButtonLabel="">
                                             {{ $programare->mesaj }}
                                         </x-bladewind.modal>
 
@@ -81,6 +135,11 @@
                 </div>
             @endif
         </div>
+
+        <div class="my-4">
+            {{ $programari->links('vendor.pagination.tailwind') }}
+        </div>
+
     </div>
 
     @if (session('success'))
@@ -92,7 +151,27 @@
     @endif
 </x-layout>
 
-<script>
+<script defer>
+    function sortTable(columnName) {
+        const currentUrl = new URL(window.location.href);
+        const params = new URLSearchParams(currentUrl.search);
+        const sort = params.get('sort');
+        const order = params.get('order');
+
+        let newOrder;
+        if (sort === columnName) {
+            newOrder = order === 'asc' ? 'desc' : 'asc';
+        } else {
+            newOrder = 'asc';
+        }
+
+        params.set('sort', columnName);
+        params.set('order', newOrder);
+
+        currentUrl.search = params.toString();
+        window.location.href = currentUrl.toString();
+    }
+
     setInterval(function() {
         location.reload();
     }, 300000); // Actualizează pagina la fiecare 5 minute (300,000 milisecunde)

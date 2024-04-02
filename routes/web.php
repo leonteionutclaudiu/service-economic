@@ -32,6 +32,9 @@ Route::get('despre-noi', [\App\Http\Controllers\EchipaDisplayController::class, 
 Route::get('echipa', [\App\Http\Controllers\EchipaDisplayController::class, 'show_echipa'])->name('echipa');
 Route::get('cariera', [\App\Http\Controllers\EchipaDisplayController::class, 'show_cariera'])->name('cariera');
 Route::get('intrebari-frecvente', [\App\Http\Controllers\EchipaDisplayController::class, 'show_intrebari_frecvente'])->name('intrebari-frecvente');
+Route::get('politica-de-confidentialitate', [\App\Http\Controllers\LegalDisplayController::class, 'show_confidentialitate'])->name('politica-de-confidentialitate');
+Route::get('termeni-si-conditii', [\App\Http\Controllers\LegalDisplayController::class, 'show_terms'])->name('termeni-si-conditii');
+Route::get('cookies', [\App\Http\Controllers\LegalDisplayController::class, 'show_cookies'])->name('cookies');
 Route::get('contact', [\App\Http\Controllers\ContactDisplayController::class, 'show'])->name('contact');
 Route::post('send-mail', [ContactFormController::class, 'submitForm'])->name('send_contact_mail');
 
@@ -40,7 +43,7 @@ Route::post('/programare', [ProgramareController::class, 'store'])->name('progra
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/utilizatori', [RegisteredUserController::class, 'index'])->name('users.index');
-    Route::get('/programari', [ProgramareController::class, 'showProgramari']);
+    Route::get('/programari', [ProgramareController::class, 'showProgramari'])->name('programari');
     Route::patch('/programari/{programare}/acceptata', [ProgramareController::class, 'updateAcceptata'])->name('update.acceptata');
     Route::get('/utilizatori/{user}/edit-roluri', [RegisteredUserController::class, 'edit'])->name('user.edit');
     Route::patch('/utilizatori/{user}/update-roluri', [RegisteredUserController::class, 'update'])->name('user.update-roluri');
