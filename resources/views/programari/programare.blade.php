@@ -7,13 +7,13 @@
             </div>
         @endif
 
-        <div class="flex gap-10 flex-col lg:flex-row w-fit mx-auto">
+        <div class="flex gap-10 flex-col items-center lg:flex-row w-fit mx-auto">
 
             <div class="w-full text-justify max-w-[75ch] mx-auto flex items-center flex-col gap-4">
-                <h5>Completați formularul nostru rapid și ușor
+                <h5>Completați formularul nostru de mai jos
                     pentru a asigura îngrijirea optimă a vehiculului dvs. Echipa noastră calificată este pregătită să vă
                     ofere servicii de înaltă calitate.</h5>
-                <img src="{{ asset('images/programare.jpg') }}" alt="Logo" class="max-h-[800px] rounded-md" />
+                <img src="{{ asset('images/programare.jpg') }}" alt="Logo" class="rounded-md max-h-[768px]" />
             </div>
 
             <form action="/programare" method="post"

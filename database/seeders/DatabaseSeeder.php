@@ -36,8 +36,8 @@ class DatabaseSeeder extends Seeder
     {
         // Asignează roluri utilizatorilor
         $adminUser = User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@economic.com',
+            'name' => 'Admin',
+            'email' => 'office@serviceeconomic.ro',
             'password' => bcrypt('Parola123'),
         ]);
         $adminUser->assignRole('admin');

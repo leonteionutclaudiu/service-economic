@@ -82,7 +82,4 @@
             echo date('Y');
         @endphp</span>. Toate drepturile rezervate
     </div>
-    <div class="text-center text-gray-400">
-        Aplicatie web realizata de Leonte Ionut-Claudiu
-    </div>
 </footer>
