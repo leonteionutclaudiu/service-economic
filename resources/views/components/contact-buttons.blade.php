@@ -16,12 +16,12 @@
             @click.away="contactOpen = false" class="absolute bottom-full w-20 mt-2 mb-2">
             <div class="flex flex-col items-center gap-1 bg-gray-200 p-2 rounded-lg shadow-xl">
                 <!-- WhatsApp button -->
-                <a class="w-10 hover:scale-105 transition duration-300" href="https://wa.me/40726631691"
+                <a class="w-10 hover:scale-105 transition duration-300" href="https://wa.me/40746050608"
                     target="_blank">
                     <img src="{{ asset('images/whatsapp logo.png') }}" alt="whatsapp logo" />
                 </a>
                 <!-- Messenger button -->
-                <a class="w-10 hover:scale-105 transition duration-300" href="https://m.me/232322009963477"
+                <a class="w-10 hover:scale-105 transition duration-300" href="https://m.me/serviceeconomictrade"
                     target="_blank">
                     <img src="{{ asset('images/messenger logo.png') }}" alt="messenger logo" />
                 </a>
@@ -33,14 +33,18 @@
 <script defer>
     // Funcție pentru actualizarea culorilor în funcție de timp
     const currentTimeElement = document.querySelector('[x-data="{ currentTime: new Date() }"]');
+
     function updateColors() {
-        console.log(currentTimeElement);
-        const currentTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Europe/Bucharest"}));
+        const currentTime = new Date(new Date().toLocaleString("en-US", {
+            timeZone: "Europe/Bucharest"
+        }));
         const currentDay = currentTime.getDay(); // 0 = Duminică, 1 = Luni, ..., 6 = Sâmbătă
         const isWeekday = currentDay >= 1 && currentDay <= 5; // Verifică dacă este zi lucrătoare
-        const isWorkHours = currentTime.getHours() >= 8 && currentTime.getHours() < 17; // Verifică dacă este în timpul programului de lucru (Luni-Vineri)
+        const isWorkHours = currentTime.getHours() >= 8 && currentTime.getHours() <
+        17; // Verifică dacă este în timpul programului de lucru (Luni-Vineri)
         const isSaturday = currentDay === 6; // Verifică dacă este Sâmbătă
-        const isSaturdayWorkHours = isSaturday && currentTime.getHours() >= 8 && currentTime.getHours() < 14; // Verifică dacă este în timpul programului de lucru de Sâmbătă
+        const isSaturdayWorkHours = isSaturday && currentTime.getHours() >= 8 && currentTime.getHours() <
+        14; // Verifică dacă este în timpul programului de lucru de Sâmbătă
 
         let isDayTime = false;
 

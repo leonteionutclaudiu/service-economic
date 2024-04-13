@@ -194,7 +194,7 @@
                                                                         align="center">
 
                                                                         <img align="center" border="0"
-                                                                            src="https://serviceeconomic.ro/wp-content/uploads/2022/10/cropped-logo-transparent-2.png"
+                                                                            src="https://serviceeconomic.ro/images/logo.png"
                                                                             alt="image" title="image"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 48%;max-width: 278.4px;"
                                                                             width="278.4"

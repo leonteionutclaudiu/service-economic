@@ -238,6 +238,9 @@
                     <li> <a href="/programare"
                             class="py-2 px-4 bg-economic-darkgreen hover:bg-economic-red text-white rounded-full transition duration-300 ease-in-out hover:text-white font-bold block text-center">Programare</a>
                     </li>
+                    <li><a href="/galerie"
+                            class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black {{ request()->is('galerie*') ? 'border-b-2 border-black' : 'custom-link' }}">Galerie</a>
+                    </li>
                     <li><a href="/articole"
                             class="block py-3 transition duration-300 hover:text-economic-darkgreen text-black {{ request()->is('articole*') ? 'border-b-2 border-black' : 'custom-link' }}">Articole</a>
                     </li>
@@ -262,7 +265,7 @@
                     <li>
                         <p @click="contactModalForm = true"
                             class="block py-2 transition cursor-pointer duration-300 px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full text-center">
-                            Contact</p>
+                            Contacteaza-ne</p>
                     </li>
                 </ul>
             </div>
@@ -291,6 +294,8 @@
                 </li>
                 <li><a href="/articole"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black {{ request()->is('articole*') ? 'border-b-2 border-black' : 'custom-link' }}">Articole</a>
+                <li><a href="/galerie"
+                        class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black {{ request()->is('galerie*') ? 'border-b-2 border-black' : 'custom-link' }}">Galerie</a>
                 </li>
                 <li> <a href="/intrebari-frecvente"
                         class="block py-2 transition duration-300 lg:px-4 hover:text-economic-darkgreen text-black  {{ request()->is('intrebari-frecvente*') ? 'border-b-2 border-black' : 'custom-link' }}">Intrebari
@@ -340,7 +345,7 @@
                 <li>
                     <p @click="contactModalForm = true"
                         class="block py-2 transition cursor-pointer duration-300 lg:px-4 hover:text-white hover:bg-economic-darkgreen hover:border-economic-darkgreen border border-economic-red bg-economic-red text-white rounded-full">
-                        Contact</p>
+                        Contacteaza-ne</p>
                 </li>
                 {{-- <div class="flex">
 

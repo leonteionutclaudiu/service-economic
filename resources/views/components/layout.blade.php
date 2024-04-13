@@ -42,8 +42,8 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
     <script src="https://kit.fontawesome.com/092372ecfa.js" crossorigin="anonymous"></script>
 
     <script src="
-                                https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
-                                "></script>
+                                    https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+                                    "></script>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
 
@@ -100,7 +100,8 @@ https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.min.css
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
     <script>
         new WOW().init();
     </script>

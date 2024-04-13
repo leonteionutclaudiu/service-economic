@@ -28,6 +28,7 @@ Route::get('/', [\App\Http\Controllers\HomeDisplayController::class, 'show'])->n
 Route::get('oferte', [ProductDisplayController::class, 'showOffersProducts'])->name('offers-products');
 Route::get('articole', [\App\Http\Controllers\NoutatiDisplayController::class, 'index'])->name('noutati-all');
 Route::get('articole/{slug}', [\App\Http\Controllers\NoutatiDisplayController::class, 'show'])->name('noutati');
+Route::get('galerie', [\App\Http\Controllers\EchipaDisplayController::class, 'show_galerie'])->name('noutati-all');
 Route::get('despre-noi', [\App\Http\Controllers\EchipaDisplayController::class, 'show_despre_noi'])->name('despre-noi');
 Route::get('echipa', [\App\Http\Controllers\EchipaDisplayController::class, 'show_echipa'])->name('echipa');
 Route::get('cariera', [\App\Http\Controllers\EchipaDisplayController::class, 'show_cariera'])->name('cariera');

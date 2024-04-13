@@ -50,6 +50,14 @@
                     class="flex items-center gap-1 transition w-fit hover:text-economic-darkgreen"><i
                         class="fa fa-phone"></i>
                     0744 322 011</a>
+                <a href="tel:+40746050608"
+                    class="flex items-center gap-1 transition w-fit hover:text-economic-darkgreen"><i
+                        class="fa fa-phone"></i>
+                    0746 050 608</a>
+                <a href="tel:+40742223007"
+                    class="flex items-center gap-1 transition w-fit hover:text-economic-darkgreen"><i
+                        class="fa fa-phone"></i>
+                    0742 223 007</a>
                 <a href="mailto:office@serviceeconomic.ro"
                     class="flex items-center gap-1 transition w-fit hover:text-economic-darkgreen"><i
                         class="fa fa-envelope"></i>
@@ -82,4 +90,5 @@
             echo date('Y');
         @endphp</span>. Toate drepturile rezervate
     </div>
+        <a href="https://www.linkedin.com/in/leonte-ionut-claudiu/" target="_blank" class="block w-fit mx-auto text-center text-gray-300 text-xs mt-2 hover:text-gray-200 transition">Realizat de Leonte Ionut-Claudiu</a>
 </footer>

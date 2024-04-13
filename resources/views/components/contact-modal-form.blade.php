@@ -19,12 +19,21 @@
             <div class="text-center">
                 <div class='mb-6 font-bold'>
                     <p class="text-lg md:text-xl">
-                        Puteți lua legătura cu noi la numărul de telefon:</p>
-                    <a href="tel:+40744322011"
+                        Puteți lua legătura cu noi la numerele de telefon:</p>
+                        <div class="flex gap-6 flex-wrap items-center justify-center text-economic-darkgreen my-2">
+
+                            <a href="tel:+40744322011"
+                            class='flex items-center gap-1 mx-auto transition w-fit hover:underline text-lg md:text-2xl'>
+                            <i class="fa-solid fa-phone"></i> 0744 322 011
+                        </a>
+                        <a href="tel:+40746050608"
                         class='flex items-center gap-1 mx-auto transition w-fit hover:underline text-lg md:text-2xl'>
-                        0744 322 011
-                    </a>
-                    <p class="text-lg md:text-xl"> sau completați formularul de mai jos pentru a ne contacta.</p>
+                        <i class="fa-solid fa-phone"></i> 0746 050 608 </a>
+                        <a href="tel:+40742223007"
+                        class='flex items-center gap-1 mx-auto transition w-fit hover:underline text-lg md:text-2xl'>
+                        <i class="fa-solid fa-phone"></i> 0742 223 007 </a>
+                    </div>
+                    <p class="text-lg md:text-xl"> sau completați formularul pentru a ne contacta.</p>
                 </div>
             </div>
 
@@ -139,7 +148,7 @@
                         // Handle success
                         submitBtn.setAttribute('disabled', true);
                         submitBtn.classList.add('bg-green-200');
-                        submitBtn.innerHTML = 'TRIMITE MESAJ';
+                        submitBtn.innerHTML = 'TRIMITE MESAJUL';
 
                         // Display success message above the submit button
                         let successMessage = document.createElement('div');
@@ -152,7 +161,7 @@
                         setTimeout(function() {
                             successMessage.remove();
                             submitBtn.removeAttribute('disabled');
-                            submitBtn.innerHTML = 'Trimite mesaj';
+                            submitBtn.innerHTML = 'Trimite mesajul';
                             submitBtn.classList.remove('bg-green-200');
 
                             // Reset all input fields
@@ -185,7 +194,7 @@
                         }
                         // Enable the submit button and display an error message
                         submitBtn.removeAttribute('disabled');
-                        submitBtn.innerHTML = 'Trimite mesaj';
+                        submitBtn.innerHTML = 'Trimite mesajul';
                     });
             });
         });

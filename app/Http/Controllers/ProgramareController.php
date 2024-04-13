@@ -57,7 +57,7 @@ class ProgramareController extends Controller
         Mail::to($data['email'])->send(new ContactClientMail($data));
 
         // Send email to admin email
-        Mail::to('leonteionut98@yahoo.com')->send(new ProgramareAdminMail($data));
+        Mail::to(['leonteionut98@yahoo.com', 'catalin.coman@serviceeconomic.ro', 'office@serviceeconomic.ro', 'rares.nemet@serviceeconomic.ro', 'radu.ivascu@serviceeconomic.ro'])->send(new ProgramareAdminMail($data));
 
         // Session::flash('success', 'Mesajul dvs. a fost trimis cu succes');
 

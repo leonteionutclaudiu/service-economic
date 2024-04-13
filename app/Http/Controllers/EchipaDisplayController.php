@@ -49,4 +49,15 @@ class EchipaDisplayController extends Controller
 
         return view('site.intrebari-frecvente', ['item' => $intrebari_frecvente]);
     }
+
+    public function show_galerie( EchipaRepository $echipaRepository): View
+    {
+        $galerie = $echipaRepository->forSlug('galerie');
+
+        if (! $galerie) {
+            abort(404);
+        }
+
+        return view('site.galerie', ['item' => $galerie]);
+    }
 }
