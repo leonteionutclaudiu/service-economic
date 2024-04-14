@@ -37,6 +37,6 @@ return [
                 'ratio' => 1,
             ], ]],
         ],
-        'files' => ['file_role', 'file_role1', 'file_role2'],
+        'files' => ['file_role', 'file_role1', 'file_role2', 'files', 'videos'],
     ],
 ];
