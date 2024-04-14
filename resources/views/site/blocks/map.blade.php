@@ -13,6 +13,10 @@
             <p class="font-bold text-lgtext-gray-700">Telefon</p>
             <a href="tel:+40744322011" class="text-gray-700 hover:text-gray-900 transition hover:underline">0744 322
                 011</a>
+            <a href="tel:+40746050608" class="text-gray-700 hover:text-gray-900 transition hover:underline">0746 050
+                608</a>
+            <a href="tel:+40742223007" class="text-gray-700 hover:text-gray-900 transition hover:underline">0742 223
+                007</a>
         </div>
         <div class="flex items-center gap-2 flex-col justify-center">
             <i class="fa-solid fa-envelope text-economic-darkgreen text-3xl"></i>
